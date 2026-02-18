@@ -118,6 +118,10 @@ h1, h2, h3, h4 {
 }
 
 @media (max-width: 900px) {
+  .nav:has(.nav-links.open) {
+    height: 100vh;
+    overflow: hidden;
+  }
   .nav-toggle { display: block; }
   .nav-links {
     display: none;
