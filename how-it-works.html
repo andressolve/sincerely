@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How It Works | Start a Food Business at Sincerely Kitchen</title>
+<meta name="description" content="Learn how to start your food business at Sincerely Kitchen. We help with permits, equipment, and everything in between. Free kitchen tours available.">
+<style>
+/* ===== SINCERELY KITCHEN — GLOBAL STYLES ===== */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display&display=swap');
+
+:root {
+  --bg-primary: #FAF8F5;
+  --bg-secondary: #F3EDE7;
+  --bg-accent-light: #FDF0EB;
+  --bg-dark: #2C2C2C;
+  --accent: #C45824;
+  --accent-hover: #A84A1E;
+  --accent-warm: #D4763E;
+  --text-heading: #2C2C2C;
+  --text-body: #555555;
+  --text-light: #999999;
+  --border: #E0D5CC;
+  --white: #FFFFFF;
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.10);
+  --radius: 12px;
+  --radius-sm: 8px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  color: var(--text-body);
+  background: var(--bg-primary);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== UTILITIES ===== */
+.container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+.container-narrow { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+h1, h2, h3, h4 {
+  font-family: 'DM Serif Display', 'DM Sans', serif;
+  color: var(--text-heading);
+  line-height: 1.15;
+}
+.section-pad { padding: 96px 0; }
+@media (max-width: 768px) { .section-pad { padding: 56px 0; } }
+
+/* ===== BUTTONS ===== */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 15px;
+  padding: 14px 28px; border-radius: var(--radius-sm);
+  text-decoration: none; transition: all 0.25s; cursor: pointer; border: none;
+}
+.btn-primary { background: var(--accent); color: var(--white); }
+.btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: var(--shadow-md); }
+.btn-secondary { background: transparent; color: var(--accent); border: 2px solid var(--accent); }
+.btn-secondary:hover { background: var(--bg-accent-light); }
+.btn-white { background: var(--white); color: var(--accent); }
+.btn-white:hover { background: #f5f5f5; transform: translateY(-1px); }
+.btn-ghost-white { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.6); }
+.btn-ghost-white:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
+.btn-sm { padding: 10px 20px; font-size: 14px; }
+.btn-lg { padding: 16px 36px; font-size: 17px; }
+
+.link-arrow {
+  display: inline-flex; align-items: center; gap: 6px;
+  color: var(--accent); font-weight: 600; text-decoration: none;
+  font-size: 16px; transition: gap 0.2s;
+}
+.link-arrow:hover { gap: 10px; }
+
+/* ===== NAVIGATION ===== */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  transition: box-shadow 0.3s;
+}
+.nav.scrolled { box-shadow: var(--shadow-sm); }
+.nav-inner {
+  max-width: 1280px; margin: 0 auto; padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 72px;
+}
+.nav-logo {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px; color: var(--accent);
+  text-decoration: none; letter-spacing: -0.3px;
+}
+.nav-logo span { color: var(--text-heading); }
+.nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+.nav-links a {
+  font-size: 15px; font-weight: 500; color: var(--text-body);
+  text-decoration: none; transition: color 0.2s; position: relative;
+}
+.nav-links a:hover { color: var(--accent); }
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+  height: 2px; background: var(--accent);
+  transform: scaleX(0); transition: transform 0.25s;
+}
+.nav-links a:hover::after { transform: scaleX(1); }
+.nav-links a.active { color: var(--accent); }
+.nav-links a.active::after { transform: scaleX(1); }
+
+.nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+.nav-toggle span {
+  display: block; width: 24px; height: 2px; background: var(--text-heading);
+  margin: 6px 0; transition: all 0.3s;
+}
+
+@media (max-width: 900px) {
+  .nav-toggle { display: block; }
+  .nav-links {
+    display: none; position: fixed; top: 72px; left: 0; right: 0; bottom: 0;
+    background: var(--white); flex-direction: column; justify-content: flex-start;
+    padding: 32px 24px; gap: 0;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links li { width: 100%; }
+  .nav-links a, .nav-links .btn {
+    display: block; padding: 16px 0; font-size: 18px;
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-links a::after { display: none; }
+  .nav-links .btn { margin-top: 16px; text-align: center; border-bottom: none; }
+  .nav-cta-desktop { display: none; }
+}
+@media (min-width: 901px) { .nav-cta-mobile { display: none; } }
+
+/* ===== PAGE HERO (for inner pages) ===== */
+.page-hero {
+  margin-top: 72px;
+  background: var(--bg-accent-light);
+  padding: 80px 0 72px;
+  text-align: center;
+}
+.page-hero h1 {
+  font-size: clamp(32px, 4.5vw, 50px);
+  margin-bottom: 16px;
+}
+.page-hero p {
+  font-size: 18px; max-width: 580px; margin: 0 auto;
+  color: var(--text-body); line-height: 1.7;
+}
+
+/* ===== CTA BAND ===== */
+.cta-band {
+  background: var(--accent);
+  position: relative; overflow: hidden;
+}
+.cta-band::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.08) 0%, transparent 50%);
+}
+.cta-band .container {
+  position: relative; z-index: 1;
+  text-align: center; padding-top: 80px; padding-bottom: 80px;
+}
+.cta-band h2 {
+  font-size: clamp(28px, 3.5vw, 42px);
+  color: var(--white); margin-bottom: 16px;
+}
+.cta-band p {
+  font-size: 18px; color: rgba(255,255,255,0.85);
+  margin-bottom: 32px; max-width: 480px; margin-left: auto; margin-right: auto;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--bg-dark);
+  color: rgba(255,255,255,0.7);
+  padding: 72px 0 32px;
+}
+.footer-grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 48px;
+}
+@media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; } }
+@media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+.footer-brand p { font-size: 14px; line-height: 1.7; max-width: 260px; margin-top: 16px; }
+.footer h4 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px; font-weight: 600; color: var(--white);
+  text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px;
+}
+.footer ul { list-style: none; }
+.footer ul li { margin-bottom: 10px; }
+.footer ul a {
+  color: rgba(255,255,255,0.65); text-decoration: none;
+  font-size: 14px; transition: color 0.2s;
+}
+.footer ul a:hover { color: var(--white); }
+.footer-contact p { font-size: 14px; line-height: 1.7; margin-bottom: 8px; }
+.footer-contact a { color: rgba(255,255,255,0.65); text-decoration: none; }
+.footer-contact a:hover { color: var(--white); }
+.footer-spanish {
+  display: inline-block; margin-top: 12px; padding: 6px 14px;
+  background: rgba(255,255,255,0.08); border-radius: 20px;
+  font-size: 13px; color: rgba(255,255,255,0.8);
+}
+.footer-bottom {
+  margin-top: 48px; padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 13px; color: rgba(255,255,255,0.4);
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 12px;
+}
+.footer-social { display: flex; gap: 16px; }
+.footer-social a { color: rgba(255,255,255,0.5); font-size: 14px; text-decoration: none; transition: color 0.2s; }
+.footer-social a:hover { color: var(--white); }
+
+/* ===== SCROLL ANIMATIONS ===== */
+.reveal {
+  opacity: 0; transform: translateY(32px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-d1 { transition-delay: 0.1s; }
+.reveal-d2 { transition-delay: 0.2s; }
+.reveal-d3 { transition-delay: 0.3s; }
+.reveal-d4 { transition-delay: 0.4s; }
+.fade-up {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+.fade-up.d1 { transition-delay: 0.1s; }
+.fade-up.d2 { transition-delay: 0.2s; }
+.fade-up.d3 { transition-delay: 0.3s; }
+
+/* ===== CARDS ===== */
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+
+/* ===== FAQ ACCORDION ===== */
+.faq-item {
+  border-bottom: 1px solid var(--border);
+  padding: 20px 0;
+}
+.faq-item summary {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600; font-size: 17px;
+  color: var(--text-heading);
+  cursor: pointer; list-style: none;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-icon { color: var(--accent); font-size: 22px; transition: transform 0.3s; flex-shrink: 0; }
+.faq-item[open] .faq-icon { transform: rotate(45deg); }
+.faq-item p {
+  margin-top: 14px; font-size: 16px;
+  line-height: 1.7; color: var(--text-body);
+}
+
+/* ===== INCLUDED GRID ===== */
+.included-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px 40px;
+}
+@media (max-width: 600px) { .included-grid { grid-template-columns: 1fr; } }
+.included-item {
+  display: flex; align-items: flex-start; gap: 12px;
+  font-size: 16px; line-height: 1.6; padding: 8px 0;
+}
+.included-check {
+  color: var(--accent); font-weight: 700; font-size: 18px;
+  flex-shrink: 0; margin-top: 2px;
+}
+
+
+/* ===== PAGE-SPECIFIC ===== */
+
+/* ===== HOW IT WORKS — PAGE SPECIFIC ===== */
+
+/* Steps */
+.steps { background: var(--bg-primary); }
+.step {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 56px; align-items: center;
+  padding: 64px 0;
+  border-bottom: 1px solid var(--border);
+}
+.step:last-child { border-bottom: none; }
+.step.reverse { direction: rtl; }
+.step.reverse > * { direction: ltr; }
+
+@media (max-width: 768px) {
+  .step, .step.reverse { grid-template-columns: 1fr; gap: 32px; direction: ltr; }
+  .step > * { direction: ltr; }
+}
+
+.step-number {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--accent); color: var(--white);
+  font-family: 'DM Serif Display', serif;
+  font-size: 20px; margin-bottom: 16px;
+}
+.step-content h3 {
+  font-size: clamp(24px, 3vw, 30px);
+  margin-bottom: 16px;
+}
+.step-content p {
+  font-size: 17px; line-height: 1.75;
+  margin-bottom: 12px;
+}
+.step-content .note {
+  font-size: 15px; color: var(--text-light);
+  font-style: italic;
+}
+.step-image {
+  aspect-ratio: 4/3;
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+.step-image .img-placeholder {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.6); font-size: 14px; font-weight: 500;
+  text-align: center; padding: 20px;
+}
+.step-image .img-placeholder span {
+  background: rgba(0,0,0,0.15); padding: 10px 18px; border-radius: 8px;
+}
+.img-bg-1 { background: linear-gradient(135deg, #c49a6c 0%, #a07848 100%); }
+.img-bg-2 { background: linear-gradient(135deg, #8a9a7c 0%, #6b8058 100%); }
+.img-bg-3 { background: linear-gradient(135deg, #7c8a9a 0%, #586880 100%); }
+.img-bg-4 { background: linear-gradient(135deg, #d4a574 0%, #b8865a 100%); }
+.img-bg-5 { background: linear-gradient(135deg, #9a8a7c 0%, #806858 100%); }
+
+/* Permit Process */
+.permits { background: var(--bg-secondary); }
+.permits h2 {
+  font-size: clamp(28px, 3.5vw, 40px);
+  text-align: center; margin-bottom: 16px;
+}
+.permits > .container > p.subtitle {
+  text-align: center; font-size: 17px;
+  color: var(--text-light); max-width: 560px;
+  margin: 0 auto 56px;
+}
+.permit-steps {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+}
+@media (max-width: 768px) { .permit-steps { grid-template-columns: 1fr; } }
+.permit-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 36px 28px;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+.permit-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 4px; background: var(--accent);
+}
+.permit-card .step-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13px; font-weight: 600; color: var(--accent);
+  text-transform: uppercase; letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+.permit-card h3 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 20px; font-weight: 700;
+  margin-bottom: 16px;
+}
+.permit-card p { font-size: 15px; line-height: 1.7; margin-bottom: 10px; }
+.permit-card .detail-label {
+  font-weight: 600; color: var(--text-heading);
+  font-size: 14px; margin-top: 16px; margin-bottom: 4px;
+}
+.permit-card .timeline {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--bg-accent-light); color: var(--accent);
+  font-size: 14px; font-weight: 600;
+  padding: 6px 14px; border-radius: 20px;
+  margin-top: 16px;
+}
+
+/* What's Included */
+.included { background: var(--bg-primary); }
+.included h2 {
+  font-size: clamp(28px, 3.5vw, 40px);
+  text-align: center; margin-bottom: 48px;
+}
+
+/* Lead Magnet */
+.lead-magnet {
+  background: var(--bg-dark);
+  color: var(--white);
+  border-radius: var(--radius);
+  padding: 48px;
+  display: flex; align-items: center; gap: 40px;
+  margin-top: 56px;
+}
+.lead-magnet h3 {
+  color: var(--white);
+  font-size: 24px; margin-bottom: 12px;
+}
+.lead-magnet p {
+  color: rgba(255,255,255,0.7);
+  font-size: 16px; line-height: 1.7;
+  margin-bottom: 20px;
+}
+.lead-magnet-icon {
+  font-size: 56px; flex-shrink: 0;
+}
+@media (max-width: 768px) {
+  .lead-magnet { flex-direction: column; gap: 24px; padding: 36px 28px; text-align: center; }
+}
+
+/* FAQ section on this page */
+.page-faq { background: var(--bg-secondary); }
+.page-faq h2 {
+  font-size: clamp(28px, 3.5vw, 40px);
+  text-align: center; margin-bottom: 48px;
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Sincerely <span>Kitchen</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="how-it-works.html" class="active">How It Works</a></li>
+      <li><a href="packages.html">Packages</a></li>
+      <li><a href="members.html">Our Members</a></li>
+      <li><a href="index.html#faq">FAQ</a></li>
+      <li class="nav-cta-mobile"><a href="book-a-tour.html" class="btn btn-primary">Book a Tour</a></li>
+    </ul>
+    <a href="book-a-tour.html" class="btn btn-primary btn-sm nav-cta-desktop">Book a Tour</a>
+  </div>
+</nav>
+
+<!-- ===== PAGE HERO ===== -->
+<div class="page-hero">
+  <div class="container">
+    <h1 class="fade-up">Starting a food business is<br>simpler than you think.</h1>
+    <p class="fade-up d1">We've helped over 150 entrepreneurs go from home kitchen to licensed food business. Here's exactly how it works.</p>
+  </div>
+</div>
+
+<!-- ===== 5 STEPS ===== -->
+<section class="steps section-pad">
+  <div class="container">
+
+    <!-- Step 1 -->
+    <div class="step reveal">
+      <div class="step-content">
+        <div class="step-number">1</div>
+        <h3>Book a free kitchen tour</h3>
+        <p>Come visit us at 551 Sherling Pl in Port Coquitlam. We'll show you the kitchen, the equipment, the storage areas. You'll meet us, ask any questions you have, and get a feel for the space.</p>
+        <p>No commitment. No pressure. Just an honest conversation about your food business ideas.</p>
+        <p class="note">Takes about 45 minutes.</p>
+        <br>
+        <a href="#book" class="btn btn-primary btn-sm">Book your tour →</a>
+      </div>
+      <div class="step-image img-bg-1">
+        <div class="img-placeholder"><span>📸 Photo: Maria giving a tour,<br>showing the equipment</span></div>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step reverse reveal">
+      <div class="step-content">
+        <div class="step-number">2</div>
+        <h3>Choose your package</h3>
+        <p>Whether you need 10 hours a month or 80, we have a plan that fits. Most new members start with our <strong>Starter 10 — $490/month</strong> for 10 hours of kitchen time over your first 3 months.</p>
+        <p>It's a low-risk way to get started. If you already know you need more time, our Start Up, Ramp Up, and Scale Up packages give you increasing hours and equipment access.</p>
+        <p class="note">We'll recommend the right fit based on your production needs.</p>
+        <br>
+        <a href="packages.html" class="link-arrow">See all packages <span>→</span></a>
+      </div>
+      <div class="step-image img-bg-2">
+        <div class="img-placeholder"><span>📸 Photo: Member at prep station,<br>packaging products</span></div>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step reveal">
+      <div class="step-content">
+        <div class="step-number">3</div>
+        <h3>We help you get your permits</h3>
+        <p>This is where we really stand out. Every food business in BC needs a business license from the City of Port Coquitlam and food safety approval from Fraser Health.</p>
+        <p><strong>Most kitchens charge $200+ to help with this. We include it free with every membership.</strong></p>
+        <p>We walk you through the paperwork, help you prepare for inspections, and stay with you until everything is approved. Most members get their permits in 4–6 weeks.</p>
+      </div>
+      <div class="step-image img-bg-3">
+        <div class="img-placeholder"><span>📸 Photo: Permit paperwork<br>or certificate on wall</span></div>
+      </div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="step reverse reveal">
+      <div class="step-content">
+        <div class="step-number">4</div>
+        <h3>Start producing</h3>
+        <p>Once you're permitted, you're ready to go. Book your hours through our online calendar, show up, and start making your product in a real commercial kitchen.</p>
+        <p>Everything is here — commercial convection ovens, prep stations, induction burners, dry and cold storage. All utilities included.</p>
+        <p><strong>You bring your ingredients and your recipes. We provide everything else.</strong></p>
+      </div>
+      <div class="step-image img-bg-4">
+        <div class="img-placeholder"><span>📸 Photo: Finished baked goods<br>coming out of the oven</span></div>
+      </div>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="step reveal">
+      <div class="step-content">
+        <div class="step-number">5</div>
+        <h3>Grow at your pace</h3>
+        <p>Farmers markets. Online orders. Wholesale accounts. A storefront. Wherever your business takes you, we're here to support you.</p>
+        <p>Many of our members started exactly where you are now. Some are still with us and growing. Others have graduated to their own commercial spaces. Both are success stories.</p>
+        <p class="note">There's no timeline. Your business, your pace.</p>
+      </div>
+      <div class="step-image img-bg-5">
+        <div class="img-placeholder"><span>📸 Photo: Member at a<br>farmers market booth</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== PERMIT PROCESS DETAIL ===== -->
+<section class="permits section-pad">
+  <div class="container">
+    <h2 class="reveal">The permit process, demystified</h2>
+    <p class="subtitle reveal reveal-d1">We know this is the part that scares people. Here's exactly what's involved — and how we help at every step.</p>
+
+    <div class="permit-steps">
+      <div class="permit-card reveal reveal-d1">
+        <div class="step-badge">Step 1</div>
+        <h3>City of Port Coquitlam Business License</h3>
+        <p>A license to operate a food business in PoCo.</p>
+        <div class="detail-label">What you need:</div>
+        <p>Your business name, business type, and the kitchen address (ours — 551 Sherling Pl).</p>
+        <div class="detail-label">How we help:</div>
+        <p>We provide the kitchen address, confirm zoning compliance, and review your application before you submit.</p>
+        <div class="timeline">⏱ Usually 1–2 weeks</div>
+      </div>
+
+      <div class="permit-card reveal reveal-d2">
+        <div class="step-badge">Step 2</div>
+        <h3>Fraser Health Approval</h3>
+        <p>A food safety permit from the local health authority.</p>
+        <div class="detail-label">What you need:</div>
+        <p>A completed food safety plan, your FoodSafe certificate (Level 1 minimum), and a site inspection.</p>
+        <div class="detail-label">How we help:</div>
+        <p>We help prepare your food safety plan, ensure documentation is complete, and prepare you for the inspection. Our kitchen is already Fraser Health approved.</p>
+        <div class="timeline">⏱ 2–4 weeks after license</div>
+      </div>
+
+      <div class="permit-card reveal reveal-d3">
+        <div class="step-badge">Step 3</div>
+        <h3>You're Approved!</h3>
+        <p>You're now a licensed food business in British Columbia. Time to start producing.</p>
+        <div class="detail-label">Total timeline:</div>
+        <p>Most members are fully approved in 4–6 weeks.</p>
+        <div class="detail-label">Cost to you:</div>
+        <p>$0 for our assistance. You only pay the government application fees.</p>
+        <div class="timeline">🎉 Total: 4–6 weeks</div>
+      </div>
+    </div>
+
+    <!-- Lead Magnet -->
+    <div class="lead-magnet reveal">
+      <div class="lead-magnet-icon">📄</div>
+      <div>
+        <h3>Free Guide: Starting a Food Business in Port Coquitlam</h3>
+        <p>Download our complete step-by-step guide covering permits, licenses, food safety requirements, and everything you need to know to get started.</p>
+        <a href="#" class="btn btn-white btn-sm">Download the Guide →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHAT'S INCLUDED ===== -->
+<section class="included section-pad">
+  <div class="container">
+    <h2 class="reveal">What's included in every membership</h2>
+    <div class="included-grid reveal">
+      <div class="included-item">
+        <span class="included-check">✓</span>
+        <span>Commercial convection ovens</span>
+      </div>
+      <div class="included-item">
+        <span class="included-check">✓</span>
+        <span>Prep stations with stainless steel surfaces</span>
+      </div>
+      <div class="included-item">
+        <span class="included-check">✓</span>
+        <span>Induction burners</span>
+      </div>
+      <div class="included-item">
+        <span class="included-check">✓</span>
+        <span>Dry storage for ingredients</span>
+      </div>
+      <div class="included-item">
+        <span class="included-check">✓</span>
+        <span>Online scheduling & calendar</span>
+      </div>
+      <div class="included-item">
+        <span class="included-check">✓</span>
+        <span>All utilities (electricity, water, gas)</span>
+      </div>
+      <div class="included-item">
+        <span class="included-check">✓</span>
+        <span>Garbage, recycling & organics removal</span>
+      </div>
+      <div class="included-item">
+        <span class="included-check">✓</span>
+        <span>Building insurance on the facility</span>
+      </div>
+      <div class="included-item">
+        <span class="included-check">✓</span>
+        <span>Free permit assistance (City + Fraser Health)</span>
+      </div>
+      <div class="included-item">
+        <span class="included-check">✓</span>
+        <span>Kitchen cleaning & maintenance</span>
+      </div>
+      <div class="included-item">
+        <span class="included-check">✓</span>
+        <span>24/7 access with key fob</span>
+      </div>
+      <div class="included-item">
+        <span class="included-check">✓</span>
+        <span>Pest control program</span>
+      </div>
+      <div class="included-item">
+        <span class="included-check">✓</span>
+        <span>Community of fellow entrepreneurs</span>
+      </div>
+      <div class="included-item">
+        <span class="included-check">✓</span>
+        <span>Atención en Español disponible</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="page-faq section-pad">
+  <div class="container-narrow">
+    <h2 class="reveal">Still have questions?</h2>
+
+    <details class="faq-item reveal">
+      <summary>Do I need any experience to join?<span class="faq-icon">+</span></summary>
+      <p>No. Many of our members are first-time food entrepreneurs. If you can make your product at home, you can make it here. We'll help you figure out the rest.</p>
+    </details>
+
+    <details class="faq-item reveal reveal-d1">
+      <summary>How long is the commitment?<span class="faq-icon">+</span></summary>
+      <p>Our Starter 10 package is 3 months. After that, memberships are month-to-month. You can upgrade, downgrade, or leave with 30 days notice.</p>
+    </details>
+
+    <details class="faq-item reveal reveal-d2">
+      <summary>What if I don't have my permits yet?<span class="faq-icon">+</span></summary>
+      <p>That's totally fine — most new members don't. We help you get them as part of your membership. Most people are approved within 4–6 weeks.</p>
+    </details>
+
+    <details class="faq-item reveal reveal-d3">
+      <summary>Do I need my own equipment?<span class="faq-icon">+</span></summary>
+      <p>Our kitchen is fully equipped with commercial ovens, prep stations, induction burners, and storage. You may want to bring specialized small tools or baking pans specific to your products, but the major equipment is all here.</p>
+    </details>
+
+    <details class="faq-item reveal reveal-d4">
+      <summary>Can I visit before deciding?<span class="faq-icon">+</span></summary>
+      <p>Absolutely. Book a free 45-minute kitchen tour. We'll show you around, answer questions, and talk about your plans. No commitment required.</p>
+    </details>
+
+    <details class="faq-item reveal">
+      <summary>What hours can I use the kitchen?<span class="faq-icon">+</span></summary>
+      <p>The kitchen is available 24/7. You get key fob access and can book your preferred hours through our online scheduling system. Early morning bakers, late night producers — we accommodate everyone.</p>
+    </details>
+
+    <details class="faq-item reveal">
+      <summary>Do you help with selling my products?<span class="faq-icon">+</span></summary>
+      <p>We provide resources like our Product Pricing Calculator and blog content on topics like wholesale sell sheets and menu strategy. We also connect members with each other — our community is great at sharing tips and making introductions to retailers and market organizers.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ===== CTA BAND ===== -->
+<section class="cta-band" id="book">
+  <div class="container">
+    <h2 class="reveal">The best way to know is to visit.</h2>
+    <p class="reveal reveal-d1">Book a free 45-minute tour. See the space, meet us, ask anything.</p>
+    <a href="https://www.sincerelykitchen.com" class="btn btn-white btn-lg reveal reveal-d2">Book a Free Tour</a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">Sincerely <span style="color:rgba(255,255,255,0.9)">Kitchen</span></a>
+        <p>Shared commercial kitchen in Port Coquitlam, BC. Helping food entrepreneurs turn their passion into real businesses.</p>
+      </div>
+      <div>
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="packages.html">Packages</a></li>
+          <li><a href="members.html">Our Members</a></li>
+          <li><a href="#book">Book a Tour</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Virtual Tour</a></li>
+          <li><a href="#">Pricing Calculator</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Visit Us</h4>
+        <p>1140-551 Sherling Pl.<br>Port Coquitlam, BC V3B 3T7</p>
+        <p><a href="tel:6043419700">604-341-9700</a></p>
+        <p><a href="mailto:maria@organicoslife.com">maria@organicoslife.com</a></p>
+        <span class="footer-spanish">🇪🇸 Atención en Español disponible</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Sincerely Kitchen. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ===== SINCERELY KITCHEN — GLOBAL JS =====
+
+// Nav scroll effect
+const nav = document.getElementById('nav');
+if (nav) {
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 10);
+  });
+}
+
+// Mobile nav toggle
+const toggle = document.getElementById('navToggle');
+const links = document.getElementById('navLinks');
+if (toggle && links) {
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => links.classList.remove('open'));
+  });
+}
+
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal, .fade-up');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+reveals.forEach(el => observer.observe(el));
+
+// Trigger hero fade-ups immediately
+setTimeout(() => {
+  document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
+}, 100);
+
+// FAQ accordion icon rotation
+document.querySelectorAll('.faq-item').forEach(d => {
+  d.addEventListener('toggle', () => {
+    const icon = d.querySelector('.faq-icon');
+    if (icon) icon.textContent = d.open ? '−' : '+';
+  });
+});
+
+</script>
+</body>
+</html>

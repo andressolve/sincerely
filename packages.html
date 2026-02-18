@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kitchen Packages & Pricing | Sincerely Kitchen, Port Coquitlam</title>
+<meta name="description" content="Kitchen rental packages from $490 to $1,350/month. Includes prep stations, commercial ovens, storage, and free permit assistance. Port Coquitlam, BC.">
+<style>
+/* ===== SINCERELY KITCHEN — GLOBAL STYLES ===== */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display&display=swap');
+
+:root {
+  --bg-primary: #FAF8F5;
+  --bg-secondary: #F3EDE7;
+  --bg-accent-light: #FDF0EB;
+  --bg-dark: #2C2C2C;
+  --accent: #C45824;
+  --accent-hover: #A84A1E;
+  --accent-warm: #D4763E;
+  --text-heading: #2C2C2C;
+  --text-body: #555555;
+  --text-light: #999999;
+  --border: #E0D5CC;
+  --white: #FFFFFF;
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.10);
+  --radius: 12px;
+  --radius-sm: 8px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  color: var(--text-body);
+  background: var(--bg-primary);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== UTILITIES ===== */
+.container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+.container-narrow { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+h1, h2, h3, h4 {
+  font-family: 'DM Serif Display', 'DM Sans', serif;
+  color: var(--text-heading);
+  line-height: 1.15;
+}
+.section-pad { padding: 96px 0; }
+@media (max-width: 768px) { .section-pad { padding: 56px 0; } }
+
+/* ===== BUTTONS ===== */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 15px;
+  padding: 14px 28px; border-radius: var(--radius-sm);
+  text-decoration: none; transition: all 0.25s; cursor: pointer; border: none;
+}
+.btn-primary { background: var(--accent); color: var(--white); }
+.btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: var(--shadow-md); }
+.btn-secondary { background: transparent; color: var(--accent); border: 2px solid var(--accent); }
+.btn-secondary:hover { background: var(--bg-accent-light); }
+.btn-white { background: var(--white); color: var(--accent); }
+.btn-white:hover { background: #f5f5f5; transform: translateY(-1px); }
+.btn-ghost-white { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.6); }
+.btn-ghost-white:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
+.btn-sm { padding: 10px 20px; font-size: 14px; }
+.btn-lg { padding: 16px 36px; font-size: 17px; }
+
+.link-arrow {
+  display: inline-flex; align-items: center; gap: 6px;
+  color: var(--accent); font-weight: 600; text-decoration: none;
+  font-size: 16px; transition: gap 0.2s;
+}
+.link-arrow:hover { gap: 10px; }
+
+/* ===== NAVIGATION ===== */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  transition: box-shadow 0.3s;
+}
+.nav.scrolled { box-shadow: var(--shadow-sm); }
+.nav-inner {
+  max-width: 1280px; margin: 0 auto; padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 72px;
+}
+.nav-logo {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px; color: var(--accent);
+  text-decoration: none; letter-spacing: -0.3px;
+}
+.nav-logo span { color: var(--text-heading); }
+.nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+.nav-links a {
+  font-size: 15px; font-weight: 500; color: var(--text-body);
+  text-decoration: none; transition: color 0.2s; position: relative;
+}
+.nav-links a:hover { color: var(--accent); }
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+  height: 2px; background: var(--accent);
+  transform: scaleX(0); transition: transform 0.25s;
+}
+.nav-links a:hover::after { transform: scaleX(1); }
+.nav-links a.active { color: var(--accent); }
+.nav-links a.active::after { transform: scaleX(1); }
+
+.nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+.nav-toggle span {
+  display: block; width: 24px; height: 2px; background: var(--text-heading);
+  margin: 6px 0; transition: all 0.3s;
+}
+
+@media (max-width: 900px) {
+  .nav-toggle { display: block; }
+  .nav-links {
+    display: none; position: fixed; top: 72px; left: 0; right: 0; bottom: 0;
+    background: var(--white); flex-direction: column; justify-content: flex-start;
+    padding: 32px 24px; gap: 0;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links li { width: 100%; }
+  .nav-links a, .nav-links .btn {
+    display: block; padding: 16px 0; font-size: 18px;
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-links a::after { display: none; }
+  .nav-links .btn { margin-top: 16px; text-align: center; border-bottom: none; }
+  .nav-cta-desktop { display: none; }
+}
+@media (min-width: 901px) { .nav-cta-mobile { display: none; } }
+
+/* ===== PAGE HERO (for inner pages) ===== */
+.page-hero {
+  margin-top: 72px;
+  background: var(--bg-accent-light);
+  padding: 80px 0 72px;
+  text-align: center;
+}
+.page-hero h1 {
+  font-size: clamp(32px, 4.5vw, 50px);
+  margin-bottom: 16px;
+}
+.page-hero p {
+  font-size: 18px; max-width: 580px; margin: 0 auto;
+  color: var(--text-body); line-height: 1.7;
+}
+
+/* ===== CTA BAND ===== */
+.cta-band {
+  background: var(--accent);
+  position: relative; overflow: hidden;
+}
+.cta-band::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.08) 0%, transparent 50%);
+}
+.cta-band .container {
+  position: relative; z-index: 1;
+  text-align: center; padding-top: 80px; padding-bottom: 80px;
+}
+.cta-band h2 {
+  font-size: clamp(28px, 3.5vw, 42px);
+  color: var(--white); margin-bottom: 16px;
+}
+.cta-band p {
+  font-size: 18px; color: rgba(255,255,255,0.85);
+  margin-bottom: 32px; max-width: 480px; margin-left: auto; margin-right: auto;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--bg-dark);
+  color: rgba(255,255,255,0.7);
+  padding: 72px 0 32px;
+}
+.footer-grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 48px;
+}
+@media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; } }
+@media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+.footer-brand p { font-size: 14px; line-height: 1.7; max-width: 260px; margin-top: 16px; }
+.footer h4 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px; font-weight: 600; color: var(--white);
+  text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px;
+}
+.footer ul { list-style: none; }
+.footer ul li { margin-bottom: 10px; }
+.footer ul a {
+  color: rgba(255,255,255,0.65); text-decoration: none;
+  font-size: 14px; transition: color 0.2s;
+}
+.footer ul a:hover { color: var(--white); }
+.footer-contact p { font-size: 14px; line-height: 1.7; margin-bottom: 8px; }
+.footer-contact a { color: rgba(255,255,255,0.65); text-decoration: none; }
+.footer-contact a:hover { color: var(--white); }
+.footer-spanish {
+  display: inline-block; margin-top: 12px; padding: 6px 14px;
+  background: rgba(255,255,255,0.08); border-radius: 20px;
+  font-size: 13px; color: rgba(255,255,255,0.8);
+}
+.footer-bottom {
+  margin-top: 48px; padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 13px; color: rgba(255,255,255,0.4);
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 12px;
+}
+.footer-social { display: flex; gap: 16px; }
+.footer-social a { color: rgba(255,255,255,0.5); font-size: 14px; text-decoration: none; transition: color 0.2s; }
+.footer-social a:hover { color: var(--white); }
+
+/* ===== SCROLL ANIMATIONS ===== */
+.reveal {
+  opacity: 0; transform: translateY(32px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-d1 { transition-delay: 0.1s; }
+.reveal-d2 { transition-delay: 0.2s; }
+.reveal-d3 { transition-delay: 0.3s; }
+.reveal-d4 { transition-delay: 0.4s; }
+.fade-up {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+.fade-up.d1 { transition-delay: 0.1s; }
+.fade-up.d2 { transition-delay: 0.2s; }
+.fade-up.d3 { transition-delay: 0.3s; }
+
+/* ===== CARDS ===== */
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+
+/* ===== FAQ ACCORDION ===== */
+.faq-item {
+  border-bottom: 1px solid var(--border);
+  padding: 20px 0;
+}
+.faq-item summary {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600; font-size: 17px;
+  color: var(--text-heading);
+  cursor: pointer; list-style: none;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-icon { color: var(--accent); font-size: 22px; transition: transform 0.3s; flex-shrink: 0; }
+.faq-item[open] .faq-icon { transform: rotate(45deg); }
+.faq-item p {
+  margin-top: 14px; font-size: 16px;
+  line-height: 1.7; color: var(--text-body);
+}
+
+/* ===== INCLUDED GRID ===== */
+.included-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px 40px;
+}
+@media (max-width: 600px) { .included-grid { grid-template-columns: 1fr; } }
+.included-item {
+  display: flex; align-items: flex-start; gap: 12px;
+  font-size: 16px; line-height: 1.6; padding: 8px 0;
+}
+.included-check {
+  color: var(--accent); font-weight: 700; font-size: 18px;
+  flex-shrink: 0; margin-top: 2px;
+}
+
+
+/* ===== PAGE-SPECIFIC ===== */
+
+/* ===== PACKAGES — PAGE SPECIFIC ===== */
+
+/* Starter Callout */
+.starter-callout {
+  background: var(--accent);
+  position: relative; overflow: hidden;
+  padding: 56px 0;
+}
+.starter-callout::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 70% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
+}
+.starter-inner {
+  position: relative; z-index: 1;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 40px; flex-wrap: wrap;
+}
+.starter-text { max-width: 600px; }
+.starter-eyebrow {
+  font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.7);
+  text-transform: uppercase; letter-spacing: 1.5px;
+  margin-bottom: 8px;
+}
+.starter-callout h2 {
+  color: var(--white);
+  font-size: clamp(28px, 3.5vw, 38px);
+  margin-bottom: 12px;
+}
+.starter-callout p {
+  color: rgba(255,255,255,0.85);
+  font-size: 17px; line-height: 1.7;
+  margin-bottom: 0;
+}
+@media (max-width: 768px) {
+  .starter-inner { flex-direction: column; text-align: center; }
+}
+
+/* Package Grid */
+.packages-section { background: var(--bg-primary); }
+.packages-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+}
+@media (max-width: 900px) { .packages-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .packages-grid { grid-template-columns: 1fr; } }
+
+.pkg-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.3s, transform 0.3s;
+  overflow: hidden;
+  display: flex; flex-direction: column;
+}
+.pkg-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+.pkg-card.featured {
+  border: 2px solid var(--accent);
+  box-shadow: var(--shadow-md);
+}
+.pkg-card.featured .pkg-badge { display: block; }
+
+.pkg-badge {
+  display: none;
+  background: var(--accent); color: var(--white);
+  text-align: center; font-size: 13px; font-weight: 600;
+  padding: 8px; letter-spacing: 0.5px;
+}
+
+.pkg-body { padding: 32px 28px; flex: 1; display: flex; flex-direction: column; }
+.pkg-name {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 20px; font-weight: 700;
+  color: var(--text-heading);
+  margin-bottom: 8px;
+}
+.pkg-price {
+  font-family: 'DM Serif Display', serif;
+  font-size: 36px; color: var(--accent);
+  margin-bottom: 4px;
+}
+.pkg-price span { font-size: 16px; color: var(--text-light); font-family: 'DM Sans', sans-serif; }
+.pkg-desc {
+  font-size: 14px; color: var(--text-light);
+  margin-bottom: 24px; line-height: 1.6;
+}
+
+.pkg-features { list-style: none; flex: 1; margin-bottom: 24px; }
+.pkg-features li {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 15px; line-height: 1.5;
+  padding: 6px 0;
+  border-bottom: 1px solid #f5f0eb;
+}
+.pkg-features li:last-child { border-bottom: none; }
+.pkg-features .feat-icon { color: var(--accent); font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+.pkg-features .feat-na { color: var(--border); }
+
+.pkg-permit {
+  background: var(--bg-accent-light);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  font-size: 14px; font-weight: 600;
+  color: var(--accent);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.pkg-cta { text-align: center; }
+.pkg-cta .btn { width: 100%; }
+
+/* Not Sure */
+.not-sure {
+  background: var(--bg-secondary);
+  text-align: center;
+}
+.not-sure h2 {
+  font-size: clamp(24px, 3vw, 34px);
+  margin-bottom: 16px;
+}
+.not-sure p {
+  font-size: 17px; max-width: 520px;
+  margin: 0 auto 28px; line-height: 1.7;
+}
+
+/* Cost Comparison */
+.comparison { background: var(--bg-primary); }
+.comparison h2 {
+  font-size: clamp(28px, 3.5vw, 40px);
+  text-align: center; margin-bottom: 48px;
+}
+.compare-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+}
+@media (max-width: 768px) { .compare-grid { grid-template-columns: 1fr; } }
+.compare-card {
+  border-radius: var(--radius);
+  padding: 40px 36px;
+}
+.compare-card.own {
+  background: #f0e8e0;
+  border: 1px solid var(--border);
+}
+.compare-card.sk {
+  background: var(--accent);
+  color: var(--white);
+}
+.compare-card h3 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 18px; font-weight: 700;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.compare-card.sk h3 { color: var(--white); }
+.compare-row {
+  display: flex; justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  font-size: 15px;
+}
+.compare-card.sk .compare-row { border-bottom-color: rgba(255,255,255,0.15); }
+.compare-row .label { color: inherit; }
+.compare-row .value { font-weight: 600; }
+.compare-card.own .value { color: var(--text-heading); }
+.compare-card.sk .value { color: var(--white); }
+.compare-card.sk .compare-row { color: rgba(255,255,255,0.85); }
+</style>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Sincerely <span>Kitchen</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="how-it-works.html">How It Works</a></li>
+      <li><a href="packages.html" class="active">Packages</a></li>
+      <li><a href="members.html">Our Members</a></li>
+      <li><a href="index.html#faq">FAQ</a></li>
+      <li class="nav-cta-mobile"><a href="book-a-tour.html" class="btn btn-primary">Book a Tour</a></li>
+    </ul>
+    <a href="book-a-tour.html" class="btn btn-primary btn-sm nav-cta-desktop">Book a Tour</a>
+  </div>
+</nav>
+
+<!-- ===== PAGE HERO ===== -->
+<div class="page-hero">
+  <div class="container">
+    <h1 class="fade-up">Kitchen packages that fit<br>your production.</h1>
+    <p class="fade-up d1">Start with a simple monthly plan and book the hours you need. Permit assistance is included free with every package.</p>
+  </div>
+</div>
+
+<!-- ===== STARTER CALLOUT ===== -->
+<section class="starter-callout">
+  <div class="container">
+    <div class="starter-inner">
+      <div class="starter-text">
+        <div class="starter-eyebrow">New to Sincerely Kitchen?</div>
+        <h2>Try our Starter 10 — $490/month</h2>
+        <p>10 hours of kitchen time for your first 3 months. The perfect way to test the waters and ramp up at your own pace.</p>
+      </div>
+      <a href="#book" class="btn btn-white">Book a Tour to Get Started</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PACKAGE CARDS ===== -->
+<section class="packages-section section-pad">
+  <div class="container">
+    <div class="packages-grid">
+
+      <!-- Starter 10 -->
+      <div class="pkg-card reveal">
+        <div class="pkg-badge" style="display:block; background: var(--bg-dark);">Best for Beginners</div>
+        <div class="pkg-body">
+          <div class="pkg-name">Starter 10</div>
+          <div class="pkg-price">$490<span>/month</span></div>
+          <div class="pkg-desc">3-month intro package. Perfect for testing and getting started.</div>
+          <ul class="pkg-features">
+            <li><span class="feat-icon">✓</span> 10 hrs Prep Station</li>
+            <li><span class="feat-icon">✓</span> 10 hrs Commercial Convection Oven</li>
+            <li><span class="feat-icon">✓</span> 5 hrs Induction Burner</li>
+            <li><span class="feat-icon">✓</span> Dry Storage</li>
+            <li><span class="feat-icon feat-na">—</span> <span style="color:var(--text-light)">Cold Storage (available in higher tiers)</span></li>
+          </ul>
+          <div class="pkg-permit">✓ Free permit assistance included</div>
+          <div class="pkg-cta"><a href="#book" class="btn btn-primary">Book a Tour</a></div>
+        </div>
+      </div>
+
+      <!-- Start Up -->
+      <div class="pkg-card reveal reveal-d1">
+        <div class="pkg-body">
+          <div class="pkg-name">Start Up</div>
+          <div class="pkg-price">$750<span>/month</span></div>
+          <div class="pkg-desc">You're producing regularly and building momentum.</div>
+          <ul class="pkg-features">
+            <li><span class="feat-icon">✓</span> 20 hrs Prep Station</li>
+            <li><span class="feat-icon">✓</span> 20 hrs Commercial Convection Oven</li>
+            <li><span class="feat-icon">✓</span> 15 hrs Induction Burner</li>
+            <li><span class="feat-icon">✓</span> Dry Storage</li>
+            <li><span class="feat-icon feat-na">—</span> <span style="color:var(--text-light)">Cold Storage (available in higher tiers)</span></li>
+          </ul>
+          <div class="pkg-permit">✓ Free permit assistance included</div>
+          <div class="pkg-cta"><a href="#book" class="btn btn-secondary">Book a Tour</a></div>
+        </div>
+      </div>
+
+      <!-- Ramp Up -->
+      <div class="pkg-card reveal reveal-d2">
+        <div class="pkg-body">
+          <div class="pkg-name">Ramp Up</div>
+          <div class="pkg-price">$850<span>/month</span></div>
+          <div class="pkg-desc">Orders are growing. More time, more equipment access.</div>
+          <ul class="pkg-features">
+            <li><span class="feat-icon">✓</span> 30 hrs Prep Station</li>
+            <li><span class="feat-icon">✓</span> 30 hrs Commercial Convection Oven</li>
+            <li><span class="feat-icon">✓</span> 22 hrs Induction Burner</li>
+            <li><span class="feat-icon">✓</span> Dry Storage</li>
+            <li><span class="feat-icon feat-na">—</span> <span style="color:var(--text-light)">Cold Storage (available in higher tiers)</span></li>
+          </ul>
+          <div class="pkg-permit">✓ Free permit assistance included</div>
+          <div class="pkg-cta"><a href="#book" class="btn btn-secondary">Book a Tour</a></div>
+        </div>
+      </div>
+
+      <!-- Make it Happen -->
+      <div class="pkg-card featured reveal">
+        <div class="pkg-badge">Most Popular</div>
+        <div class="pkg-body">
+          <div class="pkg-name">Make it Happen</div>
+          <div class="pkg-price">$950<span>/month</span></div>
+          <div class="pkg-desc">The sweet spot for serious producers building a real business.</div>
+          <ul class="pkg-features">
+            <li><span class="feat-icon">✓</span> 40 hrs Prep Station</li>
+            <li><span class="feat-icon">✓</span> 40 hrs Commercial Convection Oven</li>
+            <li><span class="feat-icon">✓</span> 30 hrs Induction Burner</li>
+            <li><span class="feat-icon">✓</span> Dry Storage</li>
+            <li><span class="feat-icon">✓</span> <strong>Cold Storage included</strong></li>
+          </ul>
+          <div class="pkg-permit">✓ Free permit assistance included</div>
+          <div class="pkg-cta"><a href="#book" class="btn btn-primary">Book a Tour</a></div>
+        </div>
+      </div>
+
+      <!-- Scale Up -->
+      <div class="pkg-card reveal reveal-d1">
+        <div class="pkg-body">
+          <div class="pkg-name">Scale Up</div>
+          <div class="pkg-price">$1,150<span>/month</span></div>
+          <div class="pkg-desc">You're scaling. High-volume production with full access.</div>
+          <ul class="pkg-features">
+            <li><span class="feat-icon">✓</span> 60 hrs Prep Station</li>
+            <li><span class="feat-icon">✓</span> 60 hrs Commercial Convection Oven</li>
+            <li><span class="feat-icon">✓</span> 40 hrs Induction Burner</li>
+            <li><span class="feat-icon">✓</span> Dry Storage</li>
+            <li><span class="feat-icon">✓</span> <strong>Cold Storage included</strong></li>
+          </ul>
+          <div class="pkg-permit">✓ Free permit assistance included</div>
+          <div class="pkg-cta"><a href="#book" class="btn btn-secondary">Book a Tour</a></div>
+        </div>
+      </div>
+
+      <!-- Pro Series -->
+      <div class="pkg-card reveal reveal-d2">
+        <div class="pkg-body">
+          <div class="pkg-name">Pro Series</div>
+          <div class="pkg-price">$1,350<span>/month</span></div>
+          <div class="pkg-desc">Maximum capacity for established operations.</div>
+          <ul class="pkg-features">
+            <li><span class="feat-icon">✓</span> 80 hrs Prep Station</li>
+            <li><span class="feat-icon">✓</span> 80 hrs Commercial Convection Oven</li>
+            <li><span class="feat-icon">✓</span> 50 hrs Induction Burner</li>
+            <li><span class="feat-icon">✓</span> Dry Storage</li>
+            <li><span class="feat-icon">✓</span> <strong>Cold Storage included</strong></li>
+          </ul>
+          <div class="pkg-permit">✓ Free permit assistance included</div>
+          <div class="pkg-cta"><a href="#book" class="btn btn-secondary">Book a Tour</a></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== NOT SURE ===== -->
+<section class="not-sure section-pad">
+  <div class="container">
+    <h2 class="reveal">Not sure which package is right for you?</h2>
+    <p class="reveal reveal-d1">That's completely normal. Every business is different. Book a tour and we'll recommend the right fit based on your production needs and schedule.</p>
+    <a href="#book" class="btn btn-primary reveal reveal-d2">Book a Free Tour →</a>
+  </div>
+</section>
+
+<!-- ===== COST COMPARISON ===== -->
+<section class="comparison section-pad">
+  <div class="container">
+    <h2 class="reveal">How we compare to doing it yourself</h2>
+    <div class="compare-grid">
+      <div class="compare-card own reveal">
+        <h3>Building Your Own Kitchen</h3>
+        <div class="compare-row"><span class="label">Build-out cost</span><span class="value">$50,000 – $100,000+</span></div>
+        <div class="compare-row"><span class="label">Timeline</span><span class="value">6–12 months construction</span></div>
+        <div class="compare-row"><span class="label">Permits</span><span class="value">You figure it out</span></div>
+        <div class="compare-row"><span class="label">Equipment</span><span class="value">Buy & maintain yourself</span></div>
+        <div class="compare-row"><span class="label">Utilities & insurance</span><span class="value">All on you</span></div>
+        <div class="compare-row"><span class="label">Community</span><span class="value">On your own</span></div>
+      </div>
+      <div class="compare-card sk reveal reveal-d1">
+        <h3>Sincerely Kitchen</h3>
+        <div class="compare-row"><span class="label">Monthly cost</span><span class="value">$490 – $1,350</span></div>
+        <div class="compare-row"><span class="label">Timeline</span><span class="value">Start in 4–6 weeks</span></div>
+        <div class="compare-row"><span class="label">Permits</span><span class="value">We help — free</span></div>
+        <div class="compare-row"><span class="label">Equipment</span><span class="value">All included</span></div>
+        <div class="compare-row"><span class="label">Utilities & insurance</span><span class="value">All included</span></div>
+        <div class="compare-row"><span class="label">Community</span><span class="value">150+ alumni network</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA BAND ===== -->
+<section class="cta-band" id="book">
+  <div class="container">
+    <h2 class="reveal">Ready to get started?</h2>
+    <p class="reveal reveal-d1">Book a free tour. We'll walk you through the space and help you pick the right package.</p>
+    <a href="https://www.sincerelykitchen.com" class="btn btn-white btn-lg reveal reveal-d2">Book a Free Tour</a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">Sincerely <span style="color:rgba(255,255,255,0.9)">Kitchen</span></a>
+        <p>Shared commercial kitchen in Port Coquitlam, BC. Helping food entrepreneurs turn their passion into real businesses.</p>
+      </div>
+      <div>
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="packages.html">Packages</a></li>
+          <li><a href="members.html">Our Members</a></li>
+          <li><a href="#book">Book a Tour</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Virtual Tour</a></li>
+          <li><a href="#">Pricing Calculator</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Visit Us</h4>
+        <p>1140-551 Sherling Pl.<br>Port Coquitlam, BC V3B 3T7</p>
+        <p><a href="tel:6043419700">604-341-9700</a></p>
+        <p><a href="mailto:maria@organicoslife.com">maria@organicoslife.com</a></p>
+        <span class="footer-spanish">🇪🇸 Atención en Español disponible</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Sincerely Kitchen. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ===== SINCERELY KITCHEN — GLOBAL JS =====
+
+// Nav scroll effect
+const nav = document.getElementById('nav');
+if (nav) {
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 10);
+  });
+}
+
+// Mobile nav toggle
+const toggle = document.getElementById('navToggle');
+const links = document.getElementById('navLinks');
+if (toggle && links) {
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => links.classList.remove('open'));
+  });
+}
+
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal, .fade-up');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+reveals.forEach(el => observer.observe(el));
+
+// Trigger hero fade-ups immediately
+setTimeout(() => {
+  document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
+}, 100);
+
+// FAQ accordion icon rotation
+document.querySelectorAll('.faq-item').forEach(d => {
+  d.addEventListener('toggle', () => {
+    const icon = d.querySelector('.faq-icon');
+    if (icon) icon.textContent = d.open ? '−' : '+';
+  });
+});
+
+</script>
+</body>
+</html>
