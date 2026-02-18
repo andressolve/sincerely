@@ -124,16 +124,16 @@ h1, h2, h3, h4 {
   }
   .nav-links.open {
     display: flex; position: fixed; top: 72px; left: 0; right: 0; bottom: 0;
-    z-index: 100; background: var(--white); flex-direction: column; justify-content: flex-start;
-    padding: 32px 24px; gap: 0; overflow-y: auto;
+    z-index: 100; background: var(--white); flex-direction: column; align-items: stretch;
+    justify-content: flex-start; padding: 32px 24px; gap: 0; overflow-y: auto;
   }
-  .nav-links li { width: 100%; }
-  .nav-links a, .nav-links .btn {
+  .nav-links.open li { width: 100%; }
+  .nav-links.open a, .nav-links.open .btn {
     display: block; padding: 16px 0; font-size: 18px;
     border-bottom: 1px solid var(--border);
   }
-  .nav-links a::after { display: none; }
-  .nav-links .btn { margin-top: 16px; text-align: center; border-bottom: none; }
+  .nav-links.open a::after { display: none; }
+  .nav-links.open .btn { margin-top: 16px; text-align: center; border-bottom: none; }
   .nav-cta-desktop { display: none; }
 }
 @media (min-width: 901px) { .nav-cta-mobile { display: none; } }
