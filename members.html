@@ -5,506 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Members | Sincerely Kitchen, Port Coquitlam</title>
 <meta name="description" content="Meet the food entrepreneurs who've built their businesses at Sincerely Kitchen. 150+ businesses launched from our shared commercial kitchen in Port Coquitlam.">
-<style>
-/* ===== SINCERELY KITCHEN — GLOBAL STYLES ===== */
-
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display&display=swap');
-
-:root {
-  --bg-primary: #FAF8F5;
-  --bg-secondary: #F3EDE7;
-  --bg-accent-light: #FDF0EB;
-  --bg-dark: #2C2C2C;
-  --accent: #C45824;
-  --accent-hover: #A84A1E;
-  --accent-warm: #D4763E;
-  --text-heading: #2C2C2C;
-  --text-body: #555555;
-  --text-light: #999999;
-  --border: #E0D5CC;
-  --white: #FFFFFF;
-  --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
-  --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
-  --shadow-lg: 0 8px 32px rgba(0,0,0,0.10);
-  --radius: 12px;
-  --radius-sm: 8px;
-}
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body {
-  font-family: 'DM Sans', -apple-system, sans-serif;
-  color: var(--text-body);
-  background: var(--bg-primary);
-  line-height: 1.65;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* ===== UTILITIES ===== */
-.container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
-.container-narrow { max-width: 760px; margin: 0 auto; padding: 0 24px; }
-h1, h2, h3, h4 {
-  font-family: 'DM Serif Display', 'DM Sans', serif;
-  color: var(--text-heading);
-  line-height: 1.15;
-}
-.section-pad { padding: 96px 0; }
-@media (max-width: 768px) { .section-pad { padding: 56px 0; } }
-
-/* ===== BUTTONS ===== */
-.btn {
-  display: inline-flex; align-items: center; justify-content: center;
-  font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 15px;
-  padding: 14px 28px; border-radius: var(--radius-sm);
-  text-decoration: none; transition: all 0.25s; cursor: pointer; border: none;
-}
-.btn-primary { background: var(--accent); color: var(--white); }
-.btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: var(--shadow-md); }
-.btn-secondary { background: transparent; color: var(--accent); border: 2px solid var(--accent); }
-.btn-secondary:hover { background: var(--bg-accent-light); }
-.btn-white { background: var(--white); color: var(--accent); }
-.btn-white:hover { background: #f5f5f5; transform: translateY(-1px); }
-.btn-ghost-white { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.6); }
-.btn-ghost-white:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
-.btn-sm { padding: 10px 20px; font-size: 14px; }
-.btn-lg { padding: 16px 36px; font-size: 17px; }
-
-.link-arrow {
-  display: inline-flex; align-items: center; gap: 6px;
-  color: var(--accent); font-weight: 600; text-decoration: none;
-  font-size: 16px; transition: gap 0.2s;
-}
-.link-arrow:hover { gap: 10px; }
-
-/* ===== NAVIGATION ===== */
-.nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  background: rgba(255,255,255,0.97);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
-  transition: box-shadow 0.3s;
-}
-.nav.scrolled { box-shadow: var(--shadow-sm); }
-.nav-inner {
-  max-width: 1280px; margin: 0 auto; padding: 0 24px;
-  display: flex; align-items: center; justify-content: space-between;
-  height: 72px;
-}
-.nav-logo {
-  font-family: 'DM Serif Display', serif;
-  font-size: 22px; color: var(--accent);
-  text-decoration: none; letter-spacing: -0.3px;
-}
-.nav-logo span { color: var(--text-heading); }
-.nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
-.nav-links a {
-  font-size: 15px; font-weight: 500; color: var(--text-body);
-  text-decoration: none; transition: color 0.2s; position: relative;
-}
-.nav-links a:hover { color: var(--accent); }
-.nav-links a::after {
-  content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
-  height: 2px; background: var(--accent);
-  transform: scaleX(0); transition: transform 0.25s;
-}
-.nav-links a:hover::after { transform: scaleX(1); }
-.nav-links a.active { color: var(--accent); }
-.nav-links a.active::after { transform: scaleX(1); }
-
-.nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
-.nav-toggle span {
-  display: block; width: 24px; height: 2px; background: var(--text-heading);
-  margin: 6px 0; transition: all 0.3s;
-}
-
-@media (max-width: 900px) {
-  .nav:has(.nav-links.open) {
-    height: 100vh;
-    overflow: hidden;
-  }
-  .nav-toggle { display: block; }
-  .nav-links {
-    display: none;
-  }
-  .nav-links.open {
-    display: flex; position: fixed; top: 72px; left: 0; right: 0; bottom: 0;
-    z-index: 100; background: var(--white); flex-direction: column; align-items: stretch;
-    justify-content: flex-start; padding: 32px 24px; gap: 0; overflow-y: auto;
-  }
-  .nav-links.open li { width: 100%; }
-  .nav-links.open a, .nav-links.open .btn {
-    display: block; padding: 16px 0; font-size: 18px;
-    border-bottom: 1px solid var(--border);
-  }
-  .nav-links.open a::after { display: none; }
-  .nav-links.open .btn { margin-top: 16px; text-align: center; border-bottom: none; }
-  .nav-cta-desktop { display: none; }
-}
-@media (min-width: 901px) { .nav-cta-mobile { display: none; } }
-
-/* ===== PAGE HERO (for inner pages) ===== */
-.page-hero {
-  margin-top: 72px;
-  background: var(--bg-accent-light);
-  padding: 80px 0 72px;
-  text-align: center;
-}
-.page-hero h1 {
-  font-size: clamp(32px, 4.5vw, 50px);
-  margin-bottom: 16px;
-}
-.page-hero p {
-  font-size: 18px; max-width: 580px; margin: 0 auto;
-  color: var(--text-body); line-height: 1.7;
-}
-
-/* ===== CTA BAND ===== */
-.cta-band {
-  background: var(--accent);
-  position: relative; overflow: hidden;
-}
-.cta-band::before {
-  content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.08) 0%, transparent 50%);
-}
-.cta-band .container {
-  position: relative; z-index: 1;
-  text-align: center; padding-top: 80px; padding-bottom: 80px;
-}
-.cta-band h2 {
-  font-size: clamp(28px, 3.5vw, 42px);
-  color: var(--white); margin-bottom: 16px;
-}
-.cta-band p {
-  font-size: 18px; color: rgba(255,255,255,0.85);
-  margin-bottom: 32px; max-width: 480px; margin-left: auto; margin-right: auto;
-}
-
-/* ===== FOOTER ===== */
-.footer {
-  background: var(--bg-dark);
-  color: rgba(255,255,255,0.7);
-  padding: 72px 0 32px;
-}
-.footer-grid {
-  display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 48px;
-}
-@media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; } }
-@media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
-.footer-brand p { font-size: 14px; line-height: 1.7; max-width: 260px; margin-top: 16px; }
-.footer h4 {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 14px; font-weight: 600; color: var(--white);
-  text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px;
-}
-.footer ul { list-style: none; }
-.footer ul li { margin-bottom: 10px; }
-.footer ul a {
-  color: rgba(255,255,255,0.65); text-decoration: none;
-  font-size: 14px; transition: color 0.2s;
-}
-.footer ul a:hover { color: var(--white); }
-.footer-contact p { font-size: 14px; line-height: 1.7; margin-bottom: 8px; }
-.footer-contact a { color: rgba(255,255,255,0.65); text-decoration: none; }
-.footer-contact a:hover { color: var(--white); }
-.footer-spanish {
-  display: inline-block; margin-top: 12px; padding: 6px 14px;
-  background: rgba(255,255,255,0.08); border-radius: 20px;
-  font-size: 13px; color: rgba(255,255,255,0.8);
-}
-.footer-bottom {
-  margin-top: 48px; padding-top: 24px;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  font-size: 13px; color: rgba(255,255,255,0.4);
-  display: flex; justify-content: space-between; align-items: center;
-  flex-wrap: wrap; gap: 12px;
-}
-.footer-social { display: flex; gap: 16px; }
-.footer-social a { color: rgba(255,255,255,0.5); font-size: 14px; text-decoration: none; transition: color 0.2s; }
-.footer-social a:hover { color: var(--white); }
-
-/* ===== SCROLL ANIMATIONS ===== */
-.reveal {
-  opacity: 0; transform: translateY(32px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-.reveal.visible { opacity: 1; transform: translateY(0); }
-.reveal-d1 { transition-delay: 0.1s; }
-.reveal-d2 { transition-delay: 0.2s; }
-.reveal-d3 { transition-delay: 0.3s; }
-.reveal-d4 { transition-delay: 0.4s; }
-.fade-up {
-  opacity: 0; transform: translateY(24px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-.fade-up.visible { opacity: 1; transform: translateY(0); }
-.fade-up.d1 { transition-delay: 0.1s; }
-.fade-up.d2 { transition-delay: 0.2s; }
-.fade-up.d3 { transition-delay: 0.3s; }
-
-/* ===== CARDS ===== */
-.card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 32px;
-  box-shadow: var(--shadow-sm);
-  transition: box-shadow 0.3s, transform 0.3s;
-}
-.card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
-
-/* ===== FAQ ACCORDION ===== */
-.faq-item {
-  border-bottom: 1px solid var(--border);
-  padding: 20px 0;
-}
-.faq-item summary {
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 600; font-size: 17px;
-  color: var(--text-heading);
-  cursor: pointer; list-style: none;
-  display: flex; justify-content: space-between; align-items: center;
-}
-.faq-item summary::-webkit-details-marker { display: none; }
-.faq-icon { color: var(--accent); font-size: 22px; transition: transform 0.3s; flex-shrink: 0; }
-.faq-item[open] .faq-icon { transform: rotate(45deg); }
-.faq-item p {
-  margin-top: 14px; font-size: 16px;
-  line-height: 1.7; color: var(--text-body);
-}
-
-/* ===== INCLUDED GRID ===== */
-.included-grid {
-  display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px 40px;
-}
-@media (max-width: 600px) { .included-grid { grid-template-columns: 1fr; } }
-.included-item {
-  display: flex; align-items: flex-start; gap: 12px;
-  font-size: 16px; line-height: 1.6; padding: 8px 0;
-}
-.included-check {
-  color: var(--accent); font-weight: 700; font-size: 18px;
-  flex-shrink: 0; margin-top: 2px;
-}
-
-
-/* ===== PAGE-SPECIFIC ===== */
-
-/* ===== OUR MEMBERS — PAGE SPECIFIC ===== */
-
-/* Featured Stories */
-.featured-stories { background: var(--bg-primary); }
-.story {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 56px; align-items: center;
-  padding: 64px 0;
-  border-bottom: 1px solid var(--border);
-}
-.story:last-child { border-bottom: none; }
-.story.reverse { direction: rtl; }
-.story.reverse > * { direction: ltr; }
-@media (max-width: 768px) {
-  .story, .story.reverse { grid-template-columns: 1fr; gap: 32px; direction: ltr; }
-  .story > * { direction: ltr; }
-}
-
-.story-image {
-  aspect-ratio: 4/3; border-radius: var(--radius);
-  overflow: hidden; position: relative;
-}
-.story-image .img-placeholder {
-  width: 100%; height: 100%;
-  display: flex; align-items: center; justify-content: center;
-  color: rgba(255,255,255,0.6); font-size: 14px; font-weight: 500;
-  text-align: center; padding: 20px;
-}
-.story-image .img-placeholder span {
-  background: rgba(0,0,0,0.15); padding: 10px 18px; border-radius: 8px;
-}
-.img-member-1 { background: linear-gradient(135deg, #c49a6c 0%, #a07848 100%); }
-.img-member-2 { background: linear-gradient(135deg, #9a7c8a 0%, #805868 100%); }
-.img-member-3 { background: linear-gradient(135deg, #7c9a8a 0%, #588068 100%); }
-.img-member-4 { background: linear-gradient(135deg, #9a8a6c 0%, #806848 100%); }
-
-.story-content .member-tag {
-  display: inline-flex; align-items: center; gap: 6px;
-  font-size: 13px; font-weight: 600; color: var(--accent);
-  text-transform: uppercase; letter-spacing: 1.5px;
-  margin-bottom: 12px;
-}
-.story-content h3 {
-  font-size: clamp(24px, 3vw, 30px);
-  margin-bottom: 8px;
-}
-.story-content .business-name {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 16px; color: var(--accent); font-weight: 600;
-  margin-bottom: 16px;
-}
-.story-content blockquote {
-  font-size: 17px; font-style: italic;
-  color: var(--text-heading); line-height: 1.75;
-  margin-bottom: 20px;
-  padding-left: 20px;
-  border-left: 3px solid var(--accent);
-}
-.story-content p {
-  font-size: 16px; line-height: 1.7;
-  margin-bottom: 12px;
-}
-.story-meta {
-  display: flex; gap: 24px; flex-wrap: wrap;
-  margin-top: 20px;
-}
-.story-meta-item {
-  display: flex; flex-direction: column;
-}
-.story-meta-item .label {
-  font-size: 12px; font-weight: 600; color: var(--text-light);
-  text-transform: uppercase; letter-spacing: 1px;
-  margin-bottom: 2px;
-}
-.story-meta-item .value {
-  font-size: 15px; font-weight: 600; color: var(--text-heading);
-}
-
-/* Stats Band */
-.members-stats {
-  background: var(--accent); padding: 56px 0;
-  position: relative; overflow: hidden;
-}
-.members-stats::before {
-  content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.08) 0%, transparent 50%);
-}
-.members-stats .container { position: relative; z-index: 1; }
-.members-stats-grid {
-  display: grid; grid-template-columns: repeat(4, 1fr);
-  gap: 32px; text-align: center;
-}
-@media (max-width: 768px) { .members-stats-grid { grid-template-columns: repeat(2, 1fr); } }
-.ms-number {
-  font-family: 'DM Serif Display', serif;
-  font-size: clamp(36px, 4vw, 48px);
-  color: var(--white); line-height: 1;
-  margin-bottom: 8px;
-}
-.ms-label {
-  font-size: 14px; color: rgba(255,255,255,0.7);
-  font-weight: 500;
-}
-
-/* Business Grid */
-.business-grid-section { background: var(--bg-secondary); }
-.business-grid-section h2 {
-  font-size: clamp(28px, 3.5vw, 40px);
-  text-align: center; margin-bottom: 16px;
-}
-.business-grid-section > .container > p.grid-sub {
-  text-align: center; font-size: 17px;
-  color: var(--text-light); max-width: 520px;
-  margin: 0 auto 48px;
-}
-.biz-grid {
-  display: grid; grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
-@media (max-width: 900px) { .biz-grid { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 600px) { .biz-grid { grid-template-columns: repeat(2, 1fr); } }
-
-.biz-tile {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-  transition: box-shadow 0.3s, transform 0.3s;
-}
-.biz-tile:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
-.biz-tile-image {
-  aspect-ratio: 1; overflow: hidden;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 36px;
-}
-.biz-tile-image.cat-baked { background: linear-gradient(135deg, #f0d9c0, #e8c8a8); }
-.biz-tile-image.cat-sauce { background: linear-gradient(135deg, #d4c0a8, #c8b090); }
-.biz-tile-image.cat-catering { background: linear-gradient(135deg, #c0d4c8, #a8c8b0); }
-.biz-tile-image.cat-meal { background: linear-gradient(135deg, #c0c8d4, #a8b0c8); }
-.biz-tile-image.cat-chocolate { background: linear-gradient(135deg, #8a6e5a, #6e5242); }
-.biz-tile-image.cat-beverage { background: linear-gradient(135deg, #d4c8a8, #c8b890); }
-
-.biz-tile-info {
-  padding: 14px 16px;
-}
-.biz-tile-name {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 15px; font-weight: 700;
-  color: var(--text-heading);
-  margin-bottom: 4px;
-}
-.biz-tile-type {
-  font-size: 13px; color: var(--text-light);
-}
-
-/* Graduated Section */
-.graduated { background: var(--bg-primary); }
-.graduated h2 {
-  font-size: clamp(28px, 3.5vw, 40px);
-  text-align: center; margin-bottom: 16px;
-}
-.graduated > .container > p.grad-sub {
-  text-align: center; font-size: 17px;
-  color: var(--text-light); max-width: 560px;
-  margin: 0 auto 48px;
-}
-.grad-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-}
-@media (max-width: 768px) { .grad-grid { grid-template-columns: 1fr; } }
-.grad-card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 36px 28px;
-  box-shadow: var(--shadow-sm);
-  text-align: center;
-  transition: box-shadow 0.3s, transform 0.3s;
-}
-.grad-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
-.grad-emoji { font-size: 48px; margin-bottom: 16px; }
-.grad-card h3 {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 18px; font-weight: 700;
-  margin-bottom: 8px;
-}
-.grad-card .grad-biz {
-  font-size: 14px; color: var(--accent); font-weight: 600;
-  margin-bottom: 16px;
-}
-.grad-card p {
-  font-size: 15px; line-height: 1.7;
-}
-
-/* Your Story */
-.your-story {
-  background: var(--bg-secondary); text-align: center;
-}
-.your-story h2 {
-  font-size: clamp(28px, 3.5vw, 40px);
-  margin-bottom: 16px;
-}
-.your-story p {
-  font-size: 18px; max-width: 520px;
-  margin: 0 auto 32px; line-height: 1.7;
-}
-</style>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="members.css">
+<script src="main.js" defer></script>
 </head>
 <body>
 
 <!-- ===== NAVIGATION ===== -->
 <nav class="nav" id="nav">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo">Sincerely <span>Kitchen</span></a>
+    <a href="index.html" class="nav-logo"><img src="assets/images/logo.png" alt="Sincerely Kitchen" class="nav-logo-img"></a>
     <button class="nav-toggle" id="navToggle" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
@@ -531,59 +41,59 @@ h1, h2, h3, h4 {
 <section class="featured-stories section-pad">
   <div class="container">
 
-    <!-- Story 1 -->
+    <!-- Story 1: Dee's Nutty Cheese -->
     <div class="story reveal">
-      <div class="story-image img-member-1">
-        <div class="img-placeholder"><span>📸 Member photo<br>in kitchen with products</span></div>
+      <div class="story-image">
+        <img src="assets/images/member-dee.jpg" alt="Dianna Yale of Dee's Nutty Cheese at Sincerely Kitchen" loading="lazy">
       </div>
       <div class="story-content">
-        <div class="member-tag">🧁 Baker</div>
-        <h3>[Member Name]</h3>
-        <div class="business-name">[Business Name] — Custom Cakes & Pastries</div>
-        <blockquote>"I was baking out of my home kitchen for two years. I knew I needed to go commercial but had no idea where to start. Sincerely Kitchen walked me through every step — the permits, the food safety plan, everything."</blockquote>
-        <p>She joined with a Starter 10 and is now on the Ramp Up package, supplying 3 farmers markets and filling custom orders every week.</p>
+        <div class="member-tag">🧀 Vegan Cheesemaker</div>
+        <h3>Dianna Yale</h3>
+        <div class="business-name">Dee's Nutty Cheese — Handcrafted Vegan Cashew Cheese</div>
+        <blockquote>"Sincerely Kitchen gave me the space and the confidence to turn my passion into a real business. Maria walked me through every step of the permit process — I couldn't have done it without this community."</blockquote>
+        <p>Dee started making cashew-based vegan cheese at home and quickly outgrew her kitchen. At Sincerely Kitchen, she developed her signature flavours — Garlic &amp; Herb, Smoky Chipotle, Dill &amp; Chive — and now sells at farmers markets and local retailers across the Lower Mainland.</p>
         <div class="story-meta">
-          <div class="story-meta-item"><span class="label">Joined</span><span class="value">2023</span></div>
-          <div class="story-meta-item"><span class="label">Started with</span><span class="value">Starter 10</span></div>
-          <div class="story-meta-item"><span class="label">Now on</span><span class="value">Ramp Up</span></div>
+          <div class="story-meta-item"><span class="label">Product</span><span class="value">Vegan Cheese</span></div>
+          <div class="story-meta-item"><span class="label">Sells at</span><span class="value">Markets &amp; Retail</span></div>
+          <div class="story-meta-item"><span class="label">Featured in</span><span class="value">SK Video</span></div>
         </div>
       </div>
     </div>
 
-    <!-- Story 2 -->
+    <!-- Story 2: Samaya Delights -->
     <div class="story reverse reveal">
-      <div class="story-image img-member-2">
-        <div class="img-placeholder"><span>📸 Member photo<br>packaging sauces/products</span></div>
+      <div class="story-image">
+        <img src="assets/images/product-samaya.jpg" alt="Samaya Delights baklava and Middle Eastern pastries" loading="lazy">
       </div>
       <div class="story-content">
-        <div class="member-tag">🌶️ Sauce Maker</div>
-        <h3>[Member Name]</h3>
-        <div class="business-name">[Business Name] — Hot Sauces & Condiments</div>
-        <blockquote>"I moved to Canada with a family recipe and a dream. Maria spoke to me in Spanish, helped me understand the permit process, and made me feel like I belonged here. I'll never forget that."</blockquote>
-        <p>What started as a single hot sauce recipe has grown into a line of 5 products sold at local shops across the Tri-Cities.</p>
+        <div class="member-tag">🍯 Baker &amp; OG Member</div>
+        <h3>Samaya Delights</h3>
+        <div class="business-name">Samaya Delights — Baklava &amp; Middle Eastern Pastries</div>
+        <blockquote>"I've been with Sincerely Kitchen since the very beginning. This place isn't just a kitchen — it's my second home. Maria and the community here have been like family."</blockquote>
+        <p>Samaya Delights is one of our original members — over 10 years and counting. She's built a thriving one-woman operation supplying handmade baklava to restaurants, coffee shops, and retail stores across the Lower Mainland. Her dedication to her craft and her presence in this community is what Sincerely Kitchen is all about.</p>
         <div class="story-meta">
-          <div class="story-meta-item"><span class="label">Joined</span><span class="value">2022</span></div>
-          <div class="story-meta-item"><span class="label">Started with</span><span class="value">Start Up</span></div>
-          <div class="story-meta-item"><span class="label">Now on</span><span class="value">Scale Up</span></div>
+          <div class="story-meta-item"><span class="label">Member since</span><span class="value">10+ years</span></div>
+          <div class="story-meta-item"><span class="label">Product</span><span class="value">Baklava</span></div>
+          <div class="story-meta-item"><span class="label">Sells to</span><span class="value">Restaurants &amp; Cafés</span></div>
         </div>
       </div>
     </div>
 
-    <!-- Story 3 -->
+    <!-- Story 3: Cachito Mio -->
     <div class="story reveal">
-      <div class="story-image img-member-3">
-        <div class="img-placeholder"><span>📸 Member photo<br>at farmers market booth</span></div>
+      <div class="story-image">
+        <img src="assets/images/product-cachito.jpg" alt="Cachito Mio Mexican tacos and food" loading="lazy">
       </div>
       <div class="story-content">
-        <div class="member-tag">🍪 Cookie Business</div>
-        <h3>[Member Name]</h3>
-        <div class="business-name">[Business Name] — Artisan Cookies</div>
-        <blockquote>"I was terrified of the health inspection. Sincerely Kitchen helped me prepare my food safety plan and when the inspector came, I was ready. It was almost anticlimactic!"</blockquote>
-        <p>She launched her cookie business as a side hustle while working full-time. The Starter 10's flexible hours let her produce evenings and weekends until she was ready to go full-time.</p>
+        <div class="member-tag">🌮 Restaurant &amp; Tacos</div>
+        <h3>Cachito Mio</h3>
+        <div class="business-name">Cachito Mio — Authentic Mexican Cuisine</div>
+        <blockquote>"We started at Sincerely Kitchen selling Mexican insect salts — sal de chapulín. Maria believed in us from day one. When we wanted to grow, she helped us convert a storage space into our first taco shop."</blockquote>
+        <p>Cachito Mio's journey is one of our favourite success stories. They started small, selling artisanal Mexican ingredients, then grew into Uber Eats delivery, and eventually opened a taco shop right here with Sincerely Kitchen's support. After a year of operating, they opened a second location. From insect salts to two restaurants — that's the kind of growth we love to see.</p>
         <div class="story-meta">
-          <div class="story-meta-item"><span class="label">Joined</span><span class="value">2024</span></div>
-          <div class="story-meta-item"><span class="label">Started with</span><span class="value">Starter 10</span></div>
-          <div class="story-meta-item"><span class="label">Now on</span><span class="value">Make it Happen</span></div>
+          <div class="story-meta-item"><span class="label">Started with</span><span class="value">Insect Salts</span></div>
+          <div class="story-meta-item"><span class="label">Now</span><span class="value">2 Locations</span></div>
+          <div class="story-meta-item"><span class="label">Journey</span><span class="value">Uber Eats → Taco Shop</span></div>
         </div>
       </div>
     </div>
@@ -596,7 +106,7 @@ h1, h2, h3, h4 {
   <div class="container">
     <div class="members-stats-grid">
       <div class="reveal"><div class="ms-number">150+</div><div class="ms-label">Businesses launched</div></div>
-      <div class="reveal reveal-d1"><div class="ms-number">8+</div><div class="ms-label">Years in operation</div></div>
+      <div class="reveal reveal-d1"><div class="ms-number">10+</div><div class="ms-label">Years in operation</div></div>
       <div class="reveal reveal-d2"><div class="ms-number">60%</div><div class="ms-label">Female-owned businesses</div></div>
       <div class="reveal reveal-d3"><div class="ms-number">15+</div><div class="ms-label">Product categories</div></div>
     </div>
@@ -607,45 +117,45 @@ h1, h2, h3, h4 {
 <section class="business-grid-section section-pad">
   <div class="container">
     <h2 class="reveal">Businesses made here</h2>
-    <p class="grid-sub reveal">From custom cakes to hot sauces, our members make an incredible range of products. Here's a sample.</p>
+    <p class="grid-sub reveal">From vegan cheese to Turkish kaymak, our members produce an incredible range of products. Here are some of them.</p>
 
     <div class="biz-grid">
       <div class="biz-tile reveal">
-        <div class="biz-tile-image cat-baked">🧁</div>
-        <div class="biz-tile-info"><div class="biz-tile-name">[Bakery Name]</div><div class="biz-tile-type">Custom Cakes</div></div>
+        <div class="biz-tile-image"><img src="assets/images/product-lalula-sm.jpg" alt="La Lula Pastries alfajores" loading="lazy"></div>
+        <div class="biz-tile-info"><div class="biz-tile-name">La Lula Pastries</div><div class="biz-tile-type">Alfajores &amp; Latin Pastries</div></div>
       </div>
       <div class="biz-tile reveal reveal-d1">
-        <div class="biz-tile-image cat-sauce">🌶️</div>
-        <div class="biz-tile-info"><div class="biz-tile-name">[Sauce Brand]</div><div class="biz-tile-type">Hot Sauces</div></div>
+        <div class="biz-tile-image"><img src="assets/images/product-dees-sm.jpg" alt="Dee's Nutty Cheese vegan cashew cheese" loading="lazy"></div>
+        <div class="biz-tile-info"><div class="biz-tile-name">Dee's Nutty Cheese</div><div class="biz-tile-type">Vegan Cashew Cheese</div></div>
       </div>
       <div class="biz-tile reveal reveal-d2">
-        <div class="biz-tile-image cat-baked">🍪</div>
-        <div class="biz-tile-info"><div class="biz-tile-name">[Cookie Co]</div><div class="biz-tile-type">Artisan Cookies</div></div>
+        <div class="biz-tile-image"><img src="assets/images/product-cachito-tacos-sm.jpg" alt="Cachito Mio Mexican tacos" loading="lazy"></div>
+        <div class="biz-tile-info"><div class="biz-tile-name">Cachito Mio</div><div class="biz-tile-type">Mexican Cuisine</div></div>
       </div>
       <div class="biz-tile reveal reveal-d3">
-        <div class="biz-tile-image cat-catering">🥗</div>
-        <div class="biz-tile-info"><div class="biz-tile-name">[Catering Co]</div><div class="biz-tile-type">Event Catering</div></div>
+        <div class="biz-tile-image"><img src="assets/images/product-samaya.jpg" alt="Samaya Delights baklava" loading="lazy"></div>
+        <div class="biz-tile-info"><div class="biz-tile-name">Samaya Delights</div><div class="biz-tile-type">Baklava &amp; Pastries</div></div>
       </div>
       <div class="biz-tile reveal">
-        <div class="biz-tile-image cat-chocolate">🍫</div>
-        <div class="biz-tile-info"><div class="biz-tile-name">[Chocolate Brand]</div><div class="biz-tile-type">Artisan Chocolate</div></div>
+        <div class="biz-tile-image"><img src="assets/images/product-bakinglala-sm.jpg" alt="The Baking Lala Korean macarons" loading="lazy"></div>
+        <div class="biz-tile-info"><div class="biz-tile-name">The Baking Lala</div><div class="biz-tile-type">Korean Macarons</div></div>
       </div>
       <div class="biz-tile reveal reveal-d1">
-        <div class="biz-tile-image cat-meal">🥡</div>
-        <div class="biz-tile-info"><div class="biz-tile-name">[Meal Prep Co]</div><div class="biz-tile-type">Meal Prep</div></div>
+        <div class="biz-tile-image"><img src="assets/images/product-moonie.jpg" alt="Moonie Foods Turkish kaymak" loading="lazy"></div>
+        <div class="biz-tile-info"><div class="biz-tile-name">Moonie Foods</div><div class="biz-tile-type">Turkish Kaymak</div></div>
       </div>
       <div class="biz-tile reveal reveal-d2">
-        <div class="biz-tile-image cat-baked">🥐</div>
-        <div class="biz-tile-info"><div class="biz-tile-name">[Pastry Shop]</div><div class="biz-tile-type">French Pastries</div></div>
+        <div class="biz-tile-image"><img src="assets/images/product-hettcreek-sm.jpg" alt="Hett Creek Sourdough artisan bread" loading="lazy"></div>
+        <div class="biz-tile-info"><div class="biz-tile-name">Hett Creek Sourdough</div><div class="biz-tile-type">Artisan Sourdough Bread</div></div>
       </div>
       <div class="biz-tile reveal reveal-d3">
-        <div class="biz-tile-image cat-beverage">🧃</div>
-        <div class="biz-tile-info"><div class="biz-tile-name">[Juice Brand]</div><div class="biz-tile-type">Cold-Pressed Juice</div></div>
+        <div class="biz-tile-image"><img src="assets/images/product-smokingbarrels-sm.jpg" alt="Smokin' Barrels BBQ smoked brisket" loading="lazy"></div>
+        <div class="biz-tile-info"><div class="biz-tile-name">Smokin' Barrels BBQ</div><div class="biz-tile-type">Southern BBQ & Catering</div></div>
       </div>
     </div>
 
     <p style="text-align: center; margin-top: 32px; color: var(--text-light); font-size: 15px;" class="reveal">
-      And many more — bakers, caterers, food truck operators, meal prep services, sauce makers, chocolate artisans, and beyond.
+      And many more — bakers, caterers, food truck operators, meal prep services, sauce makers, and artisan food producers of all kinds.
     </p>
   </div>
 </section>
@@ -658,22 +168,22 @@ h1, h2, h3, h4 {
 
     <div class="grad-grid">
       <div class="grad-card reveal">
-        <div class="grad-emoji">🎓</div>
-        <h3>[Graduate Name]</h3>
-        <div class="grad-biz">[Business Name]</div>
-        <p>Started with a Starter 10 in 2020. Now operates their own production facility and supplies grocery stores across the Lower Mainland.</p>
+        <div class="grad-image"><img src="assets/images/grad-yvrcookie-sm.jpg" alt="YVR Cookie artisan cookies in branded box" loading="lazy"></div>
+        <h3>Monique Lisek</h3>
+        <div class="grad-biz">YVR Cookie</div>
+        <p>What started as a home baking hobby grew into one of the Lower Mainland's most-loved cookie brands. Monique built her following (45K+ on Instagram) while producing at Sincerely Kitchen, and eventually opened her own bakery in Port Coquitlam.</p>
       </div>
       <div class="grad-card reveal reveal-d1">
-        <div class="grad-emoji">🎓</div>
-        <h3>[Graduate Name]</h3>
-        <div class="grad-biz">[Business Name]</div>
-        <p>Began as a weekend baker at Sincerely Kitchen. Now has a retail location and team of 4 — all from what started as a hobby.</p>
+        <div class="grad-image"><img src="assets/images/grad-earthling-sm.jpg" alt="Earthling Foods organic matcha dacaron" loading="lazy"></div>
+        <h3>Chae &amp; Jimmy Kim</h3>
+        <div class="grad-biz">Earthling Foods</div>
+        <p>This husband-and-wife team developed their Korean dacaron and gluten-free treats at Sincerely Kitchen. They've since landed shelf space at T&amp;T Supermarket and H-Mart, and now operate from their own dedicated production facility.</p>
       </div>
       <div class="grad-card reveal reveal-d2">
-        <div class="grad-emoji">🎓</div>
-        <h3>[Graduate Name]</h3>
-        <div class="grad-biz">[Business Name]</div>
-        <p>Used the kitchen for 18 months to develop and perfect their product line. Now sells nationally online and at specialty retailers.</p>
+        <div class="grad-image"><img src="assets/images/grad-abracashaba-sm.jpg" alt="AbracaShaba Focacceria handmade focaccia" loading="lazy"></div>
+        <h3>Amy Shaba</h3>
+        <div class="grad-biz">AbracaShaba Focacceria</div>
+        <p>Amy perfected her focaccia recipes at Sincerely Kitchen, building a loyal following at farmers markets. She's since opened her own café and bakery in Maple Ridge — a full brick-and-mortar born from a shared kitchen dream.</p>
       </div>
     </div>
   </div>
@@ -696,7 +206,7 @@ h1, h2, h3, h4 {
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="index.html" class="nav-logo">Sincerely <span style="color:rgba(255,255,255,0.9)">Kitchen</span></a>
+        <a href="index.html" class="nav-logo"><img src="assets/images/logo.png" alt="Sincerely Kitchen" class="nav-logo-img"></a>
         <p>Shared commercial kitchen in Port Coquitlam, BC. Helping food entrepreneurs turn their passion into real businesses.</p>
       </div>
       <div>
@@ -731,50 +241,5 @@ h1, h2, h3, h4 {
     </div>
   </div>
 </footer>
-
-<script>
-// ===== SINCERELY KITCHEN — GLOBAL JS =====
-
-// Nav scroll effect
-const nav = document.getElementById('nav');
-if (nav) {
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 10);
-  });
-}
-
-// Mobile nav toggle
-const toggle = document.getElementById('navToggle');
-const links = document.getElementById('navLinks');
-if (toggle && links) {
-  toggle.addEventListener('click', () => links.classList.toggle('open'));
-  links.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => links.classList.remove('open'));
-  });
-}
-
-// Scroll reveal
-const reveals = document.querySelectorAll('.reveal, .fade-up');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add('visible');
-  });
-}, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-reveals.forEach(el => observer.observe(el));
-
-// Trigger hero fade-ups immediately
-setTimeout(() => {
-  document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
-}, 100);
-
-// FAQ accordion icon rotation
-document.querySelectorAll('.faq-item').forEach(d => {
-  d.addEventListener('toggle', () => {
-    const icon = d.querySelector('.faq-icon');
-    if (icon) icon.textContent = d.open ? '−' : '+';
-  });
-});
-
-</script>
 </body>
 </html>

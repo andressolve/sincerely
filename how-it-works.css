@@ -1,0 +1,137 @@
+/* ===== HOW IT WORKS — PAGE SPECIFIC ===== */
+
+/* Steps */
+.steps { background: var(--bg-primary); }
+.step {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 56px; align-items: center;
+  padding: 64px 0;
+  border-bottom: 1px solid var(--border);
+}
+.step:last-child { border-bottom: none; }
+.step.reverse { direction: rtl; }
+.step.reverse > * { direction: ltr; }
+
+@media (max-width: 768px) {
+  .step, .step.reverse { grid-template-columns: 1fr; gap: 32px; direction: ltr; }
+  .step > * { direction: ltr; }
+}
+
+.step-number {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--accent); color: var(--white);
+  font-family: 'DM Serif Display', serif;
+  font-size: 20px; margin-bottom: 16px;
+}
+.step-content h3 {
+  font-size: clamp(24px, 3vw, 30px);
+  margin-bottom: 16px;
+}
+.step-content p {
+  font-size: 17px; line-height: 1.75;
+  margin-bottom: 12px;
+}
+.step-content .note {
+  font-size: 15px; color: var(--text-light);
+  font-style: italic;
+}
+.step-image {
+  aspect-ratio: 4/3;
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+.step-image img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Permit Process */
+.permits { background: var(--bg-secondary); }
+.permits h2 {
+  font-size: clamp(28px, 3.5vw, 40px);
+  text-align: center; margin-bottom: 16px;
+}
+.permits > .container > p.subtitle {
+  text-align: center; font-size: 17px;
+  color: var(--text-light); max-width: 560px;
+  margin: 0 auto 56px;
+}
+.permit-steps {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+}
+@media (max-width: 768px) { .permit-steps { grid-template-columns: 1fr; } }
+.permit-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 36px 28px;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+.permit-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 4px; background: var(--accent);
+}
+.permit-card .step-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13px; font-weight: 600; color: var(--accent);
+  text-transform: uppercase; letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+.permit-card h3 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 20px; font-weight: 700;
+  margin-bottom: 16px;
+}
+.permit-card p { font-size: 15px; line-height: 1.7; margin-bottom: 10px; }
+.permit-card .detail-label {
+  font-weight: 600; color: var(--text-heading);
+  font-size: 14px; margin-top: 16px; margin-bottom: 4px;
+}
+.permit-card .timeline {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--bg-accent-light); color: var(--accent);
+  font-size: 14px; font-weight: 600;
+  padding: 6px 14px; border-radius: 20px;
+  margin-top: 16px;
+}
+
+/* What's Included */
+.included { background: var(--bg-primary); }
+.included h2 {
+  font-size: clamp(28px, 3.5vw, 40px);
+  text-align: center; margin-bottom: 48px;
+}
+
+/* Lead Magnet */
+.lead-magnet {
+  background: var(--bg-dark);
+  color: var(--white);
+  border-radius: var(--radius);
+  padding: 48px;
+  display: flex; align-items: center; gap: 40px;
+  margin-top: 56px;
+}
+.lead-magnet h3 {
+  color: var(--white);
+  font-size: 24px; margin-bottom: 12px;
+}
+.lead-magnet p {
+  color: rgba(255,255,255,0.7);
+  font-size: 16px; line-height: 1.7;
+  margin-bottom: 20px;
+}
+.lead-magnet-icon {
+  font-size: 56px; flex-shrink: 0;
+}
+@media (max-width: 768px) {
+  .lead-magnet { flex-direction: column; gap: 24px; padding: 36px 28px; text-align: center; }
+}
+
+/* FAQ section on this page */
+.page-faq { background: var(--bg-secondary); }
+.page-faq h2 {
+  font-size: clamp(28px, 3.5vw, 40px);
+  text-align: center; margin-bottom: 48px;
+}

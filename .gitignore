@@ -1,0 +1,38 @@
+# Source media (large files, not for deployment)
+direction/
+photos/
+various/
+
+# Image backups (originals before AI edits)
+assets/images/*-original.*
+
+# Unused images (not referenced in HTML/CSS)
+assets/images/exterior-front-door.jpg
+assets/images/kitchen-wide.jpg
+assets/images/maria-portrait.jpg
+assets/images/product-abracashaba.jpg
+assets/images/product-earthling.png
+
+# Large originals superseded by -sm versions
+assets/images/product-lalula.jpg
+assets/images/product-dees.jpg
+assets/images/product-bakinglala.jpg
+assets/images/product-yvrcookie.png
+assets/images/product-cachito-portrait.jpg
+assets/images/grad-earthling.jpg
+assets/images/grad-yvrcookie.jpg
+assets/images/grad-abracashaba.jpg
+
+# OS files
+.DS_Store
+*.DS_Store
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Session notes (dev only)
+SESSION-NOTES.md
+CLAUDE.md
