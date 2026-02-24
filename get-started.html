@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Started | Sincerely Kitchen, Port Coquitlam</title>
+<meta name="description" content="Tell us about your food business and we'll help you get started at Sincerely Kitchen. Shared commercial kitchen in Port Coquitlam, BC.">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="get-started.css">
+<script src="main.js" defer></script>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="assets/images/logo.png" alt="Sincerely Kitchen" class="nav-logo-img"></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="how-it-works.html">How It Works</a></li>
+      <li><a href="packages.html">Packages</a></li>
+      <li><a href="members.html">Our Members</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="book-a-tour.html">Book a Tour</a></li>
+      <li class="nav-cta-mobile"><a href="get-started.html" class="btn btn-primary">Get Started</a></li>
+    </ul>
+    <a href="get-started.html" class="btn btn-primary btn-sm nav-cta-desktop">Get Started</a>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<div class="get-started-hero">
+  <div class="container">
+    <h1 class="fade-up">Let's get you started.</h1>
+    <p class="fade-up d1">Tell us about your food business and we'll reach out to talk about next steps. No commitment required.</p>
+  </div>
+</div>
+
+<!-- ===== INTEREST FORM + SIDEBAR ===== -->
+<section class="interest-section section-pad">
+  <div class="container">
+    <div class="interest-grid">
+
+      <!-- Form Card -->
+      <div class="interest-form-card reveal">
+        <h2>Tell us about your business</h2>
+        <p class="form-subtitle">We'll review your info and reach out within 1 business day.</p>
+
+        <form name="interest" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="interest">
+          <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name *</label>
+              <input type="text" id="firstName" name="firstName" placeholder="Your first name" required>
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" name="lastName" placeholder="Your last name">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" placeholder="you@email.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="604-000-0000">
+          </div>
+
+          <div class="form-group">
+            <label for="businessName">Business Name</label>
+            <input type="text" id="businessName" name="businessName" placeholder="Your business name (if you have one)">
+          </div>
+
+          <div class="form-group">
+            <label for="businessType">Type of Food Business</label>
+            <select id="businessType" name="businessType">
+              <option value="" disabled selected>Select one...</option>
+              <option value="bakery">Bakery</option>
+              <option value="catering">Catering</option>
+              <option value="food-truck">Food Truck</option>
+              <option value="meal-prep">Meal Prep</option>
+              <option value="packaged-goods">Packaged Goods</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="stage">Where are you in your journey?</label>
+            <select id="stage" name="stage">
+              <option value="" disabled selected>Select one...</option>
+              <option value="idea">Just an idea</option>
+              <option value="starting">Starting up</option>
+              <option value="existing">Existing business looking for kitchen space</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="package">Which package are you interested in?</label>
+            <select id="package" name="package">
+              <option value="" disabled selected>Select one...</option>
+              <option value="not-sure">Not sure yet</option>
+              <option value="starter-10">Starter 10 — $490/mo</option>
+              <option value="start-up">Start Up — $750/mo</option>
+              <option value="ramp-up">Ramp Up — $850/mo</option>
+              <option value="scale-up">Scale Up — $1,150/mo</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Tell us about your business</label>
+            <textarea id="message" name="message" placeholder="What do you make? What are your goals? Any questions for us?"></textarea>
+          </div>
+
+          <div class="form-submit">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+
+          <p class="form-note">We'll respond within 1 business day. No spam, no hard sell.</p>
+        </form>
+      </div>
+
+      <!-- What Happens Next Sidebar -->
+      <div class="next-steps reveal reveal-d1">
+        <h3>What happens next</h3>
+
+        <div class="next-step">
+          <div class="next-step-number">1</div>
+          <div>
+            <h4>We review your info</h4>
+            <p>We'll read through your submission and understand where you are in your food business journey.</p>
+          </div>
+        </div>
+
+        <div class="next-step">
+          <div class="next-step-number">2</div>
+          <div>
+            <h4>We reach out</h4>
+            <p>Within 1 business day, we'll email or call you to discuss your needs and answer any questions.</p>
+          </div>
+        </div>
+
+        <div class="next-step">
+          <div class="next-step-number">3</div>
+          <div>
+            <h4>You visit the kitchen</h4>
+            <p>We'll invite you for a free 45-minute tour so you can see the space, meet us, and decide if it's the right fit.</p>
+          </div>
+        </div>
+
+        <div class="next-steps-note">
+          <p><strong>No commitment required.</strong> This form is just the start of a conversation. We're here to help you figure out if Sincerely Kitchen is right for you.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== REASSURANCE ===== -->
+<section class="reassurance section-pad">
+  <div class="container">
+    <h2 class="reveal">Nothing to worry about</h2>
+    <div class="reassure-grid reveal">
+      <div class="reassure-item">
+        <div class="reassure-icon">🤝</div>
+        <strong>No commitment</strong>
+        <span>Just a conversation. Decide after.</span>
+      </div>
+      <div class="reassure-item">
+        <div class="reassure-icon">🚫</div>
+        <strong>No hard sell</strong>
+        <span>We answer questions, not push packages.</span>
+      </div>
+      <div class="reassure-item">
+        <div class="reassure-icon">🌱</div>
+        <strong>No experience required</strong>
+        <span>Most members started where you are.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA BAND ===== -->
+<section class="cta-band">
+  <div class="container">
+    <h2 class="reveal">Prefer to just visit?</h2>
+    <p class="reveal reveal-d1">Skip the form and book a free 45-minute kitchen tour instead.</p>
+    <a href="book-a-tour.html" class="btn btn-white btn-lg reveal reveal-d2">Book a Tour</a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo"><img src="assets/images/logo.png" alt="Sincerely Kitchen" class="nav-logo-img"></a>
+        <p>Shared commercial kitchen in Port Coquitlam, BC. Helping food entrepreneurs turn their passion into real businesses.</p>
+      </div>
+      <div>
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="packages.html">Packages</a></li>
+          <li><a href="members.html">Our Members</a></li>
+          <li><a href="book-a-tour.html">Book a Tour</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="index.html#faq">FAQ</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="get-started.html">Get Started</a></li>
+          <li><a href="mailto:maria@organicoslife.com">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Visit Us</h4>
+        <p>1140-551 Sherling Pl.<br>Port Coquitlam, BC V3B 3T7</p>
+        <p><a href="tel:6043419700">604-341-9700</a></p>
+        <p><a href="mailto:maria@organicoslife.com">maria@organicoslife.com</a></p>
+        <span class="footer-spanish">🇪🇸 Atención en Español disponible</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Sincerely Kitchen. All rights reserved.</span>
+      <div class="footer-social"><a href="#">Instagram</a><a href="#">Facebook</a></div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
