@@ -105,6 +105,15 @@
 .spotlight blockquote { font-size: 18px; font-style: italic; color: var(--text-heading); line-height: 1.7; margin-bottom: 20px; padding-left: 20px; border-left: 3px solid var(--accent); }
 .spotlight .caption { font-size: 15px; color: var(--text-light); line-height: 1.6; margin-bottom: 20px; }
 
+/* About Us */
+.about-us { background: var(--bg-primary); }
+.about-us h2 { font-size: clamp(24px, 3vw, 32px); margin-bottom: 20px; }
+.about-us p { font-size: 16px; line-height: 1.75; margin-bottom: 16px; }
+.about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.about-image { aspect-ratio: 4/3; border-radius: var(--radius); overflow: hidden; }
+.about-image img { width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 768px) { .about-inner { grid-template-columns: 1fr; gap: 32px; } }
+
 /* Stats */
 .stats { background: var(--bg-primary); padding: 64px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; text-align: center; }
