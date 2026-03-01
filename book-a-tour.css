@@ -42,11 +42,13 @@
   text-align: center;
   box-shadow: var(--shadow-sm);
 }
-.expect-icon {
-  width: 64px; height: 64px; border-radius: 50%;
-  background: var(--bg-accent-light);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 28px; margin: 0 auto 20px;
+.expect-illustration {
+  width: 120px; height: 120px;
+  margin: 0 auto 20px;
+}
+.expect-illustration img {
+  width: 100%; height: 100%;
+  object-fit: contain;
 }
 .expect-card h3 {
   font-family: 'DM Sans', sans-serif;
@@ -153,8 +155,14 @@
   font-size: 16px; color: var(--text-body);
   display: flex; flex-direction: column; align-items: center; gap: 8px;
 }
-.reassure-icon {
-  font-size: 32px;
+.reassure-illustration {
+  width: 100px; height: 100px;
+  margin-bottom: 8px;
+}
+.reassure-illustration img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
 }
 .reassure-item strong {
   color: var(--text-heading);
