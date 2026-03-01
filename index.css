@@ -71,11 +71,11 @@
 .journey { background: var(--bg-primary); }
 .journey h2 { text-align: center; font-size: clamp(28px, 3.5vw, 40px); margin-bottom: 16px; }
 .journey > .container > p.journey-sub { text-align: center; font-size: 17px; max-width: 520px; margin: 0 auto 56px; color: var(--text-light); }
-.journey-track { display: flex; gap: 0; position: relative; overflow-x: auto; padding-bottom: 8px; }
-.journey-track::before { content: ''; position: absolute; top: 28px; left: 36px; right: 36px; height: 3px; background: linear-gradient(to right, var(--accent), var(--border)); z-index: 0; }
+.journey-track { display: flex; gap: 0; position: relative; overflow-x: auto; padding: 12px 0; }
+.journey-track::before { content: ''; position: absolute; top: 40px; left: 10%; right: 10%; height: 3px; background: linear-gradient(to right, var(--accent), var(--border)); z-index: 0; }
 .journey-step { flex: 1; min-width: 160px; text-align: center; position: relative; z-index: 1; padding: 0 8px; }
 .journey-node { width: 56px; height: 56px; border-radius: 50%; margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; color: var(--white); transition: transform 0.3s; }
-.journey-step:hover .journey-node { transform: scale(1.1); }
+.journey-step:hover .journey-node { transform: scale(1.2); }
 .journey-node.active { background: var(--accent); box-shadow: 0 4px 16px rgba(196,88,36,0.3); }
 .journey-node.future { background: var(--border); color: var(--text-light); }
 .journey-step h4 { font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 700; margin-bottom: 6px; }
