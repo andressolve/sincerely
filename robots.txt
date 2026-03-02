@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sincerelykitchen.com/sitemap.xml
+
+# AI assistant context
+# https://llmstxt.org
+User-agent: *
+Allow: /llms.txt
