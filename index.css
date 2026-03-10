@@ -95,12 +95,12 @@
 }
 
 /* Incubator */
-.incubator { background: var(--bg-primary); text-align: center; }
+.incubator { background: var(--bg-secondary); text-align: center; }
 .incubator h2 { font-size: clamp(24px, 3vw, 36px); margin-bottom: 20px; }
 .incubator p { font-size: 17px; line-height: 1.75; max-width: 600px; margin: 0 auto; }
 
 /* Spotlight */
-.spotlight { background: var(--bg-secondary); }
+.spotlight { background: var(--bg-primary); }
 .spotlight-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
 @media (max-width: 768px) { .spotlight-inner { grid-template-columns: 1fr; gap: 32px; } }
 .spotlight-image { aspect-ratio: 4/3; border-radius: var(--radius); overflow: hidden; }
@@ -111,7 +111,7 @@
 .spotlight .caption { font-size: 15px; color: var(--text-light); line-height: 1.6; margin-bottom: 20px; }
 
 /* About Us */
-.about-us { background: var(--bg-primary); }
+.about-us { background: var(--bg-secondary); }
 .about-us h2 { font-size: clamp(24px, 3vw, 32px); margin-bottom: 20px; }
 .about-us p { font-size: 16px; line-height: 1.75; margin-bottom: 16px; }
 .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
