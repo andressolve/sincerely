@@ -94,6 +94,11 @@
   .pillar-card { padding: 32px 24px; }
 }
 
+/* Incubator */
+.incubator { background: var(--bg-primary); text-align: center; }
+.incubator h2 { font-size: clamp(24px, 3vw, 36px); margin-bottom: 20px; }
+.incubator p { font-size: 17px; line-height: 1.75; max-width: 600px; margin: 0 auto; }
+
 /* Spotlight */
 .spotlight { background: var(--bg-secondary); }
 .spotlight-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
