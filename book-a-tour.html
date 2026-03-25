@@ -211,5 +211,12 @@
   </div>
 </footer>
 <script src="assets/js/tracking.js"></script>
+<script>
+  window.addEventListener('message', function(e) {
+    if (e.origin === 'https://calendly.com' && e.data.event === 'calendly.event_scheduled') {
+      window.location.href = 'thank-you.html';
+    }
+  });
+</script>
 </body>
 </html>
