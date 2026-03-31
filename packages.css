@@ -109,6 +109,17 @@
 .pkg-cta { text-align: center; }
 .pkg-cta .btn { width: 100%; }
 
+/* Incubator tag link */
+a.pillar-tag-link {
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+}
+a.pillar-tag-link:hover {
+  background: var(--accent);
+  color: var(--white);
+}
+
 /* Not Sure */
 .not-sure {
   background: var(--bg-secondary);
