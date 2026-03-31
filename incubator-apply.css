@@ -33,7 +33,7 @@
 }
 
 /* Layout */
-.apply-section { background: var(--bg-secondary); }
+.apply-section { background: var(--bg-secondary); padding-top: 48px; }
 .apply-grid {
   display: grid;
   grid-template-columns: 1fr 360px;
@@ -135,9 +135,10 @@
 }
 .radio-dot {
   width: 20px; height: 20px; border-radius: 50%;
-  border: 2px solid #9A8F86;
+  border: 2px solid #888080;
+  background: var(--white);
   flex-shrink: 0;
-  transition: border-color 0.2s, background 0.2s;
+  transition: border-color 0.2s;
   position: relative;
 }
 .radio-dot::after {
