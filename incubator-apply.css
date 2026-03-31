@@ -5,7 +5,7 @@
   margin-top: 72px;
   background: linear-gradient(135deg, rgba(196,88,36,0.86) 0%, rgba(140,60,20,0.90) 100%),
     url('assets/images/hero-how-it-works.jpg') center/cover no-repeat;
-  padding: 72px 0 64px;
+  padding: 40px 0 36px;
   text-align: center;
   position: relative; overflow: hidden;
 }
@@ -134,8 +134,8 @@
   width: 0; height: 0;
 }
 .radio-dot {
-  width: 18px; height: 18px; border-radius: 50%;
-  border: 2px solid var(--border);
+  width: 20px; height: 20px; border-radius: 50%;
+  border: 2px solid #9A8F86;
   flex-shrink: 0;
   transition: border-color 0.2s, background 0.2s;
   position: relative;
