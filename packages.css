@@ -112,6 +112,7 @@
 /* Incubator tag link */
 a.pillar-tag-link {
   text-decoration: none;
+  color: var(--accent);
   transition: background 0.2s, color 0.2s;
   cursor: pointer;
 }
