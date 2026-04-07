@@ -120,6 +120,12 @@ a.pillar-tag-link:hover {
   background: var(--accent);
   color: var(--white);
 }
+.starter-callout a.pillar-tag-link {
+  color: var(--text-heading);
+}
+.starter-callout a.pillar-tag-link:hover {
+  color: var(--white);
+}
 
 /* Not Sure */
 .not-sure {
