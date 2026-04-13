@@ -1,10 +1,18 @@
 // Conversion tracking for Sincerely Kitchen
 // - Google Ads (AW-829502264): Book a Tour, Phone, Get Started, Email
-// - Meta Pixel (552219418754647): Schedule, Contact, Lead
+// - Meta Pixel (1517622856400454): Schedule, Contact, Lead
 //
 // PageView for Meta is fired by the base pixel snippet in <head>, not here.
 
 document.addEventListener('DOMContentLoaded', function() {
+  // Fire Meta ViewContent event when the user lands on the Book a Tour page
+  if (typeof fbq === 'function' && window.location.pathname.indexOf('book-a-tour') !== -1) {
+    fbq('track', 'ViewContent', {
+      content_name: 'Book a Tour',
+      content_category: 'Tour Booking'
+    });
+  }
+
   // Fire Meta Lead event when the user lands on the thank-you page
   // (strongest conversion signal — form actually submitted)
   if (typeof fbq === 'function' && window.location.pathname.indexOf('thank-you') !== -1) {
