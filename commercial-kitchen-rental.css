@@ -1,0 +1,221 @@
+/* ===== COMMERCIAL KITCHEN RENTAL — LANDING PAGE ===== */
+
+/* Hero */
+.lp-hero {
+  position: relative; min-height: 80vh;
+  display: flex; align-items: center;
+  background: linear-gradient(135deg, rgba(58,42,30,0.65) 0%, rgba(90,62,46,0.55) 40%, rgba(138,101,72,0.45) 100%),
+    url('assets/images/hero-homepage.jpg') center/cover no-repeat;
+  overflow: hidden; margin-top: 72px;
+}
+.lp-hero::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 75% 50%, rgba(196,88,36,0.15) 0%, transparent 60%),
+    radial-gradient(ellipse at 20% 80%, rgba(0,0,0,0.3) 0%, transparent 50%);
+}
+.lp-hero-content {
+  position: relative; z-index: 2;
+  max-width: 640px; padding: 80px 0;
+}
+.lp-hero h1 {
+  font-size: clamp(34px, 5vw, 52px);
+  color: var(--white); margin-bottom: 20px; letter-spacing: -0.5px;
+}
+.lp-hero p {
+  font-size: 18px; color: rgba(255,255,255,0.85);
+  line-height: 1.7; margin-bottom: 32px; max-width: 520px;
+}
+.lp-hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+@media (max-width: 768px) {
+  .lp-hero { min-height: 70vh; }
+  .lp-hero-content { padding: 40px 0; }
+}
+
+/* Trust Strip */
+.lp-trust {
+  background: var(--bg-secondary); padding: 18px 0;
+  text-align: center; border-bottom: 1px solid var(--border);
+}
+.lp-trust-inner {
+  display: flex; justify-content: center; align-items: center;
+  gap: 32px; flex-wrap: wrap;
+  font-size: 14px; font-weight: 500; color: var(--text-body);
+}
+.lp-trust-inner span { display: flex; align-items: center; gap: 8px; }
+.lp-trust-inner .trust-dot { color: var(--accent); }
+@media (max-width: 480px) { .lp-trust-inner { gap: 16px; font-size: 13px; } }
+
+/* What's Included */
+.lp-included { background: var(--bg-primary); }
+.lp-included h2 {
+  font-size: clamp(28px, 3.5vw, 40px);
+  text-align: center; margin-bottom: 48px;
+}
+
+/* Who It's For */
+.lp-who { background: var(--bg-secondary); }
+.lp-who h2 {
+  font-size: clamp(28px, 3.5vw, 40px);
+  text-align: center; margin-bottom: 48px;
+}
+.lp-who-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+}
+@media (max-width: 768px) { .lp-who-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .lp-who-grid { grid-template-columns: 1fr; } }
+.lp-who-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.lp-who-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+.lp-who-icon {
+  font-size: 36px; margin-bottom: 16px;
+}
+.lp-who-card h3 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 18px; font-weight: 700;
+  margin-bottom: 8px;
+}
+.lp-who-card p {
+  font-size: 15px; line-height: 1.6; color: var(--text-light);
+}
+
+/* Tiers Summary */
+.lp-tiers { background: var(--bg-primary); }
+.lp-tiers h2 {
+  font-size: clamp(28px, 3.5vw, 40px);
+  text-align: center; margin-bottom: 16px;
+}
+.lp-tiers > .container > p.lp-tiers-sub {
+  text-align: center; font-size: 17px;
+  color: var(--text-light); max-width: 520px;
+  margin: 0 auto 48px;
+}
+.lp-tiers-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+}
+@media (max-width: 900px) { .lp-tiers-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .lp-tiers-grid { grid-template-columns: 1fr; } }
+.lp-tier-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px 24px;
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.lp-tier-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+.lp-tier-name {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 18px; font-weight: 700;
+  color: var(--text-heading);
+  margin-bottom: 8px;
+}
+.lp-tier-price {
+  font-family: 'DM Serif Display', serif;
+  font-size: 32px; color: var(--accent);
+  margin-bottom: 4px;
+}
+.lp-tier-price span {
+  font-size: 15px; color: var(--text-light);
+  font-family: 'DM Sans', sans-serif;
+}
+.lp-tier-hours {
+  font-size: 14px; color: var(--text-light);
+  margin-bottom: 16px;
+}
+.lp-tier-features {
+  list-style: none; text-align: left;
+}
+.lp-tier-features li {
+  display: flex; align-items: flex-start; gap: 8px;
+  font-size: 14px; line-height: 1.5; padding: 4px 0;
+}
+.lp-tier-features li .feat-icon {
+  color: var(--accent); font-weight: 700; flex-shrink: 0;
+}
+.lp-tiers-cta {
+  text-align: center; margin-top: 40px;
+}
+
+/* Permits */
+.lp-permits { background: var(--bg-secondary); }
+.lp-permits-inner {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+  align-items: center;
+}
+@media (max-width: 768px) { .lp-permits-inner { grid-template-columns: 1fr; gap: 32px; } }
+.lp-permits h2 {
+  font-size: clamp(28px, 3.5vw, 38px);
+  margin-bottom: 20px;
+}
+.lp-permits p {
+  font-size: 17px; line-height: 1.75; margin-bottom: 16px;
+}
+.lp-permit-list {
+  list-style: none;
+}
+.lp-permit-list li {
+  display: flex; align-items: flex-start; gap: 12px;
+  font-size: 16px; line-height: 1.6; padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+.lp-permit-list li:last-child { border-bottom: none; }
+
+/* Stats */
+.stats { background: var(--bg-primary); padding: 64px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; text-align: center; }
+@media (max-width: 768px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+.stat-number { font-family: 'DM Serif Display', serif; font-size: clamp(36px, 4vw, 48px); color: var(--accent); line-height: 1; margin-bottom: 8px; }
+.stat-label { font-size: 14px; font-weight: 500; color: var(--text-light); }
+
+/* Social Proof */
+.lp-proof { background: var(--bg-primary); }
+.lp-proof h2 {
+  font-size: clamp(28px, 3.5vw, 40px);
+  text-align: center; margin-bottom: 48px;
+}
+.lp-testimonial {
+  max-width: 640px; margin: 0 auto; text-align: center;
+}
+.lp-testimonial blockquote {
+  font-size: 20px; font-style: italic;
+  color: var(--text-heading); line-height: 1.7;
+  margin-bottom: 16px;
+}
+.lp-testimonial .caption {
+  font-size: 15px; color: var(--text-light);
+}
+
+/* Dual CTA */
+.lp-dual-cta {
+  text-align: center; padding: 64px 0;
+  background: var(--bg-primary);
+  border-top: 1px solid var(--border);
+}
+.lp-dual-cta h2 {
+  font-size: clamp(24px, 3vw, 34px);
+  margin-bottom: 16px;
+}
+.lp-dual-cta p {
+  font-size: 17px; max-width: 520px;
+  margin: 0 auto 28px; line-height: 1.7;
+  color: var(--text-body);
+}
+.lp-dual-cta-buttons {
+  display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+}
+
+/* FAQ */
+.lp-faq { background: var(--bg-secondary); }
+.lp-faq h2 {
+  font-size: clamp(28px, 3.5vw, 40px);
+  text-align: center; margin-bottom: 48px;
+}
