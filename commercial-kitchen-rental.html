@@ -138,7 +138,14 @@
   }
   @media (max-width: 768px) {
     .lp-hero-image { max-height: none; }
-    .lp-hero-overlay { padding: 36px 20px 28px; }
+    /* On mobile the square ad image already says "BATCH 001 STARTS HERE." —
+       pull the overlay out from on top of the image so the ad typography
+       reads clean, and stack copy + CTA on a solid dark panel below. */
+    .lp-hero-overlay {
+      position: static;
+      padding: 28px 20px 32px;
+      background: #1a1410;
+    }
     .lp-hero-overlay p { font-size: 15px; margin-bottom: 18px; }
     .lp-hero-buttons .btn { width: 100%; max-width: 320px; text-align: center; }
   }
