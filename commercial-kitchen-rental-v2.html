@@ -143,37 +143,6 @@
     .lp-hero-buttons .btn { width: 100%; max-width: 320px; text-align: center; }
   }
 
-  /* Photo strip */
-  .lp-photos { background: var(--bg-primary); padding: 0; }
-  .lp-photos-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2px;
-  }
-  .lp-photo-item {
-    position: relative;
-    aspect-ratio: 4/5;
-    overflow: hidden;
-    background: #222;
-  }
-  .lp-photo-item img {
-    width: 100%; height: 100%; object-fit: cover;
-    display: block;
-    transition: transform 0.6s ease;
-  }
-  .lp-photo-item:hover img { transform: scale(1.04); }
-  .lp-photo-caption {
-    position: absolute; bottom: 0; left: 0; right: 0;
-    padding: 16px 18px;
-    background: linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0));
-    color: var(--white);
-    font-size: 14px; font-weight: 500;
-    letter-spacing: 0.2px;
-  }
-  @media (max-width: 768px) {
-    .lp-photos-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-
   /* What a tour is */
   .lp-tour { background: var(--bg-secondary); }
   .lp-tour h2 {
@@ -321,28 +290,6 @@
   </div>
 </div>
 
-<!-- ===== PHOTO STRIP ===== -->
-<section class="lp-photos">
-  <div class="lp-photos-grid">
-    <div class="lp-photo-item">
-      <img src="assets/images/exterior-front-door.jpg" alt="Exterior entrance to Sincerely Kitchen" loading="lazy">
-      <div class="lp-photo-caption">The front door &mdash; 1140-551 Sherling Pl.</div>
-    </div>
-    <div class="lp-photo-item">
-      <img src="assets/images/kitchen-wide.jpg" alt="Overview of the commercial kitchen floor" loading="lazy">
-      <div class="lp-photo-caption">The full kitchen floor</div>
-    </div>
-    <div class="lp-photo-item">
-      <img src="assets/images/dee-working.jpg" alt="Member working at a prep station" loading="lazy">
-      <div class="lp-photo-caption">A member producing on-site</div>
-    </div>
-    <div class="lp-photo-item">
-      <img src="assets/images/maria-at-sink.jpg" alt="Commercial 3-compartment sink in use" loading="lazy">
-      <div class="lp-photo-caption">Fraser-Health-approved wash station</div>
-    </div>
-  </div>
-</section>
-
 <!-- ===== PERMIT ASSISTANCE (moved up — unique differentiator) ===== -->
 <section class="lp-permits section-pad">
   <div class="container">
@@ -385,18 +332,10 @@
   <div class="container">
     <h2 class="reveal">Everything you need to produce &mdash; included</h2>
     <div class="included-grid reveal">
-      <div class="included-item"><span class="included-check">&#10003;</span><span>Licensed commercial kitchen space</span></div>
-      <div class="included-item"><span class="included-check">&#10003;</span><span>Commercial convection ovens</span></div>
-      <div class="included-item"><span class="included-check">&#10003;</span><span>Prep stations with stainless steel surfaces</span></div>
-      <div class="included-item"><span class="included-check">&#10003;</span><span>Induction burners</span></div>
-      <div class="included-item"><span class="included-check">&#10003;</span><span>Dry and cold storage</span></div>
-      <div class="included-item"><span class="included-check">&#10003;</span><span>24/7 access &mdash; flexible scheduling</span></div>
-      <div class="included-item"><span class="included-check">&#10003;</span><span>Free on-site parking</span></div>
-      <div class="included-item"><span class="included-check">&#10003;</span><span>All utilities (electricity, water, gas)</span></div>
-      <div class="included-item"><span class="included-check">&#10003;</span><span>Building insurance on the facility</span></div>
-      <div class="included-item"><span class="included-check">&#10003;</span><span>Kitchen cleaning &amp; maintenance</span></div>
-      <div class="included-item"><span class="included-check">&#10003;</span><span>Free permit assistance</span></div>
-      <div class="included-item"><span class="included-check">&#10003;</span><span>Community of 200+ food entrepreneurs</span></div>
+      <div class="included-item"><span class="included-check">&#10003;</span><span>Free permit assistance (Fraser Health + City of Port Coquitlam)</span></div>
+      <div class="included-item"><span class="included-check">&#10003;</span><span>Licensed commercial kitchen with convection ovens, burners &amp; prep stations</span></div>
+      <div class="included-item"><span class="included-check">&#10003;</span><span>Dry and cold storage for your ingredients and finished product</span></div>
+      <div class="included-item"><span class="included-check">&#10003;</span><span>24/7 access &mdash; book the hours that fit your schedule</span></div>
     </div>
   </div>
 </section>
