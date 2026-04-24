@@ -30,6 +30,9 @@
 @media (max-width: 768px) {
   .lp-hero { min-height: 70vh; }
   .lp-hero-content { padding: 40px 0; }
+  .lp-hero p { font-size: 16px; }
+  .lp-hero-buttons { flex-direction: column; }
+  .lp-hero-buttons .btn { width: 100%; text-align: center; }
 }
 
 /* Trust Strip */
@@ -44,7 +47,11 @@
 }
 .lp-trust-inner span { display: flex; align-items: center; gap: 8px; }
 .lp-trust-inner .trust-dot { color: var(--accent); }
-@media (max-width: 480px) { .lp-trust-inner { gap: 16px; font-size: 13px; } }
+@media (max-width: 768px) {
+  .lp-trust { padding: 16px 24px; }
+  .lp-trust-inner { gap: 8px 24px; font-size: 13px; justify-content: flex-start; }
+}
+@media (max-width: 480px) { .lp-trust-inner { gap: 6px 20px; font-size: 12px; } }
 
 /* What's Included */
 .lp-included { background: var(--bg-primary); }
@@ -63,7 +70,7 @@
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
 }
 @media (max-width: 768px) { .lp-who-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 480px) { .lp-who-grid { grid-template-columns: 1fr; } }
+@media (max-width: 480px) { .lp-who-grid { grid-template-columns: 1fr; gap: 16px; } }
 .lp-who-card {
   background: var(--white);
   border: 1px solid var(--border);
@@ -74,6 +81,7 @@
   transition: box-shadow 0.3s, transform 0.3s;
 }
 .lp-who-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+@media (max-width: 480px) { .lp-who-card { padding: 24px 20px; } }
 .lp-who-icon {
   font-size: 36px; margin-bottom: 16px;
 }
@@ -112,6 +120,7 @@
   transition: box-shadow 0.3s, transform 0.3s;
 }
 .lp-tier-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+@media (max-width: 480px) { .lp-tier-card { padding: 24px 20px; } }
 .lp-tier-name {
   font-family: 'DM Sans', sans-serif;
   font-size: 18px; font-weight: 700;
@@ -151,7 +160,11 @@
   display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
   align-items: center;
 }
-@media (max-width: 768px) { .lp-permits-inner { grid-template-columns: 1fr; gap: 32px; } }
+@media (max-width: 768px) {
+  .lp-permits-inner { grid-template-columns: 1fr; gap: 32px; }
+  .lp-permits p { font-size: 16px; }
+  .lp-permit-list li { font-size: 15px; }
+}
 .lp-permits h2 {
   font-size: clamp(28px, 3.5vw, 38px);
   margin-bottom: 20px;
@@ -175,6 +188,7 @@
 @media (max-width: 768px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
 .stat-number { font-family: 'DM Serif Display', serif; font-size: clamp(36px, 4vw, 48px); color: var(--accent); line-height: 1; margin-bottom: 8px; }
 .stat-label { font-size: 14px; font-weight: 500; color: var(--text-light); }
+@media (max-width: 480px) { .stats { padding: 48px 0; } .stats-grid { gap: 24px; } }
 
 /* Social Proof */
 .lp-proof { background: var(--bg-primary); }
@@ -192,6 +206,10 @@
 }
 .lp-testimonial .caption {
   font-size: 15px; color: var(--text-light);
+}
+@media (max-width: 768px) {
+  .lp-testimonial blockquote { font-size: 17px; }
+  .lp-testimonial .caption { font-size: 14px; }
 }
 
 /* Dual CTA */
@@ -211,6 +229,11 @@
 }
 .lp-dual-cta-buttons {
   display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+}
+@media (max-width: 480px) {
+  .lp-dual-cta { padding: 48px 0; }
+  .lp-dual-cta-buttons { flex-direction: column; }
+  .lp-dual-cta-buttons .btn { width: 100%; }
 }
 
 /* FAQ */
