@@ -42,6 +42,20 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
 
+    // Incubator info session reservation clicks (Calendly outbound)
+    // Fires on any link to the info-session Calendly page — used as the
+    // primary conversion signal for the IG paid traffic on /incubator-cohort.html.
+    // Click = strong intent (Lead). Actual scheduling completion would require a
+    // Calendly webhook + Conversions API (option B) — TODO if optimization needs it.
+    if (href.includes('calendly.com/maria-organicoslife/incubator-info-session')) {
+      if (typeof fbq === 'function') {
+        fbq('track', 'Lead', {
+          content_name: 'Incubator Info Session Reservation Click',
+          content_category: 'Incubator'
+        });
+      }
+    }
+
     // Phone call clicks
     if (href.startsWith('tel:')) {
       gtag('event', 'conversion', {
