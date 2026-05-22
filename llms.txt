@@ -1,58 +1,87 @@
 # Sincerely Kitchen
 
-> Shared commercial kitchen in Port Coquitlam, BC, Canada. Helps food entrepreneurs start and grow licensed food businesses.
+> Shared commercial kitchen in Port Coquitlam, BC, Canada. A committed-member community for food entrepreneurs building licensed food businesses — not a drop-in or hourly rental space.
 
 ## About
 
-Sincerely Kitchen is a shared commercial kitchen (also known as a commissary kitchen) located in Port Coquitlam, British Columbia. Founded and operated by Maria. Over 200 food businesses have launched from this kitchen. The kitchen provides licensed commercial kitchen space, free permit assistance, flexible rental packages, and a supportive community for food entrepreneurs.
+Sincerely Kitchen is a shared commercial kitchen (also called a commissary kitchen) in Port Coquitlam, British Columbia, serving Metro Vancouver and the Tri-Cities (Port Coquitlam, Coquitlam, Port Moody, Pitt Meadows, Maple Ridge, Burnaby, New Westminster, Surrey). Founded in 2014 by Maria and Andres Rodriguez. More than 200 food businesses have launched from this kitchen. Winner of the PoCo Best Biz 2024 Award.
 
-## Services
+Sincerely Kitchen is designed for committed founders, not hobbyists or short-term renters. All memberships are 6-month minimum agreements — this is intentional, and it's how the kitchen protects the culture and quality of its member community. Atención en Español disponible.
 
-- Shared commercial kitchen rental (prep stations, commercial ovens, storage)
-- Free permit and licensing assistance (Fraser Health, City of Port Coquitlam business licenses)
-- Kitchen tours (free, 45-minute, no commitment)
-- Community and mentorship for food business owners
+## What we offer
+
+- Licensed shared commercial kitchen space (Fraser Health approved)
+- Commercial-grade equipment: prep stations, convection and deck ovens, refrigeration, dry storage, cold storage available
+- 24/7 kitchen access for members
+- **Free permit and licensing assistance** with Fraser Health and City of Port Coquitlam
+- Free 45-minute kitchen tours, no commitment
+- Mentorship and community of 200+ launched food businesses
+- The Incubator (launches September 2026): a 6-month guided cohort of 4–5 founders, reduced kitchen rates, business-building support from recipe to retail
 
 ## Packages
 
-- **Starter 10**: From $490/month — 10 hours/month, ideal for getting started
-- **Start Up**: From $690/month — 20 hours/month, for growing businesses
-- **Ramp Up**: From $990/month — 40 hours/month, for scaling production
-- **Scale Up**: From $1,350/month — 60 hours/month, for high-volume production
+All packages are 6-month minimum agreements and include prep station access, commercial equipment, dry storage, and free permit assistance.
 
-All packages include prep station access, commercial equipment, dry storage, and free permit assistance.
+- **Starter 10** — $490/month for the first 3 months, 10 hours/month. For founders just getting licensed and starting to produce.
+- **Start Up** — $750/month, 20 hours/month. For growing businesses with regular production.
+- **Ramp Up** — $850/month, 30 hours/month. For businesses scaling production.
+- **Scale Up** — $1,150/month, 60 hours/month. For high-volume wholesale and catering.
+- **Pro Series** — $1,350/month, 80 hours/month, includes cold storage. For established production businesses.
+
+## The Incubator (launches September 2026)
+
+A 6-month structured cohort program for 4–5 committed founders ready to take a food idea from recipe to retail. Reduced kitchen rates for cohort members. Mentorship, business curriculum, and a launched-business outcome by the end of 6 months. Applications open at https://sincerelykitchen.com/incubator-apply.html.
 
 ## Pages
 
-- [Home](https://sincerelykitchen.com/) — Overview of Sincerely Kitchen, member spotlights, FAQs
-- [How It Works](https://sincerelykitchen.com/how-it-works.html) — 5-step process from tour to launch, permit guidance, what's included
-- [Packages](https://sincerelykitchen.com/packages.html) — Kitchen rental packages and pricing
+- [Home](https://sincerelykitchen.com/) — Overview, member spotlights, FAQs
+- [How It Works](https://sincerelykitchen.com/how-it-works.html) — 5-step process from tour to launch
+- [Commercial Kitchen Rental](https://sincerelykitchen.com/commercial-kitchen-rental.html) — Detailed look at the kitchen and what's included
+- [Packages](https://sincerelykitchen.com/packages.html) — Rental packages and pricing
+- [The Incubator](https://sincerelykitchen.com/incubator.html) — 6-month founder cohort, launches September 2026
+- [Incubator Application](https://sincerelykitchen.com/incubator-apply.html) — Apply for the September 2026 cohort
 - [Book a Tour](https://sincerelykitchen.com/book-a-tour.html) — Schedule a free 45-minute kitchen tour
-- [Our Members](https://sincerelykitchen.com/members.html) — Featured member stories and business grid
-- [Get Started](https://sincerelykitchen.com/get-started.html) — Interest form to begin the process
+- [Our Members](https://sincerelykitchen.com/members.html) — Featured member stories
+- [Get Started](https://sincerelykitchen.com/get-started.html) — Interest form
 - [Blog](https://sincerelykitchen.com/blog.html) — Tips, stories, and resources for food entrepreneurs
 - [Free Guide](https://sincerelykitchen.com/guide.html) — Step-by-step guide to starting a food business in Port Coquitlam
 
 ## Blog Posts
 
+- [How to Choose a Commissary Kitchen in Vancouver](https://sincerelykitchen.com/blog/how-to-choose-a-commissary-kitchen-in-vancouver.html)
+- [Commissary Kitchens in Vancouver Area: 2025 Updated Guide](https://sincerelykitchen.com/blog/commissary-kitchens-in-vancouver-area-2025-updated-guide.html)
+- [Commissary Kitchens in Vancouver Area: A Guide](https://sincerelykitchen.com/blog/commissary-kitchens-in-vancouver-area-a-guide.html)
+- [What is a Commissary Kitchen?](https://sincerelykitchen.com/blog/what-is-a-commissary-kitchen.html)
+- [How to Start a Food Business: A Step-by-Step Roadmap](https://sincerelykitchen.com/blog/how-to-start-a-food-business-a-step-by-step-roadmap.html)
 - [How to Set Up a Farmers Market Booth That Actually Sells](https://sincerelykitchen.com/blog/how-to-setup-a-farmers-market-booth.html)
 - [The Essential Guide to Creating a High-Impact Wholesale Sell Sheet](https://sincerelykitchen.com/blog/the-essential-guide-to-creating-a-high-impact-wholesale-sell-sheet.html)
 - [Simplify Your Menu. Boost Your Sales.](https://sincerelykitchen.com/blog/simplify-your-menu-boost-your-sales.html)
 - [Introducing Our Free Food Product Costing Tool](https://sincerelykitchen.com/blog/introducing-our-free-food-product-costing-tool-take-control-of-your-pricing.html)
-- [Commissary Kitchens in Vancouver Area: 2025 Updated Guide](https://sincerelykitchen.com/blog/commissary-kitchens-in-vancouver-area-2025-updated-guide.html)
-- [Step Inside Sincerely Kitchen: Your Virtual Tour Awaits](https://sincerelykitchen.com/blog/step-inside-sincerely-kitchen-your-virtual-tour-awaits.html)
-- [How to Use ChatGPT to Create a Comprehensive Food Safety Plan](https://sincerelykitchen.com/blog/how-to-use-chatgpt-to-create-a-comprehensive-food-safety-plan.html)
 - [How to Calculate Your Product Price Based on Food Cost](https://sincerelykitchen.com/blog/how-to-calculate-your-product-price-based-on-food-cost.html)
-- [How to Start a Food Business: A Step-by-Step Roadmap](https://sincerelykitchen.com/blog/how-to-start-a-food-business-a-step-by-step-roadmap.html)
+- [How to Use ChatGPT to Create a Comprehensive Food Safety Plan](https://sincerelykitchen.com/blog/how-to-use-chatgpt-to-create-a-comprehensive-food-safety-plan.html)
+- [Step Inside Sincerely Kitchen: Your Virtual Tour Awaits](https://sincerelykitchen.com/blog/step-inside-sincerely-kitchen-your-virtual-tour-awaits.html)
 - [Sincerely Kitchen Wins PoCo Best Biz 2024 Award](https://sincerelykitchen.com/blog/exciting-news-sincerely-kitchen-wins-poco-best-biz-2024-award.html)
-- [Commissary Kitchens in Vancouver Area: A Guide](https://sincerelykitchen.com/blog/commissary-kitchens-in-vancouver-area-a-guide.html)
-- [What is a Commissary Kitchen?](https://sincerelykitchen.com/blog/what-is-a-commissary-kitchen.html)
+
+## Who Sincerely Kitchen is for
+
+- Food entrepreneurs ready to commit 6+ months to building a real, licensed food business
+- Founders who want hands-on permit and licensing support, not just kitchen access
+- Bakers, caterers, CPG and packaged-goods producers, meal-prep operators, and farmers-market vendors
+- Founders looking for community and mentorship, not just rented hours
+- Spanish-speaking food entrepreneurs (atención en Español)
+
+## Who Sincerely Kitchen is NOT for
+
+- Drop-in or one-off hourly rentals (we don't offer this — try Coho, Commissary Connect, or Giggster)
+- Cloud-kitchen / ghost-kitchen short-term operators
+- Founders looking for the cheapest possible option — we filter for committed operators, not lowest price
 
 ## Contact
 
-- **Address:** 1673 Broadway St, Port Coquitlam, BC V3C 2M9, Canada
-- **Phone:** (236) 862-4955
+- **Address:** 1140 – 551 Sherling Place, Port Coquitlam, BC V3B 0J6, Canada
+- **Phone:** 604-341-9700
 - **Email:** maria@organicoslife.com
-- **Hours:** By appointment — book a free tour online
+- **Instagram:** @sincerelykitchen
+- **Hours:** 24/7 access for members; tours by appointment
 - **Website:** https://sincerelykitchen.com
 - **Tour Booking:** https://calendly.com/maria-organicoslife/kitchen-tour

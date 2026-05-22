@@ -37,6 +37,14 @@
     <loc>https://sincerelykitchen.com/commercial-kitchen-rental.html</loc>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://sincerelykitchen.com/incubator.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sincerelykitchen.com/incubator-apply.html</loc>
+    <priority>0.7</priority>
+  </url>
 
   <!-- Blog posts -->
   <url>
@@ -85,6 +93,10 @@
   </url>
   <url>
     <loc>https://sincerelykitchen.com/blog/what-is-a-commissary-kitchen.html</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sincerelykitchen.com/blog/how-to-choose-a-commissary-kitchen-in-vancouver.html</loc>
     <priority>0.6</priority>
   </url>
 </urlset>
