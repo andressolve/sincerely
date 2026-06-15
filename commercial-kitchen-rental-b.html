@@ -29,35 +29,78 @@
 <!-- End Meta Pixel Code -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>200 Food Businesses Started Here — Commercial Kitchen Rental | Sincerely Kitchen</title>
-<meta name="description" content="A licensed commercial kitchen where 200+ food businesses got their start. Memberships from $490/mo. Free permit assistance. Book a free 45-minute tour.">
-<link rel="canonical" href="https://sincerelykitchen.com/commercial-kitchen-rental-b.html">
-<meta property="og:title" content="200 Food Businesses Started Here — Commercial Kitchen Rental | Sincerely Kitchen">
-<meta property="og:description" content="A licensed commercial kitchen. Memberships from $490/mo.">
+<title>Your Kitchen Is Open — Commercial Kitchen Rental | Sincerely Kitchen</title>
+<meta name="description" content="A licensed commercial kitchen in Port Coquitlam, open 24/7. Memberships from $490/mo. Free Fraser Health permit assistance. Book a free 45-minute tour.">
+<link rel="canonical" href="https://sincerelykitchen.com/commercial-kitchen-rental.html">
+<meta property="og:title" content="Your Kitchen Is Open — Commercial Kitchen Rental | Sincerely Kitchen">
+<meta property="og:description" content="A licensed commercial kitchen in Port Coquitlam, open 24/7. Memberships from $490/mo.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://sincerelykitchen.com/commercial-kitchen-rental-b.html">
-<meta property="og:image" content="https://sincerelykitchen.com/assets/images/hero-batch001-wide.jpg">
+<meta property="og:url" content="https://sincerelykitchen.com/commercial-kitchen-rental.html">
+<meta property="og:image" content="https://sincerelykitchen.com/assets/images/founder-bake.jpg">
 <meta property="og:site_name" content="Sincerely Kitchen">
 <meta property="og:locale" content="en_CA">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="200 Food Businesses Started Here — Commercial Kitchen Rental | Sincerely Kitchen">
-<meta name="twitter:description" content="A licensed commercial kitchen. Memberships from $490/mo.">
-<meta name="twitter:image" content="https://sincerelykitchen.com/assets/images/hero-batch001-wide.jpg">
+<meta name="twitter:title" content="Your Kitchen Is Open — Commercial Kitchen Rental | Sincerely Kitchen">
+<meta name="twitter:description" content="A licensed commercial kitchen in Port Coquitlam, open 24/7. Memberships from $490/mo.">
+<meta name="twitter:image" content="https://sincerelykitchen.com/assets/images/founder-bake.jpg">
 <link rel="icon" type="image/png" sizes="32x32" href="https://sincerelykitchen.com/assets/images/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="https://sincerelykitchen.com/assets/images/favicon-192.png">
 <link rel="apple-touch-icon" href="https://sincerelykitchen.com/assets/images/apple-touch-icon.png">
 <link rel="stylesheet" href="https://sincerelykitchen.com/styles.css">
 <link rel="stylesheet" href="https://sincerelykitchen.com/commercial-kitchen-rental.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 <script src="https://sincerelykitchen.com/main.js" defer></script>
 <noscript><style>.reveal,.fade-up{opacity:1 !important;transform:none !important;}</style></noscript>
 <style>
-  /* ===== LP v3 — IG-mindset condensation (Variant B) ===== */
+  /* =================================================================
+     LP v4 — "The kitchen, after hours."
+     Dark/tungsten ad-continuation. The page is the ad come alive:
+     same warm near-black world, same cream brush lettering, same
+     uppercase label system the creative uses.
+     Boldness spent in ONE place: the brush-script signature line.
+     ================================================================= */
 
-  /* Minimal nav for paid LP */
+  :root {
+    --lp-ink:    #14100B;   /* warm near-black — the kitchen in shadow */
+    --lp-ink-2:  #1C160F;   /* lifted panel */
+    --lp-ink-3:  #241C13;   /* hairline-lit surface */
+    --lp-cream:  #F4E9D2;   /* the brush lettering cream */
+    --lp-muted:  rgba(244,233,210,0.62);
+    --lp-faint:  rgba(244,233,210,0.40);
+    --lp-amber:  #E0A45A;   /* tungsten oven glow */
+    --lp-line:   rgba(244,233,210,0.14);
+  }
+
+  /* Page-level dark wash (scoped to this LP only) */
+  body {
+    background: var(--lp-ink);
+    color: var(--lp-cream);
+  }
+
+  /* ---- Signature button: warm bone on dark ---- */
+  .btn-white,
+  .lp-sticky-cta .btn-primary {
+    background: var(--lp-cream);
+    color: #1a130a;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+  }
+  .btn-white:hover,
+  .lp-sticky-cta .btn-primary:hover {
+    background: #FFF6E4;
+    transform: translateY(-2px);
+  }
+
+  /* ===================== NAV ===================== */
   .lp-nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: var(--white);
-    border-bottom: 1px solid var(--border);
+    background: rgba(20,16,11,0.72);
+    backdrop-filter: saturate(140%) blur(10px);
+    -webkit-backdrop-filter: saturate(140%) blur(10px);
+    border-bottom: 1px solid var(--lp-line);
     height: 64px;
   }
   .lp-nav-inner {
@@ -65,174 +108,232 @@
     padding: 0 24px; height: 100%;
     display: flex; align-items: center; justify-content: space-between;
   }
-  .lp-nav-logo img { height: 36px; display: block; }
+  .lp-nav-logo img { height: 34px; display: block; filter: brightness(0) invert(1); opacity: 0.92; }
   .lp-nav-right { display: flex; align-items: center; gap: 20px; }
   .lp-nav-phone {
     font-size: 15px; font-weight: 600;
-    color: var(--text-heading); text-decoration: none;
+    color: var(--lp-cream); text-decoration: none;
     white-space: nowrap;
   }
-  .lp-nav-phone:hover { color: var(--accent); }
+  .lp-nav-phone:hover { color: var(--lp-amber); }
+  .lp-nav .btn-white { box-shadow: none; }
   @media (max-width: 480px) {
     .lp-nav-right { gap: 12px; }
     .lp-nav-phone { font-size: 14px; }
     .lp-nav-inner { padding: 0 16px; }
-    .lp-nav-logo img { height: 30px; }
+    .lp-nav-logo img { height: 28px; }
   }
-  @media (max-width: 360px) {
-    .lp-nav-phone { display: none; }
+  @media (max-width: 360px) { .lp-nav-phone { display: none; } }
+
+  /* Shared label primitive — the ad's uppercase caption system */
+  .lp-eyebrow {
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.20em;
+    color: var(--lp-amber);
+    margin: 0 0 18px;
   }
 
-  /* Hero — ad-echo: image carries mood, prose carries the claim. Variant B = no subhead */
+  /* ===================== HERO ===================== */
   .lp-hero {
     position: relative;
-    margin-top: 64px;
-    background: #1a1410;
+    margin-top: 0;
+    min-height: 100svh;
+    display: flex; align-items: flex-end;
+    background-image:
+      linear-gradient(180deg, rgba(20,16,11,0.55) 0%, rgba(20,16,11,0.12) 32%, rgba(20,16,11,0.55) 64%, rgba(20,16,11,0.97) 100%),
+      url('https://sincerelykitchen.com/assets/images/founder-bake.jpg');
+    background-size: cover;
+    background-position: 64% center;
     overflow: hidden;
   }
-  .lp-hero-image {
-    width: 100%; height: auto; display: block;
-  }
   .lp-hero-text {
-    text-align: center;
-    padding: 36px 24px 44px;
-    background: #1a1410;
-    color: var(--white);
+    position: relative; z-index: 2;
+    width: 100%;
+    max-width: 1100px; margin: 0 auto;
+    padding: 0 24px 56px;
+    text-align: left;
   }
   .lp-hero-text h1 {
-    font-size: clamp(32px, 5vw, 52px);
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    line-height: 1.05;
+    font-family: 'Anton', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: clamp(52px, 15vw, 104px);
+    line-height: 0.92;
+    letter-spacing: 0.01em;
+    color: var(--lp-cream);
+    margin: 0 0 18px;
+    text-shadow: 0 2px 30px rgba(0,0,0,0.55);
+  }
+  .lp-hero-sub {
+    font-size: 16.5px; line-height: 1.5;
+    color: var(--lp-cream);
+    max-width: 30ch;
     margin: 0 0 26px;
-    color: var(--white);
   }
-  .lp-hero-cta .btn {
-    min-width: 240px;
+  .lp-hero-cta { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+  .lp-hero-cta .btn { min-width: 250px; text-align: center; }
+  .lp-hero-micro {
+    font-size: 12.5px; font-weight: 600; letter-spacing: 0.04em;
+    color: var(--lp-faint); text-transform: uppercase;
   }
-  @media (max-width: 768px) {
-    .lp-hero-text { padding: 28px 20px 32px; }
-    .lp-hero-text h1 { font-size: 30px; margin-bottom: 22px; }
-    .lp-hero-cta .btn { width: 100%; max-width: 320px; }
+  @media (min-width: 769px) {
+    .lp-hero { min-height: 92vh; }
+    .lp-hero-text { padding-bottom: 72px; }
+    .lp-hero-sub { font-size: 18px; }
   }
 
-  /* Founder-moment strip — emotional pull, not equipment catalog */
+  /* ===================== TRUST STRIP ===================== */
+  .lp-trust {
+    background: var(--lp-ink-2);
+    border-top: 1px solid var(--lp-line);
+    border-bottom: 1px solid var(--lp-line);
+    padding: 16px 24px;
+  }
+  .lp-trust-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; flex-wrap: wrap; gap: 10px 28px;
+    justify-content: center;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.02em;
+    color: var(--lp-muted);
+  }
+  .lp-trust-inner span { display: inline-flex; align-items: center; gap: 8px; }
+  .lp-trust-inner .trust-dot { color: var(--lp-amber); }
+  @media (max-width: 480px) {
+    .lp-trust-inner { gap: 8px 20px; font-size: 12px; justify-content: flex-start; }
+  }
+
+  /* ===================== SPEC PLATE (proof) ===================== */
+  /* Replaces the generic 3 big-number pillars. Reads like the spec
+     plate riveted to a piece of commercial equipment: kicker on top,
+     value below, hairline-divided. */
+  .lp-spec { padding: 64px 24px; background: var(--lp-ink); }
+  .lp-spec-inner { max-width: 1000px; margin: 0 auto; }
+  .lp-spec-head {
+    text-align: center; margin: 0 0 34px;
+  }
+  .lp-spec-head .lp-eyebrow { margin-bottom: 0; }
+  .lp-spec-plate {
+    border: 1px solid var(--lp-line);
+    border-radius: 4px;
+    background: linear-gradient(180deg, var(--lp-ink-3), var(--lp-ink-2));
+    display: grid; grid-template-columns: 1fr;
+  }
+  .lp-spec-item {
+    padding: 30px 28px;
+    border-bottom: 1px solid var(--lp-line);
+  }
+  .lp-spec-item:last-child { border-bottom: none; }
+  .lp-spec-kicker {
+    font-size: 11.5px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.16em;
+    color: var(--lp-amber);
+    margin: 0 0 8px;
+  }
+  .lp-spec-value {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 800;
+    font-size: clamp(42px, 11vw, 60px);
+    line-height: 1;
+    color: var(--lp-cream);
+    letter-spacing: -0.02em;
+    margin: 0 0 10px;
+  }
+  .lp-spec-value small { font-size: 0.42em; font-weight: 700; letter-spacing: 0; color: var(--lp-muted); margin-left: 2px; }
+  .lp-spec-line { font-size: 14.5px; line-height: 1.5; color: var(--lp-muted); margin: 0; max-width: 46ch; }
+  .lp-spec-link {
+    display: inline-block; margin-top: 12px;
+    font-size: 14px; font-weight: 700;
+    color: var(--lp-amber); text-decoration: none;
+  }
+  .lp-spec-link:hover { text-decoration: underline; }
+  @media (min-width: 720px) {
+    .lp-spec-plate { grid-template-columns: repeat(3, 1fr); }
+    .lp-spec-item { border-bottom: none; border-right: 1px solid var(--lp-line); }
+    .lp-spec-item:last-child { border-right: none; }
+  }
+
+  /* ===================== PHOTO BAND ===================== */
+  .lp-band-label {
+    text-align: center; padding: 8px 24px 0; background: var(--lp-ink);
+  }
   .lp-founder-strip {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 4px;
-    margin: 0;
-    background: #1a1410;
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 4px; margin: 0; padding: 18px 0 0; background: var(--lp-ink);
   }
   .lp-founder-strip img {
-    width: 100%; aspect-ratio: 1/1;
-    object-fit: cover; display: block;
+    width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block;
+    filter: saturate(0.96) brightness(0.92);
   }
-  @media (max-width: 640px) {
-    .lp-founder-strip { grid-template-columns: 1fr; }
-  }
+  @media (max-width: 640px) { .lp-founder-strip { grid-template-columns: 1fr; } }
 
-  /* Editorial pillars — big-number anchors, not a feature checklist */
-  .lp-pillars { padding: 72px 20px; background: var(--white); }
-  .lp-pillars-grid {
-    max-width: 1080px; margin: 0 auto;
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 48px;
-  }
-  .lp-pillar { text-align: center; }
-  .lp-pillar-num {
-    font-family: 'DM Serif Display', Georgia, serif;
-    font-size: clamp(56px, 8vw, 88px);
-    font-weight: 400; line-height: 1;
-    color: var(--accent, #C45824);
-    margin-bottom: 14px;
-    letter-spacing: -0.02em;
-  }
-  .lp-pillar-head {
-    font-size: clamp(18px, 2vw, 22px);
-    font-weight: 700; line-height: 1.25;
-    color: var(--text-heading);
-    margin: 0 0 8px;
-    letter-spacing: -0.01em;
-  }
-  .lp-pillar-sub {
-    font-size: 15px; line-height: 1.5;
-    color: var(--text-light);
-    margin: 0 auto;
-    max-width: 280px;
-  }
-  .lp-pillar-link {
-    display: inline-block; margin-top: 12px;
-    font-size: 14px; font-weight: 600;
-    color: var(--accent, #C45824);
-    text-decoration: none;
-  }
-  .lp-pillar-link:hover { text-decoration: underline; }
-  @media (max-width: 768px) {
-    .lp-pillars { padding: 52px 20px; }
-    .lp-pillars-grid { grid-template-columns: 1fr; gap: 44px; }
-  }
-
-  /* Testimonial — quote-only on warm cream, harmonizes with tungsten founder strip */
-  .lp-quote {
-    padding: 64px 24px;
-    background: #f5ede2;
-  }
-  .lp-quote-inner {
-    max-width: 760px; margin: 0 auto;
-    text-align: center;
-  }
+  /* ===================== TESTIMONIAL ===================== */
+  .lp-quote { padding: 72px 24px; background: var(--lp-ink-2); border-top: 1px solid var(--lp-line); }
+  .lp-quote-inner { max-width: 760px; margin: 0 auto; text-align: center; }
   .lp-quote blockquote {
-    font-family: 'DM Serif Display', Georgia, serif;
-    font-size: clamp(24px, 3.6vw, 34px);
-    font-weight: 400; font-style: italic;
-    line-height: 1.3;
-    color: var(--text-heading);
-    margin: 0 0 18px;
-    letter-spacing: -0.01em;
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(23px, 5.4vw, 33px);
+    font-weight: 500; font-style: italic;
+    line-height: 1.32; color: var(--lp-cream);
+    margin: 0 0 18px; letter-spacing: -0.01em;
   }
   .lp-quote .caption {
-    font-size: 12px;
-    color: var(--text-light);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin: 0;
+    font-size: 12px; color: var(--lp-amber);
+    letter-spacing: 0.12em; text-transform: uppercase; margin: 0; font-weight: 700;
   }
 
-  /* Final CTA — tour-explainer inline so the visitor knows what booking gets them */
+  /* ===================== FINAL CTA ===================== */
+  .cta-band {
+    position: relative;
+    background: var(--lp-ink);
+    padding: 84px 24px 92px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .cta-band::before {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(120% 90% at 50% 120%, rgba(224,164,90,0.22), transparent 60%);
+    pointer-events: none;
+  }
+  .cta-band .container { position: relative; z-index: 1; max-width: 720px; }
+  .cta-band h2 {
+    font-family: 'Anton', sans-serif; font-weight: 400;
+    text-transform: uppercase; letter-spacing: 0.01em;
+    font-size: clamp(40px, 11vw, 72px); line-height: 0.95;
+    color: var(--lp-cream); margin: 0 0 14px;
+  }
   .cta-band .cta-tour-line {
-    display: block;
-    margin: -8px 0 22px;
-    font-size: 15px;
-    color: rgba(255,255,255,0.78);
-    letter-spacing: 0.01em;
-  }
-  @media (max-width: 480px) {
-    .cta-band .cta-tour-line { font-size: 14px; margin: -4px 0 18px; }
+    display: block; margin: 0 auto 26px; max-width: 34ch;
+    font-size: 15.5px; color: var(--lp-muted); letter-spacing: 0.01em;
   }
 
-  /* Sticky mobile CTA */
+  /* ===================== FOOTER ===================== */
+  .footer { background: #100C08; border-top: 1px solid var(--lp-line); }
+  .footer .nav-logo-img { filter: brightness(0) invert(1); opacity: 0.85; height: 30px; }
+  .footer-contact h4 { color: var(--lp-cream); }
+  .footer-contact p, .footer-contact a { color: var(--lp-muted); }
+  .footer-contact a:hover { color: var(--lp-cream); }
+  .footer-bottom { color: var(--lp-faint); }
+  .footer p { margin: 4px 0; }
+
+  /* ===================== STICKY MOBILE CTA ===================== */
   .lp-sticky-cta {
-    display: none;
-    position: fixed; bottom: 0; left: 0; right: 0;
-    z-index: 90;
+    display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 90;
     padding: 10px 16px calc(12px + env(safe-area-inset-bottom, 0px));
-    background: var(--white);
-    border-top: 1px solid var(--border);
-    box-shadow: 0 -2px 12px rgba(0,0,0,0.08);
+    background: rgba(20,16,11,0.92);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid var(--lp-line);
   }
-  .lp-sticky-cta .btn {
-    width: 100%; text-align: center;
-    font-size: 16px; padding: 14px 20px;
-    min-height: 48px;
-  }
+  .lp-sticky-cta .btn { width: 100%; text-align: center; font-size: 16px; padding: 14px 20px; min-height: 48px; }
   @media (max-width: 768px) {
     .lp-sticky-cta { display: block; }
     body { padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px)); }
   }
 
-  /* Footer trim */
-  .footer p { margin: 4px 0; }
+  @media (prefers-reduced-motion: reduce) {
+    .btn-white:hover, .lp-sticky-cta .btn-primary:hover { transform: none; }
+  }
 </style>
 </head>
 <body>
@@ -243,21 +344,20 @@
     <a class='lp-nav-logo' href='/'><img src="https://sincerelykitchen.com/assets/images/logo.png" alt="Sincerely Kitchen"></a>
     <div class="lp-nav-right">
       <a href="tel:6043419700" class="lp-nav-phone">604-341-9700</a>
-      <a class='btn btn-primary btn-sm' href='/book-a-tour'>Book a Tour</a>
+      <a class='btn btn-white btn-sm' href='/book-a-tour'>Book a Tour</a>
     </div>
   </div>
 </nav>
 
-<!-- ===== HERO (ad-echo image + condensed claim, NO subhead) ===== -->
+<!-- ===== HERO — the ad come alive ===== -->
 <section class="lp-hero">
-  <picture>
-    <source media="(min-width: 768px)" srcset="https://sincerelykitchen.com/assets/images/hero-batch001-wide.jpg">
-    <img src="https://sincerelykitchen.com/assets/images/hero-batch001.png" alt="BATCH 001 — first products coming out of the Sincerely Kitchen ovens" class="lp-hero-image">
-  </picture>
   <div class="lp-hero-text">
-    <h1>200 food businesses started here.</h1>
+    <span class="lp-eyebrow">Sincerely Kitchen &middot; Port Coquitlam</span>
+    <h1>Your kitchen<br>is open.</h1>
+    <p class="lp-hero-sub">A licensed commercial kitchen, open 24/7. Memberships from $490/mo.</p>
     <div class="lp-hero-cta">
       <a class='btn btn-white btn-lg' href='/book-a-tour'>Book a Free Tour</a>
+      <span class="lp-hero-micro">Free 45-min tour &middot; No pitch</span>
     </div>
   </div>
 </section>
@@ -272,43 +372,47 @@
   </div>
 </div>
 
-<!-- ===== FOUNDER-MOMENT STRIP (emotional pull — "this is your future here") ===== -->
-<section class="lp-founder-strip">
-  <img src="https://sincerelykitchen.com/assets/images/founder-bake.jpg" alt="A baker pulling sourdough loaves from the oven at Sincerely Kitchen">
-  <img src="https://sincerelykitchen.com/assets/images/founder-kneading.jpg" alt="Hands shaping dough on a floured prep counter">
-</section>
-
-<!-- ===== 3 EDITORIAL PILLARS (big-number anchors — replaces feature grid + tier cards) ===== -->
-<section class="lp-pillars">
-  <div class="lp-pillars-grid">
-    <div class="lp-pillar reveal">
-      <div class="lp-pillar-num">$0</div>
-      <h3 class="lp-pillar-head">Permits handled.</h3>
-      <p class="lp-pillar-sub">We walk every member through Fraser Health and the City of Port Coquitlam. Start to finish.</p>
-    </div>
-    <div class="lp-pillar reveal reveal-d1">
-      <div class="lp-pillar-num">200+</div>
-      <h3 class="lp-pillar-head">Founders launched here.</h3>
-      <p class="lp-pillar-sub">Bakers, sauce-makers, food trucks, CPG brands. Over ten years.</p>
-    </div>
-    <div class="lp-pillar reveal reveal-d2">
-      <div class="lp-pillar-num">$490</div>
-      <h3 class="lp-pillar-head">Per month. No buildout.</h3>
-      <p class="lp-pillar-sub">Memberships from 10 to 80 hours a month. Cancel anytime.</p>
-      <a class="lp-pillar-link" href="/packages">See all memberships &rarr;</a>
+<!-- ===== SPEC PLATE (proof, in the kitchen's own vernacular) ===== -->
+<section class="lp-spec">
+  <div class="lp-spec-inner">
+    <div class="lp-spec-head"><span class="lp-eyebrow">What a membership gets you</span></div>
+    <div class="lp-spec-plate">
+      <div class="lp-spec-item reveal">
+        <p class="lp-spec-kicker">Permit help</p>
+        <div class="lp-spec-value">Free</div>
+        <p class="lp-spec-line">We walk every member through Fraser Health and the City of Port Coquitlam. Start to finish.</p>
+      </div>
+      <div class="lp-spec-item reveal reveal-d1">
+        <p class="lp-spec-kicker">Launched here</p>
+        <div class="lp-spec-value">200+</div>
+        <p class="lp-spec-line">Bakers, caterers, food trucks, packaged-food brands. Over ten years.</p>
+      </div>
+      <div class="lp-spec-item reveal reveal-d2">
+        <p class="lp-spec-kicker">No buildout</p>
+        <div class="lp-spec-value">$490<small>/mo</small></div>
+        <p class="lp-spec-line">Memberships from 10 to 80 hours a month. Cancel anytime.</p>
+        <a class="lp-spec-link" href="/packages">See all memberships &rarr;</a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ===== TESTIMONIAL (quote-only, warm cream — no photo clash) ===== -->
+<!-- ===== PHOTO BAND ===== -->
+<div class="lp-band-label"><span class="lp-eyebrow">Inside the kitchen</span></div>
+<section class="lp-founder-strip">
+  <img src="https://sincerelykitchen.com/assets/images/kitchen-oven-tungsten.jpg" alt="Commercial convection oven in the Sincerely Kitchen production space">
+  <img src="https://sincerelykitchen.com/assets/images/kitchen-mixer-tungsten.jpg" alt="Floor-standing spiral dough mixer in the Sincerely Kitchen production space">
+</section>
+
+<!-- ===== TESTIMONIAL ===== -->
 <section class="lp-quote">
   <div class="lp-quote-inner reveal">
-    <blockquote>&ldquo;Maria walked me through every step.&rdquo;</blockquote>
+    <blockquote>Maria walked me through every step.</blockquote>
     <p class="caption">Dee &middot; Dee&rsquo;s Nutty Cheese &middot; now on retailer shelves</p>
   </div>
 </section>
 
-<!-- ===== FINAL CTA (tour explainer inline so the visitor knows what they're booking) ===== -->
+<!-- ===== FINAL CTA ===== -->
 <section class="cta-band" id="book">
   <div class="container">
     <h2 class="reveal">Come see the kitchen.</h2>
