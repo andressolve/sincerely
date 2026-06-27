@@ -109,6 +109,22 @@
 .pkg-cta { text-align: center; }
 .pkg-cta .btn { width: 100%; }
 
+/* Starter 10 — Incubator only: visually set apart from the rentable tiers */
+.pkg-card--incubator {
+  background: var(--bg-dark);
+  border: 1px solid var(--bg-dark);
+}
+.pkg-card--incubator .pkg-badge { display: block; }
+.pkg-card--incubator .pkg-name,
+.pkg-card--incubator .pkg-price { color: var(--white); }
+.pkg-card--incubator .pkg-price span,
+.pkg-card--incubator .pkg-desc { color: rgba(255,255,255,0.72); }
+.pkg-card--incubator .pkg-features li {
+  color: rgba(255,255,255,0.88);
+  border-bottom-color: rgba(255,255,255,0.12);
+}
+.pkg-card--incubator .pkg-features .feat-icon { color: var(--accent); }
+
 /* Incubator tag link */
 a.pillar-tag-link {
   text-decoration: none;
