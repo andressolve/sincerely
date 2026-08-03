@@ -76,6 +76,11 @@
 .post-content a:hover {
   color: var(--accent-hover);
 }
+/* Buttons inside article content keep their own styling, not the link colour/underline */
+.post-content a.btn { text-decoration: none; }
+.post-content a.btn-primary { color: var(--white); }
+.post-content a.btn-primary:hover { color: var(--white); }
+.post-content a.btn-white { color: var(--text-heading); }
 .post-content img {
   width: 100%;
   border-radius: var(--radius);
