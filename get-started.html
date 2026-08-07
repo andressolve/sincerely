@@ -29,19 +29,19 @@
 <!-- End Meta Pixel Code -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Join the Waiting List | Sincerely Kitchen, Port Coquitlam</title>
-<meta name="description" content="We're currently at capacity. Join the Sincerely Kitchen waiting list and we'll reach out the moment a membership spot opens. Shared commercial kitchen in Port Coquitlam, BC.">
+<title>Apply for a Spot | Sincerely Kitchen, Port Coquitlam</title>
+<meta name="description" content="Sincerely Kitchen is at capacity. We're selective about who joins next — tell us about your food business and if it's a fit, Maria will be in touch. Shared commercial kitchen in Port Coquitlam, BC.">
 <link rel="canonical" href="https://sincerelykitchen.com/get-started.html">
-<meta property="og:title" content="Join the Waiting List | Sincerely Kitchen, Port Coquitlam">
-<meta property="og:description" content="We're currently at capacity. Join the Sincerely Kitchen waiting list and we'll reach out the moment a membership spot opens. Shared commercial kitchen in Port Coquitlam, BC.">
+<meta property="og:title" content="Apply for a Spot | Sincerely Kitchen, Port Coquitlam">
+<meta property="og:description" content="Sincerely Kitchen is at capacity. We're selective about who joins next — tell us about your food business and if it's a fit, Maria will be in touch. Shared commercial kitchen in Port Coquitlam, BC.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sincerelykitchen.com/get-started.html">
 <meta property="og:image" content="https://sincerelykitchen.com/assets/images/hero-homepage.jpg">
 <meta property="og:site_name" content="Sincerely Kitchen">
 <meta property="og:locale" content="en_CA">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Join the Waiting List | Sincerely Kitchen, Port Coquitlam">
-<meta name="twitter:description" content="We're currently at capacity. Join the Sincerely Kitchen waiting list and we'll reach out the moment a membership spot opens. Shared commercial kitchen in Port Coquitlam, BC.">
+<meta name="twitter:title" content="Apply for a Spot | Sincerely Kitchen, Port Coquitlam">
+<meta name="twitter:description" content="Sincerely Kitchen is at capacity. We're selective about who joins next — tell us about your food business and if it's a fit, Maria will be in touch. Shared commercial kitchen in Port Coquitlam, BC.">
 <meta name="twitter:image" content="https://sincerelykitchen.com/assets/images/hero-homepage.jpg">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="assets/images/favicon-192.png">
@@ -74,8 +74,8 @@
 <!-- ===== HERO ===== -->
 <div class="get-started-hero">
   <div class="container">
-    <h1 class="fade-up">Join the waiting list.</h1>
-    <p class="fade-up d1">Sincerely Kitchen is currently at capacity — but spots open up regularly. Add your details below and we'll reach out the moment one does. Want to see the space first? You can still book a free tour anytime.</p>
+    <h1 class="fade-up">The kitchen is full.</h1>
+    <p class="fade-up d1">After twelve years and more than 200 food businesses, Sincerely Kitchen is at capacity. We're not trying to fit in everyone anymore — we're looking for the right fit. Tell us about your business below, and if it's a match, Maria will be in touch. Want to see the space first? Book a free tour anytime.</p>
   </div>
 </div>
 
@@ -86,11 +86,12 @@
 
       <!-- Form Card -->
       <div class="interest-form-card reveal">
-        <h2>Join the waiting list</h2>
-        <p class="form-subtitle">Tell us about your business and we'll reach out the moment a spot opens.</p>
+        <h2>Tell us about your business</h2>
+        <p class="form-subtitle">This is how we decide who joins next. The more you tell us, the better we can tell whether Sincerely Kitchen is right for you.</p>
 
-        <form name="interest" method="POST" data-netlify="true">
+        <form name="interest" method="POST" data-netlify="true" action="/waitlist-thank-you.html">
           <input type="hidden" name="form-name" value="interest">
+          <input type="hidden" name="source" value="waitlist">
 
           <div class="form-row">
             <div class="form-group">
@@ -143,6 +144,32 @@
           </div>
 
           <div class="form-group">
+            <label for="schedule">When would you need the kitchen?</label>
+            <select id="schedule" name="schedule">
+              <option value="" disabled selected>Select one...</option>
+              <option value="overnight">Overnight / very early morning</option>
+              <option value="weekday-day">Weekdays — daytime</option>
+              <option value="weekday-evening">Weekdays — evenings</option>
+              <option value="weekend">Weekends</option>
+              <option value="flexible">Flexible — whatever is available</option>
+              <option value="not-sure">Not sure yet</option>
+            </select>
+            <p style="margin-top:8px; font-size:13px; line-height:1.6; color:var(--text-light);">Schedule fit matters as much as anything else — it's often what decides whether we can make room.</p>
+          </div>
+
+          <div class="form-group">
+            <label for="hours">Roughly how many hours a week?</label>
+            <select id="hours" name="hours">
+              <option value="" disabled selected>Select one...</option>
+              <option value="under-10">Under 10 hours</option>
+              <option value="10-20">10–20 hours</option>
+              <option value="20-40">20–40 hours</option>
+              <option value="40-plus">40+ hours</option>
+              <option value="not-sure">Not sure yet</option>
+            </select>
+          </div>
+
+          <div class="form-group">
             <label for="package">Which package are you interested in?</label>
             <select id="package" name="package">
               <option value="" disabled selected>Select one...</option>
@@ -155,15 +182,15 @@
           </div>
 
           <div class="form-group">
-            <label for="message">Tell us about your business</label>
-            <textarea id="message" name="message" placeholder="What do you make? What are your goals? Any questions for us?"></textarea>
+            <label for="message">What do you make, and where are you trying to take it?</label>
+            <textarea id="message" name="message" placeholder="What you make, who buys it, and what you're working toward. This is the part Maria reads most closely — it doesn't need to be polished."></textarea>
           </div>
 
           <div class="form-submit">
-            <button type="submit" class="btn btn-primary">Join the Waiting List</button>
+            <button type="submit" class="btn btn-primary">Send Your Application</button>
           </div>
 
-          <p class="form-note">We'll reach out the moment a spot opens. No spam, no hard sell.</p>
+          <p class="form-note">Maria reads every application personally. No spam, no hard sell.</p>
         </form>
       </div>
 
@@ -174,29 +201,29 @@
         <div class="next-step">
           <div class="next-step-number">1</div>
           <div>
-            <h4>You're on the list</h4>
-            <p>We'll add you to the waiting list and note where you are in your food business journey.</p>
+            <h4>Maria reads it</h4>
+            <p>Every application is read personally — what you make, where you're headed, and when you'd need the kitchen.</p>
           </div>
         </div>
 
         <div class="next-step">
           <div class="next-step-number">2</div>
           <div>
-            <h4>We reach out when a spot opens</h4>
-            <p>Memberships free up regularly. The moment one does, we'll email or call you first.</p>
+            <h4>We look at fit, not just timing</h4>
+            <p>Does the business make sense here, are you someone this kitchen can genuinely help, and does your schedule work alongside the members already in the space.</p>
           </div>
         </div>
 
         <div class="next-step">
           <div class="next-step-number">3</div>
           <div>
-            <h4>Visit the kitchen anytime</h4>
-            <p>You don't have to wait for a spot to see the space — book a free 45-minute tour whenever you like.</p>
+            <h4>If it's a fit, we talk</h4>
+            <p>Maria will reach out to set up a conversation. If the timing isn't right yet, you stay on the list and we'll come back to you.</p>
           </div>
         </div>
 
         <div class="next-steps-note">
-          <p><strong>No commitment required.</strong> Joining the list just keeps you in the loop. We're here to help you figure out if Sincerely Kitchen is right for you.</p>
+          <p><strong>You don't have to wait to see the space.</strong> Book a free 45-minute tour whenever you like — being on the list isn't a prerequisite, and visiting isn't a commitment.</p>
         </div>
       </div>
 
@@ -207,24 +234,25 @@
 <!-- ===== REASSURANCE ===== -->
 <section class="reassurance section-pad">
   <div class="container">
-    <h2 class="reveal">Nothing to worry about</h2>
+    <h2 class="reveal">What makes a good fit</h2>
     <div class="reassure-grid reveal">
       <div class="reassure-item">
+        <div class="reassure-icon">🍳</div>
+        <strong>The business</strong>
+        <span>Something this kitchen is actually built to make well.</span>
+      </div>
+      <div class="reassure-item">
         <div class="reassure-icon">🤝</div>
-        <strong>No commitment</strong>
-        <span>Just a conversation. Decide after.</span>
+        <strong>The person</strong>
+        <span>Someone ready to work, and easy to share a kitchen with.</span>
       </div>
       <div class="reassure-item">
-        <div class="reassure-icon">🚫</div>
-        <strong>No hard sell</strong>
-        <span>We answer questions, not push packages.</span>
-      </div>
-      <div class="reassure-item">
-        <div class="reassure-icon">🌱</div>
-        <strong>No experience required</strong>
-        <span>Most members started where you are.</span>
+        <div class="reassure-icon">🕔</div>
+        <strong>The schedule</strong>
+        <span>Hours that work alongside the members already here.</span>
       </div>
     </div>
+    <p class="reveal" style="text-align:center; max-width:620px; margin:28px auto 0; font-size:16px; line-height:1.7;">Experience isn't one of the filters. Most of the 200+ businesses that started here began with no professional kitchen experience at all — what matters is fit, not a résumé.</p>
   </div>
 </section>
 
