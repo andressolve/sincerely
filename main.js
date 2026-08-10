@@ -25,7 +25,16 @@ const observer = new IntersectionObserver((entries) => {
     if (entry.isIntersecting) entry.target.classList.add('visible');
   });
 }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-reveals.forEach(el => observer.observe(el));
+reveals.forEach(el => {
+  // Elements already in the initial viewport (even partially) show right away —
+  // tall elements like the interest form may never hit the 15% threshold without scrolling
+  const r = el.getBoundingClientRect();
+  if (r.top < window.innerHeight && r.bottom > 0) {
+    el.classList.add('visible');
+  } else {
+    observer.observe(el);
+  }
+});
 
 // Trigger hero fade-ups immediately
 setTimeout(() => {
