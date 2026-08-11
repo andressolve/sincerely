@@ -29,19 +29,19 @@
 /></noscript>
 <!-- End Meta Pixel Code -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Your Kitchen Is Open — Commercial Kitchen Rental | Sincerely Kitchen</title>
-<meta name="description" content="A licensed commercial kitchen in Port Coquitlam, open 24/7. Memberships from $795/mo. Free Fraser Health permit assistance. Book a free 45-minute tour.">
+<title>Commercial Kitchen Rental Port Coquitlam | Sincerely Kitchen</title>
+<meta name="description" content="A licensed commercial kitchen in Port Coquitlam, open 24/7. Memberships from $795/mo. Free Fraser Health permit assistance. The kitchen is full — apply for a spot.">
 <link rel="canonical" href="https://sincerelykitchen.com/commercial-kitchen-rental.html">
-<meta property="og:title" content="Your Kitchen Is Open — Commercial Kitchen Rental | Sincerely Kitchen">
-<meta property="og:description" content="A licensed commercial kitchen in Port Coquitlam, open 24/7. Memberships from $795/mo.">
+<meta property="og:title" content="Commercial Kitchen Rental Port Coquitlam | Sincerely Kitchen">
+<meta property="og:description" content="A licensed commercial kitchen in Port Coquitlam, open 24/7. Memberships from $795/mo. The kitchen is full — apply for a spot.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sincerelykitchen.com/commercial-kitchen-rental.html">
 <meta property="og:image" content="https://sincerelykitchen.com/assets/images/founder-bake.jpg">
 <meta property="og:site_name" content="Sincerely Kitchen">
 <meta property="og:locale" content="en_CA">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Your Kitchen Is Open — Commercial Kitchen Rental | Sincerely Kitchen">
-<meta name="twitter:description" content="A licensed commercial kitchen in Port Coquitlam, open 24/7. Memberships from $795/mo.">
+<meta name="twitter:title" content="Commercial Kitchen Rental Port Coquitlam | Sincerely Kitchen">
+<meta name="twitter:description" content="A licensed commercial kitchen in Port Coquitlam, open 24/7. Memberships from $795/mo. The kitchen is full — apply for a spot.">
 <meta name="twitter:image" content="https://sincerelykitchen.com/assets/images/founder-bake.jpg">
 <link rel="icon" type="image/png" sizes="32x32" href="https://sincerelykitchen.com/assets/images/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="https://sincerelykitchen.com/assets/images/favicon-192.png">
@@ -92,6 +92,17 @@
   .lp-sticky-cta .btn-primary:hover {
     background: #FFF6E4;
     transform: translateY(-2px);
+  }
+
+  /* ---- Secondary button: the tour, kept open but quieter.
+         Site default is pure white; retint to the LP cream. ---- */
+  .btn-ghost-white {
+    color: var(--lp-cream);
+    border-color: rgba(244,233,210,0.42);
+  }
+  .btn-ghost-white:hover {
+    border-color: var(--lp-cream);
+    background: rgba(244,233,210,0.08);
   }
 
   /* ===================== NAV ===================== */
@@ -344,7 +355,7 @@
     <a class='lp-nav-logo' href='/'><img src="https://sincerelykitchen.com/assets/images/logo.png" alt="Sincerely Kitchen"></a>
     <div class="lp-nav-right">
       <a href="tel:6043419700" class="lp-nav-phone">604-341-9700</a>
-      <a class='btn btn-white btn-sm' href='/book-a-tour'>Book a Tour</a>
+      <a class='btn btn-white btn-sm' href='/get-started'>Apply for a Spot</a>
     </div>
   </div>
 </nav>
@@ -353,10 +364,11 @@
 <section class="lp-hero">
   <div class="lp-hero-text">
     <span class="lp-eyebrow">Sincerely Kitchen &middot; Port Coquitlam</span>
-    <h1>Your kitchen<br>is open.</h1>
-    <p class="lp-hero-sub">A licensed commercial kitchen, open 24/7. Memberships from $795/mo.</p>
+    <h1>The kitchen<br>is full.</h1>
+    <p class="lp-hero-sub">A licensed commercial kitchen, open 24/7. Memberships from $795/mo. When a spot opens, Maria chooses who fills it.</p>
     <div class="lp-hero-cta">
-      <a class='btn btn-white btn-lg' href='/book-a-tour'>Book a Free Tour</a>
+      <a class='btn btn-white btn-lg' href='/get-started'>Apply for a Spot</a>
+      <a class='btn btn-ghost-white btn-lg' href='/book-a-tour'>Book a Free Tour</a>
       <span class="lp-hero-micro">Free 45-min tour &middot; No pitch</span>
     </div>
   </div>
@@ -385,7 +397,7 @@
       <div class="lp-spec-item reveal reveal-d1">
         <p class="lp-spec-kicker">Launched here</p>
         <div class="lp-spec-value">200+</div>
-        <p class="lp-spec-line">Bakers, caterers, food trucks, packaged-food brands. Over ten years.</p>
+        <p class="lp-spec-line">Bakers, caterers, food trucks, packaged-food brands. Over twelve years.</p>
       </div>
       <div class="lp-spec-item reveal reveal-d2">
         <p class="lp-spec-kicker">No buildout</p>
@@ -415,9 +427,12 @@
 <!-- ===== FINAL CTA ===== -->
 <section class="cta-band" id="book">
   <div class="container">
-    <h2 class="reveal">Come see the kitchen.</h2>
-    <span class="cta-tour-line reveal reveal-d1">45-minute tour. Meet Maria. Walk the kitchen. No pitch.</span>
-    <a class='btn btn-white btn-lg reveal reveal-d2' href='/book-a-tour'>Book a Free Tour</a>
+    <h2 class="reveal">Think you&rsquo;re a fit?</h2>
+    <span class="cta-tour-line reveal reveal-d1">Tell Maria about your business &mdash; she reads every application personally. Or come see the space first: 45 minutes, meet Maria, walk the kitchen, no pitch.</span>
+    <div class="reveal reveal-d2" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <a class='btn btn-white btn-lg' href='/get-started'>Apply for a Spot</a>
+      <a class='btn btn-ghost-white btn-lg' href='/book-a-tour'>Book a Free Tour</a>
+    </div>
   </div>
 </section>
 
@@ -443,7 +458,7 @@
 
 <!-- ===== STICKY MOBILE CTA ===== -->
 <div class="lp-sticky-cta">
-  <a class='btn btn-primary' href='/book-a-tour'>Book a Free Tour</a>
+  <a class='btn btn-primary' href='/get-started'>Apply for a Spot</a>
 </div>
 
 <script src="https://sincerelykitchen.com/assets/js/tracking.js"></script>
