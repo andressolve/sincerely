@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Incubator — Homework Schedule & Submission Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --dk: #1B4332;
+  --md: #2D6A4F;
+  --ac: #40916C;
+  --lt: #D8F3DC;
+  --bg: #FAFDF7;
+  --card: #FFFFFF;
+  --text: #2C3E2F;
+  --muted: #6B7F6E;
+  --border: #E2EDE4;
+  --warm: #F4F1EB;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+.header {
+  background: var(--dk);
+  border-radius: 14px;
+  padding: 2rem 2.5rem;
+  margin-bottom: 1.5rem;
+}
+.header .eyebrow {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--lt); opacity: 0.85; margin-bottom: 0.4rem;
+}
+.header h1 {
+  font-family: 'DM Serif Display', serif; font-size: 1.9rem; color: #fff; line-height: 1.2;
+}
+
+.instructions {
+  background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+  padding: 1.5rem 1.75rem; margin-bottom: 1.5rem;
+}
+.instructions h2 {
+  font-family: 'DM Serif Display', serif; font-size: 1.15rem; color: var(--dk); margin-bottom: 0.75rem;
+}
+.instructions ol { padding-left: 1.2rem; }
+.instructions li { font-size: 0.88rem; color: var(--text); margin-bottom: 0.5rem; line-height: 1.55; }
+.instructions li strong { color: var(--dk); }
+.instructions .example {
+  display: inline-block; background: var(--warm); border-radius: 6px; padding: 0.15rem 0.5rem;
+  font-family: monospace; font-size: 0.82rem; color: var(--md);
+}
+.folder-links {
+  margin-top: 1.1rem; padding-top: 1rem; border-top: 1px solid var(--border);
+}
+.folder-links h3 {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 0.6rem;
+}
+.folder-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1.5rem; }
+.folder-grid a {
+  display: flex; justify-content: space-between; align-items: center; gap: 0.5rem;
+  font-size: 0.86rem; color: var(--text); text-decoration: none;
+  padding: 0.5rem 0.7rem; border-radius: 8px; background: var(--warm);
+  transition: background 0.15s;
+}
+.folder-grid a:hover { background: var(--lt); }
+.folder-grid a strong { color: var(--dk); font-weight: 700; }
+.folder-grid a span { color: var(--ac); font-weight: 600; font-size: 0.82rem; white-space: nowrap; }
+@media (max-width: 640px) { .folder-grid { grid-template-columns: 1fr; } }
+
+table { width: 100%; border-collapse: collapse; background: var(--card); border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
+thead tr { background: var(--dk); }
+thead th {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  color: #fff; padding: 0.7rem 0.8rem; text-align: left;
+}
+tbody tr { border-bottom: 1px solid var(--border); }
+tbody tr:last-child { border-bottom: none; }
+tbody tr:nth-child(even) { background: var(--warm); }
+tbody td { padding: 0.6rem 0.8rem; font-size: 0.82rem; vertical-align: top; }
+.col-week { font-weight: 700; color: var(--dk); white-space: nowrap; }
+.col-date { color: var(--muted); white-space: nowrap; }
+.col-topic { color: var(--text); }
+.col-deliverable { color: var(--md); }
+.col-due { color: var(--dk); font-weight: 600; white-space: nowrap; }
+.phase-row td {
+  background: var(--lt); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--dk); padding: 0.5rem 0.8rem;
+}
+
+.footer-note {
+  text-align: center; font-size: 0.78rem; color: var(--muted); margin-top: 1.5rem; line-height: 1.6;
+}
+
+@media print {
+  body { background: white; }
+  .wrap { max-width: 100%; padding: 0.5rem; }
+  table { font-size: 0.75rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="header">
+    <div class="eyebrow">Sincerely Kitchen · The Incubator</div>
+    <h1>Homework Schedule & Submission Guide</h1>
+  </div>
+
+  <div class="instructions">
+    <h2>How to submit</h2>
+    <ol>
+      <li>Every member has a <strong>private folder</strong> inside the shared "The Incubator — Cohort 1" Drive folder, shared with just you and Maria.</li>
+      <li>Name each file: <span class="example">Week 01 - Business Concept</span> (use the week number and deliverable name from the table below — zero-padded so files sort correctly).</li>
+      <li><strong>Homework is due every Wednesday by 11:59 p.m.</strong>, ahead of that Saturday's session — this gives Maria time to review before you meet.</li>
+      <li>Longer gaps between sessions (the Nov 7 skip, the Dec–Jan holiday break) just mean more time to work — the Wednesday-before-the-next-session rule always applies.</li>
+    </ol>
+    <div class="folder-links">
+      <h3>Your Drive folder — click straight through</h3>
+      <div class="folder-grid">
+        <a href="https://drive.google.com/drive/folders/18aoViZyO1K-8nXc0ynNz2fdPV5KJNpW7?usp=sharing" target="_blank"><strong>Cynthia Chan</strong><span>Open folder →</span></a>
+        <a href="https://drive.google.com/drive/folders/14WvYKbuFS5M15gmFxFaFFbd2ZG6zimrm?usp=sharing" target="_blank"><strong>Alex Missick</strong><span>Open folder →</span></a>
+        <a href="https://drive.google.com/drive/folders/1wuXaraDw08tgE-C3mOjcAoGqTt-bdu6C?usp=sharing" target="_blank"><strong>Jorie</strong><span>Open folder →</span></a>
+        <a href="https://drive.google.com/drive/folders/1yNK4nZPQA38Y-_0z3MfmTh01FoRTc6iW?usp=drive_link" target="_blank"><strong>Michael Ilich</strong><span>Open folder →</span></a>
+      </div>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Session</th>
+        <th>Date</th>
+        <th>Topic</th>
+        <th>Deliverable</th>
+        <th>Homework Due</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr class="phase-row"><td colspan="5">Kickoff</td></tr>
+      <tr>
+        <td class="col-week">Bootcamp</td>
+        <td class="col-date">Aug 29</td>
+        <td class="col-topic">Orientation & Business Registration</td>
+        <td class="col-deliverable">Business registered + business bank account opened</td>
+        <td class="col-due">Wed, Sep 9, 2026</td>
+      </tr>
+      <tr>
+        <td class="col-week">Bootcamp</td>
+        <td class="col-date">Aug 29</td>
+        <td class="col-topic">FoodSafe Level 1</td>
+        <td class="col-deliverable">FoodSafe Level 1 certificate</td>
+        <td class="col-due">Sun, Sep 6, 2026</td>
+      </tr>
+
+      <tr class="phase-row"><td colspan="5">September — Foundations</td></tr>
+      <tr>
+        <td class="col-week">Week 1</td>
+        <td class="col-date">Sep 5</td>
+        <td class="col-topic">Your Food Business Concept</td>
+        <td class="col-deliverable">Written concept statement</td>
+        <td class="col-due">Wed, Sep 9, 2026</td>
+      </tr>
+      <tr>
+        <td class="col-week">Week 2</td>
+        <td class="col-date">Sep 12</td>
+        <td class="col-topic">Recipe Standardization</td>
+        <td class="col-deliverable">Documented, reproducible recipe for each launch product</td>
+        <td class="col-due">Wed, Sep 16, 2026</td>
+      </tr>
+      <tr>
+        <td class="col-week">Week 3</td>
+        <td class="col-date">Sep 19</td>
+        <td class="col-topic">Your Food Safety Plan</td>
+        <td class="col-deliverable">Full Fraser Health package: Food Safety Plan &amp; Sanitation Plan, signed Approval Process for Commissaries form, business name registration or incorporation certificate, menu, equipment</td>
+        <td class="col-due">Wed, Sep 23, 2026</td>
+      </tr>
+      <tr>
+        <td class="col-week">Week 4</td>
+        <td class="col-date">Sep 26</td>
+        <td class="col-topic">Insurance & Licensing</td>
+        <td class="col-deliverable">Insurance quote requested from a broker, business licence application submitted</td>
+        <td class="col-due">Wed, Sep 30, 2026</td>
+      </tr>
+
+      <tr class="phase-row"><td colspan="5">October — Business Setup & Market Strategy</td></tr>
+      <tr>
+        <td class="col-week">Week 5</td>
+        <td class="col-date">Oct 3</td>
+        <td class="col-topic">Production Costing</td>
+        <td class="col-deliverable">Every launch product costed &amp; saved in the Pricing Calculator (variable cost, contribution, break-even)</td>
+        <td class="col-due">Wed, Oct 7, 2026</td>
+      </tr>
+      <tr>
+        <td class="col-week">Week 6</td>
+        <td class="col-date">Oct 10</td>
+        <td class="col-topic">Know Your Competition</td>
+        <td class="col-deliverable">Competitive analysis matrix (3+ competitors) + differentiation strategy</td>
+        <td class="col-due">Wed, Oct 14, 2026</td>
+      </tr>
+      <tr>
+        <td class="col-week">Week 7</td>
+        <td class="col-date">Oct 17</td>
+        <td class="col-topic">Pricing Strategy</td>
+        <td class="col-deliverable">Wholesale & retail price points</td>
+        <td class="col-due">Wed, Oct 21, 2026</td>
+      </tr>
+      <tr>
+        <td class="col-week">Week 8</td>
+        <td class="col-date">Oct 24</td>
+        <td class="col-topic">Brand Identity & Packaging</td>
+        <td class="col-deliverable">Brand brief, logo, label template</td>
+        <td class="col-due">Wed, Oct 28, 2026</td>
+      </tr>
+      <tr>
+        <td class="col-week">Week 9</td>
+        <td class="col-date">Oct 31</td>
+        <td class="col-topic">CFIA Labelling Compliance</td>
+        <td class="col-deliverable">Draft label corrected for CFIA</td>
+        <td class="col-due">Wed, Nov 11, 2026</td>
+      </tr>
+
+      <tr class="phase-row"><td colspan="5">November — Books, Market Prep & Sales Channels (no session Nov 7)</td></tr>
+      <tr>
+        <td class="col-week">Week 10</td>
+        <td class="col-date">Nov 14</td>
+        <td class="col-topic">Bookkeeping & QuickBooks</td>
+        <td class="col-deliverable">QuickBooks + GST/PST registration</td>
+        <td class="col-due">Wed, Nov 18, 2026</td>
+      </tr>
+      <tr>
+        <td class="col-week">Week 11</td>
+        <td class="col-date">Nov 21</td>
+        <td class="col-topic">Farmers Market Prep</td>
+        <td class="col-deliverable">Booth layout & pricing display</td>
+        <td class="col-due">Wed, Nov 25, 2026</td>
+      </tr>
+      <tr>
+        <td class="col-week">Week 12</td>
+        <td class="col-date">Nov 28</td>
+        <td class="col-topic">Selling on Instagram</td>
+        <td class="col-deliverable">Instagram sales strategy + profile</td>
+        <td class="col-due">Wed, Dec 2, 2026</td>
+      </tr>
+
+      <tr class="phase-row"><td colspan="5">December — First Production & Online Setup (no session Dec 26)</td></tr>
+      <tr>
+        <td class="col-week">Week 13</td>
+        <td class="col-date">Dec 5–6</td>
+        <td class="col-topic">Kitchen Orientation & First Production</td>
+        <td class="col-deliverable">First batch produced; retail Fraser Health approval submitted</td>
+        <td class="col-due">Wed, Dec 9, 2026</td>
+      </tr>
+      <tr>
+        <td class="col-week">Week 14</td>
+        <td class="col-date">Dec 12</td>
+        <td class="col-topic">Product Photography</td>
+        <td class="col-deliverable">5–10 product photos</td>
+        <td class="col-due">Wed, Dec 16, 2026</td>
+      </tr>
+      <tr>
+        <td class="col-week">Week 15</td>
+        <td class="col-date">Dec 19</td>
+        <td class="col-topic">Build Your Online Store</td>
+        <td class="col-deliverable">Live Shopify store</td>
+        <td class="col-due">Wed, Jan 6, 2027</td>
+      </tr>
+
+      <tr class="phase-row"><td colspan="5">January — First Sales, Iterate & Approach Retail (no session Jan 2)</td></tr>
+      <tr>
+        <td class="col-week">Week 16</td>
+        <td class="col-date">Jan 9</td>
+        <td class="col-topic">Your First Sales</td>
+        <td class="col-deliverable">3 adjustments for next sales opportunity</td>
+        <td class="col-due">Wed, Jan 13, 2027</td>
+      </tr>
+      <tr>
+        <td class="col-week">Week 17</td>
+        <td class="col-date">Jan 16</td>
+        <td class="col-topic">Customer Feedback & Iteration</td>
+        <td class="col-deliverable">Documented product adjustments</td>
+        <td class="col-due">Wed, Jan 20, 2027</td>
+      </tr>
+      <tr>
+        <td class="col-week">Week 18</td>
+        <td class="col-date">Jan 23</td>
+        <td class="col-topic">Sell Sheet, Pitch Deck & Approaching Buyers</td>
+        <td class="col-deliverable">Sell sheet + pitch deck</td>
+        <td class="col-due">Wed, Jan 27, 2027</td>
+      </tr>
+      <tr>
+        <td class="col-week">Week 19</td>
+        <td class="col-date">Jan 30</td>
+        <td class="col-topic">Scaling Production & Choosing Membership</td>
+        <td class="col-deliverable">4-week production plan; membership agreement signed</td>
+        <td class="col-due">Wed, Feb 3, 2027</td>
+      </tr>
+
+      <tr class="phase-row"><td colspan="5">February — Numbers, Pitch & Graduation</td></tr>
+      <tr>
+        <td class="col-week">Week 20</td>
+        <td class="col-date">Feb 6</td>
+        <td class="col-topic">Wholesale Accounts & Retail Relationships</td>
+        <td class="col-deliverable">Retail account management plan</td>
+        <td class="col-due">Wed, Feb 10, 2027</td>
+      </tr>
+      <tr>
+        <td class="col-week">Week 21</td>
+        <td class="col-date">Feb 13</td>
+        <td class="col-topic">Practice Pitches</td>
+        <td class="col-deliverable">Revised pitch for graduation</td>
+        <td class="col-due">Wed, Feb 17, 2027</td>
+      </tr>
+      <tr>
+        <td class="col-week">Week 22</td>
+        <td class="col-date">Feb 20</td>
+        <td class="col-topic">Does Your Business Work?</td>
+        <td class="col-deliverable">Unit economics worksheet</td>
+        <td class="col-due">Wed, Feb 24, 2027</td>
+      </tr>
+      <tr>
+        <td class="col-week">Week 23</td>
+        <td class="col-date">Feb 27</td>
+        <td class="col-topic">Graduation Showcase</td>
+        <td class="col-deliverable">Business plan presented — program complete</td>
+        <td class="col-due">—</td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div class="footer-note">
+    Sincerely Kitchen · Port Coquitlam, BC · The Incubator, Cohort 1
+  </div>
+
+</div>
+</body>
+</html>

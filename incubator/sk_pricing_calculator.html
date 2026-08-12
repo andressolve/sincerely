@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sincerely Kitchen — Recipe Cost & Pricing Calculator</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --orange: #F7931E;
+    --orange-dk: #D4780F;
+    --orange-lt: #FDF0EB;
+    --black: #1A1A1A;
+    --white: #FFFFFF;
+    --cream: #FDF8F2;
+    --warm-gray: #6B6560;
+    --border: #E8E0D6;
+    --bg: #F0EBE1;
+    --green: #2D6A4F;
+    --green-dk: #1B4332;
+    --green-lt: #E7F2EC;
+    --red: #C0392B;
+  }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--black);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+
+  /* ── HEADER ── */
+  .header { border-top: 5px solid var(--orange); background: var(--white); border-radius: 0 0 14px 14px; padding: 1.6rem 2rem; box-shadow: 0 4px 24px rgba(0,0,0,0.06); margin-bottom: 1.25rem; }
+  .eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.4rem; }
+  .header h1 { font-family: 'DM Serif Display', serif; font-size: 1.8rem; color: var(--black); line-height: 1.15; }
+  .header p { font-size: 0.88rem; color: var(--warm-gray); margin-top: 0.4rem; max-width: 680px; }
+
+  /* ── CARDS ── */
+  .card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-bottom: 1.25rem; }
+  .card-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1rem; gap: 1rem; }
+  .card-head h2 { font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: var(--black); }
+  .card-head .hint { font-size: 0.74rem; color: var(--warm-gray); text-align: right; }
+
+  /* ── MY RECIPES ── */
+  .recipes .rec-save { display: flex; gap: 0.6rem; margin-bottom: 0.9rem; }
+  .recipes .rec-save input { flex: 1; }
+  .btn-primary { background: var(--orange); border: none; color: #fff; font-weight: 700; font-size: 0.86rem; padding: 0.5rem 1.4rem; border-radius: 8px; cursor: pointer; font-family: inherit; white-space: nowrap; transition: background 0.15s; }
+  .btn-primary:hover { background: var(--orange-dk); }
+  .btn-ghost { background: none; border: 1.5px solid var(--border); color: var(--warm-gray); font-weight: 600; font-size: 0.8rem; padding: 0.4rem 0.9rem; border-radius: 8px; cursor: pointer; font-family: inherit; transition: all 0.15s; }
+  .btn-ghost:hover { border-color: var(--orange); color: var(--orange-dk); }
+  .rec-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.9rem; min-height: 1.5rem; }
+  .rec-empty { font-size: 0.8rem; color: var(--warm-gray); font-style: italic; }
+  .rec-chip { display: inline-flex; align-items: stretch; border: 1.5px solid var(--border); border-radius: 8px; overflow: hidden; background: var(--cream); }
+  .rec-chip .rc-load { background: none; border: none; font-family: inherit; font-size: 0.82rem; font-weight: 600; color: var(--black); padding: 0.35rem 0.5rem 0.35rem 0.75rem; cursor: pointer; }
+  .rec-chip .rc-load:hover { color: var(--orange-dk); }
+  .rec-chip .rc-del { background: none; border: none; border-left: 1px solid var(--border); color: #b9b1a6; font-size: 1rem; line-height: 1; padding: 0 0.55rem; cursor: pointer; }
+  .rec-chip .rc-del:hover { color: var(--red); background: #fff; }
+  .rec-actions { display: flex; gap: 0.6rem; border-top: 1px solid var(--border); padding-top: 0.9rem; }
+  .rec-note { font-size: 0.72rem; color: var(--warm-gray); margin-top: 0.6rem; }
+
+  .layout { display: grid; grid-template-columns: 1fr 340px; gap: 1.5rem; align-items: start; }
+
+  /* ── ROWS ── */
+  .row { display: grid; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem; }
+  .row-ingredient { grid-template-columns: 1.4fr 0.85fr 0.62fr 0.72fr 0.62fr 0.72fr 0.8fr 0.85rem; }
+  .row-packaging  { grid-template-columns: 1.5fr 0.9fr 0.8fr 0.8fr 0.85fr 0.85rem; }
+  .col-head { font-size: 0.64rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--warm-gray); padding: 0 0.2rem 0.15rem; }
+
+  input, select, textarea {
+    width: 100%; padding: 0.5rem 0.55rem; border: 1.5px solid var(--border); border-radius: 7px;
+    font-family: 'DM Sans', sans-serif; font-size: 0.85rem; color: var(--black); background: var(--cream);
+    outline: none; transition: border-color 0.15s;
+  }
+  input:focus, select:focus, textarea:focus { border-color: var(--orange); background: #fff; }
+  input::placeholder, textarea::placeholder { color: #b9b1a6; }
+  input[type="number"] { text-align: right; }
+  .rowcost { font-size: 0.82rem; font-weight: 700; color: var(--black); text-align: right; padding-right: 0.2rem; white-space: nowrap; }
+  .del { background: none; border: none; color: #c9bfb2; font-size: 1.1rem; cursor: pointer; line-height: 1; padding: 0; transition: color 0.15s; }
+  .del:hover { color: var(--red); }
+  .card-total { display: flex; justify-content: space-between; align-items: baseline; margin-top: 0.3rem; padding: 0.55rem 1.55rem 0 0.2rem; border-top: 1.5px solid var(--border); }
+  .card-total .ct-lbl { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--warm-gray); }
+  .card-total .ct-val { font-size: 0.98rem; font-weight: 700; color: var(--black); }
+  .add-btn { margin-top: 0.6rem; background: var(--cream); border: 1.5px dashed var(--border); color: var(--orange-dk); font-weight: 600; font-size: 0.82rem; padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+  .add-btn:hover { border-color: var(--orange); background: #fff; }
+
+  /* ── SIMPLE FIELD ── */
+  .field { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 0.45rem 0; }
+  .field label { font-size: 0.86rem; color: var(--black); font-weight: 500; }
+  .field label small { display: block; font-size: 0.72rem; color: var(--warm-gray); font-weight: 400; }
+  .field .field-input { width: 130px; flex-shrink: 0; display: flex; align-items: center; gap: 0.35rem; justify-content: flex-end; }
+  .field .prefix { font-size: 0.85rem; color: var(--warm-gray); }
+
+  /* ── RESULTS (sticky) ── */
+  .results { position: sticky; top: 1.25rem; }
+  .results .card { border-color: var(--orange); border-width: 1.5px; padding: 1.3rem; }
+  .results h2 { font-family: 'DM Serif Display', serif; font-size: 1.2rem; margin-bottom: 0.9rem; }
+
+  .price-set { display: flex; justify-content: space-between; align-items: center; gap: 0.8rem; background: var(--cream); border-radius: 9px; padding: 0.7rem 0.9rem; }
+  .price-set label { font-size: 0.84rem; font-weight: 600; }
+  .price-set .pin { display: flex; align-items: center; gap: 0.25rem; }
+  .price-set .pin span { font-size: 1rem; color: var(--warm-gray); }
+  .price-set .pin input { width: 82px; font-size: 1rem; font-weight: 700; padding: 0.35rem 0.4rem; }
+  .floor-block { background: var(--cream); }
+  .floor-line { display: flex; justify-content: space-between; align-items: baseline; gap: 0.6rem; }
+  .fl-lbl { font-size: 0.82rem; color: var(--black); font-weight: 600; }
+  .fl-lbl small { display: block; font-size: 0.7rem; color: var(--warm-gray); font-weight: 400; }
+  .fl-val { font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: var(--orange-dk); white-space: nowrap; }
+  .floor-note { font-size: 0.72rem; color: var(--warm-gray); margin-top: 0.4rem; }
+  .price-hint { font-size: 0.72rem; color: var(--warm-gray); margin: 0.45rem 0 0.5rem; text-align: center; }
+  .target-row { display: flex; align-items: center; justify-content: center; gap: 0.35rem; font-size: 0.76rem; color: var(--warm-gray); margin-bottom: 0.9rem; }
+  .target-row .pin2 { display: inline-flex; align-items: center; gap: 0.15rem; }
+  .target-row .pin2 input { width: 58px; padding: 0.25rem 0.35rem; font-size: 0.8rem; text-align: right; }
+
+  .res-block { margin-bottom: 0.9rem; }
+  .rb-head { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--warm-gray); margin-bottom: 0.3rem; }
+  .res-line { display: flex; justify-content: space-between; align-items: baseline; padding: 0.32rem 0; }
+  .res-line .lbl { font-size: 0.82rem; color: var(--warm-gray); }
+  .res-line .val { font-size: 0.92rem; font-weight: 700; color: var(--black); }
+  .res-line.total { border-top: 1px solid var(--border); margin-top: 0.2rem; padding-top: 0.5rem; }
+  .res-line.total .lbl { color: var(--black); font-weight: 600; }
+  .res-line.total .val { font-size: 1.05rem; }
+
+  .block { border-radius: 10px; padding: 0.85rem 1rem; margin-bottom: 0.9rem; }
+  .block-green { background: var(--green-lt); }
+  .block-orange { background: var(--orange-lt); }
+  .b-head { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 0.2rem; }
+  .block-green .b-head { color: var(--green); }
+  .block-orange .b-head { color: var(--orange-dk); }
+  .big-num { font-family: 'DM Serif Display', serif; font-size: 1.8rem; line-height: 1.1; }
+  .block-green .big-num { color: var(--green); }
+  .block-orange .big-num { color: var(--orange-dk); }
+  .b-sub { font-size: 0.74rem; margin-top: 0.15rem; }
+  .block-green .b-sub { color: var(--green-dk); }
+  .block-orange .b-sub { color: var(--warm-gray); }
+  .block-orange .mini { display: flex; justify-content: space-between; font-size: 0.76rem; color: var(--warm-gray); margin-bottom: 0.35rem; }
+  .block-orange .mini b { color: var(--black); }
+
+  .profit-row { display: flex; justify-content: space-between; align-items: center; padding: 0.55rem 0 0.2rem; border-top: 1px solid var(--border); }
+  .profit-row label { font-size: 0.82rem; color: var(--black); }
+  .profit-row label input { width: 58px; padding: 0.25rem 0.35rem; font-size: 0.82rem; }
+  .profit-row .pval { font-size: 1.05rem; font-weight: 700; }
+  .profit-sub { font-size: 0.72rem; color: var(--warm-gray); }
+
+  .link-toggle { background: none; border: none; color: var(--orange-dk); font-size: 0.76rem; font-weight: 600; cursor: pointer; font-family: inherit; padding: 0.5rem 0 0; }
+  .link-toggle:hover { text-decoration: underline; }
+  #loadedDetail { border-top: 1px solid var(--border); margin-top: 0.4rem; padding-top: 0.5rem; }
+  #loadedDetail p { font-size: 0.7rem; color: var(--warm-gray); margin-top: 0.25rem; }
+
+  .footer-note { text-align: center; font-size: 0.78rem; color: var(--warm-gray); margin-top: 1rem; }
+  .reset { background: none; border: none; color: var(--orange-dk); font-size: 0.8rem; font-weight: 600; cursor: pointer; text-decoration: underline; font-family: inherit; }
+
+  #toast { position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%) translateY(1rem); background: var(--black); color: #fff; font-size: 0.85rem; font-weight: 600; padding: 0.6rem 1.2rem; border-radius: 999px; opacity: 0; pointer-events: none; transition: all 0.25s; z-index: 100; }
+  #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  @media (max-width: 860px) {
+    .layout { grid-template-columns: 1fr; }
+    .results { position: static; }
+    .row-ingredient { grid-template-columns: 1.2fr 0.8fr 0.6fr 0.68fr 0.6fr 0.68fr 0.75fr 0.85rem; }
+    .col-head { font-size: 0.58rem; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="header">
+    <div class="eyebrow">Sincerely Kitchen · The Incubator</div>
+    <h1>Recipe Cost &amp; Pricing Calculator</h1>
+    <p>Enter ingredients as you buy them — it handles the unit conversions and updates instantly. Save each recipe so you never start from scratch. It splits your costs two ways — <strong>what it costs to make one more</strong>, and your <strong>monthly fixed costs</strong> — then shows exactly how many you need to sell to turn a profit.</p>
+  </div>
+
+  <!-- MY RECIPES -->
+  <div class="card recipes">
+    <div class="card-head"><h2>My recipes</h2><span class="hint">Saved in this browser, on this computer</span></div>
+    <div class="rec-save">
+      <input id="recName" type="text" placeholder="Name this recipe — e.g. Dark chocolate bonbons">
+      <button class="btn-primary" onclick="saveCurrent()">Save</button>
+    </div>
+    <div id="recList" class="rec-list"></div>
+    <div class="rec-actions">
+      <button class="btn-ghost" onclick="backup()">↓ Back up all recipes</button>
+      <button class="btn-ghost" onclick="document.getElementById('restoreFile').click()">↑ Restore from backup</button>
+      <input type="file" id="restoreFile" accept="application/json,.json" style="display:none" onchange="restore(event)">
+    </div>
+    <p class="rec-note">Recipes live in this browser only. Use "Back up" to save a copy you can move to another computer or keep safe.</p>
+  </div>
+
+  <div class="layout">
+
+    <!-- LEFT: INPUTS -->
+    <div>
+
+      <!-- INGREDIENTS -->
+      <div class="card">
+        <div class="card-head">
+          <h2>Ingredients</h2>
+          <span class="hint">Buy in kg, use in g? That's fine — it converts.</span>
+        </div>
+        <div class="row row-ingredient">
+          <span class="col-head">Ingredient</span>
+          <span class="col-head">Purchase $</span>
+          <span class="col-head">Buy qty</span>
+          <span class="col-head">Unit</span>
+          <span class="col-head">Used</span>
+          <span class="col-head">Unit</span>
+          <span class="col-head" style="text-align:right;">Cost</span>
+          <span></span>
+        </div>
+        <div id="ingredients"></div>
+        <div class="card-total"><span class="ct-lbl">Total ingredients / batch</span><span class="ct-val" id="ingTotalCard">$0.00</span></div>
+        <button class="add-btn" onclick="addIngredient()">+ Add ingredient</button>
+      </div>
+
+      <!-- PACKAGING -->
+      <div class="card">
+        <div class="card-head">
+          <h2>Packaging</h2>
+          <span class="hint">Jars, labels, boxes, ribbon…</span>
+        </div>
+        <div class="row row-packaging">
+          <span class="col-head">Item</span>
+          <span class="col-head">Pack price $</span>
+          <span class="col-head">Units / pack</span>
+          <span class="col-head">Used / batch</span>
+          <span class="col-head" style="text-align:right;">Cost</span>
+          <span></span>
+        </div>
+        <div id="packaging"></div>
+        <div class="card-total"><span class="ct-lbl">Total packaging / batch</span><span class="ct-val" id="pkgTotalCard">$0.00</span></div>
+        <button class="add-btn" onclick="addPackaging()">+ Add packaging</button>
+      </div>
+
+      <!-- BATCH -->
+      <div class="card">
+        <div class="card-head"><h2>Batch</h2></div>
+        <div class="field">
+          <label>Batch yield <small>How many <strong>sellable units</strong> per batch? A unit is one thing you sell — a box, jar, or bag — not always one piece.</small></label>
+          <div class="field-input"><input type="number" id="yield" value="24" min="1" step="1"></div>
+        </div>
+        <div style="margin-top:0.7rem;">
+          <label style="font-size:0.86rem;font-weight:500;display:block;margin-bottom:0.35rem;">Notes <small style="font-weight:400;color:var(--warm-gray);">— what one unit is, batch size, reminders</small></label>
+          <textarea id="notes" rows="2" placeholder="e.g. One unit = one box of 6. Batch makes 60 bonbons = 10 boxes." style="line-height:1.4;resize:vertical;"></textarea>
+        </div>
+      </div>
+
+      <!-- MONTHLY FIXED COSTS -->
+      <div class="card">
+        <div class="card-head"><h2>Monthly fixed costs</h2><span class="hint">Your monthly nut — covered by volume,<br>not added to each unit</span></div>
+        <div class="field">
+          <label>Kitchen / membership <small>per month</small></label>
+          <div class="field-input"><span class="prefix">$</span><input type="number" id="kitchen" value="750" min="0" step="10"></div>
+        </div>
+        <div class="field">
+          <label>Other overhead <small>insurance, utilities, phone… per month</small></label>
+          <div class="field-input"><span class="prefix">$</span><input type="number" id="overhead" value="150" min="0" step="10"></div>
+        </div>
+        <div class="field">
+          <label>Pay yourself <small>optional — a monthly wage you want to earn</small></label>
+          <div class="field-input"><span class="prefix">$</span><input type="number" id="payself" value="0" min="0" step="50"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT: RESULTS -->
+    <div class="results">
+      <div class="card">
+        <h2>Your numbers</h2>
+
+        <!-- COST PER BATCH -->
+        <div class="res-block">
+          <div class="rb-head">Cost per batch</div>
+          <div class="res-line"><span class="lbl">Ingredients / batch</span><span class="val" id="rIngB">$0.00</span></div>
+          <div class="res-line"><span class="lbl">Packaging / batch</span><span class="val" id="rPkgB">$0.00</span></div>
+          <div class="res-line total"><span class="lbl">Total / batch <small style="display:block;font-size:0.7rem;color:var(--warm-gray);font-weight:400;" id="rBatchYield">makes 0 units</small></span><span class="val" id="rBatchB">$0.00</span></div>
+        </div>
+
+        <!-- VARIABLE COST -->
+        <div class="res-block">
+          <div class="rb-head">Cost to make one more</div>
+          <div class="res-line"><span class="lbl">Ingredients / unit</span><span class="val" id="rIngU">$0.00</span></div>
+          <div class="res-line"><span class="lbl">Packaging / unit</span><span class="val" id="rPkgU">$0.00</span></div>
+          <div class="res-line total"><span class="lbl">Variable cost / unit</span><span class="val" id="rVarU">$0.00</span></div>
+        </div>
+
+        <!-- 30% FLOOR / STARTING POINT -->
+        <div class="block floor-block">
+          <div class="floor-line"><span class="fl-lbl">Price floor · 70% margin <small>your cost to make one is 30% of the price</small></span><span class="fl-val" id="rRule">$0.00</span></div>
+          <p class="floor-note">The lowest price that keeps a 70% margin — enough to cover labour, overhead, and profit. Start here and price up to what the market bears; rarely below.</p>
+        </div>
+
+        <!-- PRICE -->
+        <div class="price-set">
+          <label>Selling price / unit</label>
+          <div class="pin"><span>$</span><input type="number" id="price" value="3.50" min="0" step="0.05"></div>
+        </div>
+        <div class="target-row">
+          <span>or aim for</span>
+          <span class="pin2">$<input type="number" id="targetProfit" min="0" step="0.25" placeholder="0.00" oninput="applyTargetProfit()"></span>
+          <span>profit per unit &rarr; sets your price</span>
+        </div>
+
+        <!-- CONTRIBUTION -->
+        <div class="block block-green">
+          <div class="b-head">Every unit you sell contributes</div>
+          <div class="big-num" id="rContrib">$0.00</div>
+          <div class="b-sub" id="rContribSub">price − variable cost</div>
+        </div>
+
+        <!-- BREAK-EVEN -->
+        <div class="block block-orange">
+          <div class="b-head">To break even each month</div>
+          <div class="mini"><span>Monthly fixed costs</span><b id="rFixed">$0</b></div>
+          <div class="big-num" id="rBreakeven">0</div>
+          <div class="b-sub" id="rBreakevenSub">units / month · every unit above this is profit</div>
+        </div>
+
+        <!-- PROFIT AT VOLUME -->
+        <div class="res-block">
+          <div class="profit-row">
+            <label>If you sell <input type="number" id="volume" value="300" min="0" step="10"> / month</label>
+            <span class="pval" id="rProfit">$0</span>
+          </div>
+          <div class="profit-sub" id="rProfitSub">monthly profit</div>
+        </div>
+
+        <!-- OPTIONAL FULLY-LOADED -->
+        <button class="link-toggle" id="loadedBtn" onclick="toggleLoaded()">Show fully-loaded cost per unit ▾</button>
+        <div id="loadedDetail" style="display:none;">
+          <div class="res-line"><span class="lbl">All-in cost / unit at <b id="loadedVol">300</b> / mo</span><span class="val" id="rLoaded">$0.00</span></div>
+          <p>This is only true at that volume — it drops as you sell more. That's why we price to the market, not to this number.</p>
+        </div>
+
+      </div>
+      <div class="footer-note">
+        <button class="reset" onclick="resetAll()">Clear and start fresh</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div id="toast"></div>
+
+<script>
+// ── Unit conversion ──
+const UNITS = {
+  g:{dim:'w',f:1}, kg:{dim:'w',f:1000}, mg:{dim:'w',f:0.001}, oz:{dim:'w',f:28.3495}, lb:{dim:'w',f:453.592},
+  ml:{dim:'v',f:1}, l:{dim:'v',f:1000}, tsp:{dim:'v',f:4.92892}, tbsp:{dim:'v',f:14.7868}, cup:{dim:'v',f:236.588}, floz:{dim:'v',f:29.5735},
+  each:{dim:'c',f:1}, dozen:{dim:'c',f:12}
+};
+const UNIT_LABELS = { g:'g', kg:'kg', mg:'mg', oz:'oz', lb:'lb', ml:'ml', l:'L', tsp:'tsp', tbsp:'tbsp', cup:'cup', floz:'fl oz', each:'each', dozen:'dozen' };
+function unitOptions(sel){ return Object.keys(UNIT_LABELS).map(u=>`<option value="${u}" ${u===sel?'selected':''}>${UNIT_LABELS[u]}</option>`).join(''); }
+
+// ── Dynamic rows ──
+function addIngredient(name='', price='', buyQty='', buyUnit='kg', used='', usedUnit='g') {
+  const div = document.createElement('div');
+  div.className = 'row row-ingredient';
+  div.innerHTML =
+    `<input type="text" placeholder="e.g. Flour" value="${escAttr(name)}">
+     <input type="number" placeholder="0.00" value="${price}" min="0" step="0.01">
+     <input type="number" placeholder="0" value="${buyQty}" min="0" step="any">
+     <select>${unitOptions(buyUnit)}</select>
+     <input type="number" placeholder="0" value="${used}" min="0" step="any">
+     <select>${unitOptions(usedUnit)}</select>
+     <span class="rowcost" data-ingcost>$0.00</span>
+     <button class="del" title="Remove" onclick="this.parentElement.remove(); recalc();">×</button>`;
+  document.getElementById('ingredients').appendChild(div);
+}
+function addPackaging(name='', packPrice='', perPack='', used='') {
+  const div = document.createElement('div');
+  div.className = 'row row-packaging';
+  div.innerHTML =
+    `<input type="text" placeholder="e.g. 250ml jar" value="${escAttr(name)}">
+     <input type="number" placeholder="0.00" value="${packPrice}" min="0" step="0.01">
+     <input type="number" placeholder="0" value="${perPack}" min="0" step="any">
+     <input type="number" placeholder="0" value="${used}" min="0" step="any">
+     <span class="rowcost" data-pkgcost>$0.00</span>
+     <button class="del" title="Remove" onclick="this.parentElement.remove(); recalc();">×</button>`;
+  document.getElementById('packaging').appendChild(div);
+}
+
+// ── Helpers ──
+const $ = id => document.getElementById(id);
+const num = id => parseFloat($(id).value) || 0;
+let lastVarU = 0;
+function applyTargetProfit() { const t = num('targetProfit'); if (t > 0) { $('price').value = (lastVarU + t).toFixed(2); recalc(); } }
+const money = v => '$' + (isFinite(v) ? v : 0).toFixed(2);
+const money0 = v => '$' + Math.round(isFinite(v)?v:0).toLocaleString();
+function escAttr(s){ return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;'); }
+function escHtml(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+// ── Calculate ──
+function recalc() {
+  let ingTotal = 0;
+  document.querySelectorAll('#ingredients .row-ingredient').forEach(r => {
+    const i = r.querySelectorAll('input'), s = r.querySelectorAll('select');
+    const price = parseFloat(i[1].value)||0, buyQty = parseFloat(i[2].value)||0, used = parseFloat(i[3].value)||0;
+    const bu = UNITS[s[0].value], uu = UNITS[s[1].value];
+    let cost = 0;
+    if (price && buyQty && used && bu.dim === uu.dim) {
+      cost = (price / (buyQty * bu.f)) * used * uu.f;
+    }
+    ingTotal += cost;
+    r.querySelector('[data-ingcost]').textContent = money(cost);
+  });
+
+  let pkgTotal = 0;
+  document.querySelectorAll('#packaging .row-packaging').forEach(r => {
+    const i = r.querySelectorAll('input');
+    const packPrice = parseFloat(i[1].value)||0, perPack = parseFloat(i[2].value)||0, used = parseFloat(i[3].value)||0;
+    let cost = (packPrice && perPack) ? (packPrice / perPack) * used : 0;
+    pkgTotal += cost;
+    r.querySelector('[data-pkgcost]').textContent = money(cost);
+  });
+
+  const yld = Math.max(num('yield'), 0.0001);
+  const ingU = ingTotal / yld, pkgU = pkgTotal / yld;
+  const varU = ingU + pkgU;
+  lastVarU = varU;
+
+  const fixed = num('kitchen') + num('overhead') + num('payself');
+  const price = num('price');
+  const contrib = price - varU;
+  const rule = varU > 0 ? varU / 0.30 : 0;
+
+  $('ingTotalCard').textContent = money(ingTotal);
+  $('pkgTotalCard').textContent = money(pkgTotal);
+  $('rIngB').textContent = money(ingTotal);
+  $('rPkgB').textContent = money(pkgTotal);
+  $('rBatchB').textContent = money(ingTotal + pkgTotal);
+  $('rBatchYield').textContent = 'makes ' + Math.round(yld).toLocaleString() + (Math.round(yld) === 1 ? ' unit' : ' units');
+  $('rIngU').textContent = money(ingU);
+  $('rPkgU').textContent = money(pkgU);
+  $('rVarU').textContent = money(varU);
+  $('rRule').textContent = rule > 0 ? money(rule) : '—';
+
+  $('rContrib').textContent = money(contrib);
+  $('rContribSub').textContent = `${money(price)} price − ${money(varU)} to make`;
+
+  $('rFixed').textContent = money0(fixed);
+  if (contrib > 0) {
+    const be = Math.ceil(fixed / contrib);
+    $('rBreakeven').textContent = be.toLocaleString();
+    $('rBreakevenSub').innerHTML = `units / month  ·  ≈ ${Math.round(be/30).toLocaleString()} a day · every unit above this is profit`;
+  } else {
+    $('rBreakeven').textContent = '—';
+    $('rBreakevenSub').textContent = `Your price is below the ${money(varU)} it costs to make one. Raise it first.`;
+  }
+
+  const vol = num('volume');
+  const profit = vol * contrib - fixed;
+  $('rProfit').textContent = money0(profit);
+  $('rProfit').style.color = profit >= 0 ? 'var(--green)' : 'var(--red)';
+  $('rProfitSub').textContent = profit >= 0 ? 'monthly profit' : 'monthly loss — still below break-even';
+
+  const loaded = vol > 0 ? varU + fixed / vol : 0;
+  $('loadedVol').textContent = Math.round(vol).toLocaleString();
+  $('rLoaded').textContent = money(loaded);
+}
+document.addEventListener('input', recalc);
+
+function toggleLoaded() {
+  const d = $('loadedDetail'), b = $('loadedBtn');
+  const open = d.style.display === 'none';
+  d.style.display = open ? 'block' : 'none';
+  b.textContent = open ? 'Hide fully-loaded cost per unit ▴' : 'Show fully-loaded cost per unit ▾';
+}
+
+// ── Save / load (localStorage) ──
+const KEY = 'sk_calc_recipes_v1';
+function allRecipes(){ try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch(e){ return {}; } }
+function writeRecipes(o){ localStorage.setItem(KEY, JSON.stringify(o)); }
+
+function gatherState() {
+  const ings = [...document.querySelectorAll('#ingredients .row-ingredient')].map(r => {
+    const i = r.querySelectorAll('input'), s = r.querySelectorAll('select');
+    return { name:i[0].value, price:i[1].value, buyQty:i[2].value, buyUnit:s[0].value, used:i[3].value, usedUnit:s[1].value };
+  });
+  const pkgs = [...document.querySelectorAll('#packaging .row-packaging')].map(r => {
+    const i = r.querySelectorAll('input');
+    return { name:i[0].value, packPrice:i[1].value, perPack:i[2].value, used:i[3].value };
+  });
+  return {
+    ingredients: ings, packaging: pkgs,
+    yield: $('yield').value, kitchen: $('kitchen').value, overhead: $('overhead').value,
+    payself: $('payself').value, price: $('price').value, volume: $('volume').value, notes: $('notes').value
+  };
+}
+function applyState(s) {
+  $('ingredients').innerHTML = '';
+  $('packaging').innerHTML = '';
+  (s.ingredients||[]).forEach(x => addIngredient(x.name, x.price, x.buyQty, x.buyUnit, x.used, x.usedUnit));
+  (s.packaging||[]).forEach(x => addPackaging(x.name, x.packPrice, x.perPack, x.used));
+  ['yield','kitchen','overhead','payself','price','volume'].forEach(k => { if (s[k] !== undefined) $(k).value = s[k]; });
+  $('notes').value = s.notes || '';
+  recalc();
+}
+function saveCurrent() {
+  const name = $('recName').value.trim();
+  if (!name) { flash('Give your recipe a name first'); $('recName').focus(); return; }
+  const r = allRecipes(); r[name] = gatherState(); writeRecipes(r);
+  renderRecList(); flash('“' + name + '” saved');
+}
+function loadRecipe(name) { const r = allRecipes(); if (r[name]) { $('recName').value = name; applyState(r[name]); flash('“' + name + '” loaded'); } }
+function deleteRecipe(name) { if (!confirm('Delete “' + name + '”?')) return; const r = allRecipes(); delete r[name]; writeRecipes(r); renderRecList(); }
+function renderRecList() {
+  const r = allRecipes(), names = Object.keys(r).sort((a,b)=>a.localeCompare(b));
+  const el = $('recList');
+  if (!names.length) { el.innerHTML = '<span class="rec-empty">No saved recipes yet — enter your numbers, name it, and click Save.</span>'; return; }
+  el.innerHTML = names.map(n =>
+    `<span class="rec-chip" data-name="${escAttr(n)}"><button class="rc-load">${escHtml(n)}</button><button class="rc-del" aria-label="Delete">×</button></span>`).join('');
+}
+document.getElementById('recList').addEventListener('click', e => {
+  const chip = e.target.closest('.rec-chip'); if (!chip) return;
+  const name = chip.dataset.name;
+  if (e.target.classList.contains('rc-del')) deleteRecipe(name); else loadRecipe(name);
+});
+
+function backup() {
+  const data = JSON.stringify(allRecipes(), null, 2);
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([data], {type:'application/json'}));
+  a.download = 'sincerely-kitchen-recipes.json';
+  a.click();
+  flash('Backup downloaded');
+}
+function restore(e) {
+  const file = e.target.files[0]; if (!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    try {
+      const incoming = JSON.parse(reader.result);
+      writeRecipes({ ...allRecipes(), ...incoming });
+      renderRecList(); flash('Recipes restored');
+    } catch(err) { flash('That file could not be read'); }
+  };
+  reader.readAsText(file); e.target.value = '';
+}
+
+let toastTimer;
+function flash(msg) { const t = $('toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), 1900); }
+
+// ── Example recipes (pre-saved on first load) ──
+const COOKIE_STATE = {
+  ingredients: [
+    { name:'Butter', price:'12.00', buyQty:'1', buyUnit:'kg', used:'227', usedUnit:'g' },
+    { name:'Brown sugar', price:'3.00', buyQty:'1', buyUnit:'kg', used:'165', usedUnit:'g' },
+    { name:'Flour', price:'2.50', buyQty:'1', buyUnit:'kg', used:'180', usedUnit:'g' },
+    { name:'Rolled oats', price:'4.00', buyQty:'1', buyUnit:'kg', used:'270', usedUnit:'g' },
+    { name:'Eggs', price:'5.00', buyQty:'12', buyUnit:'each', used:'2', usedUnit:'each' }
+  ],
+  packaging: [
+    { name:'Kraft bag', packPrice:'8.00', perPack:'100', used:'24' },
+    { name:'Printed label', packPrice:'12.00', perPack:'100', used:'24' }
+  ],
+  yield:'24', kitchen:'750', overhead:'150', payself:'0', price:'3.50', volume:'300',
+  notes:'One unit = one cookie. This batch makes 24 cookies.'
+};
+const BONBON_STATE = {
+  ingredients: [
+    { name:'Dark chocolate (couverture)', price:'22.00', buyQty:'1', buyUnit:'kg', used:'600', usedUnit:'g' },
+    { name:'Whipping cream', price:'5.00', buyQty:'1', buyUnit:'l', used:'250', usedUnit:'ml' },
+    { name:'Butter', price:'12.00', buyQty:'1', buyUnit:'kg', used:'80', usedUnit:'g' },
+    { name:'Vanilla / flavouring', price:'20.00', buyQty:'500', buyUnit:'ml', used:'20', usedUnit:'ml' }
+  ],
+  packaging: [
+    { name:'Candy box (6)', packPrice:'40.00', perPack:'50', used:'10' },
+    { name:'Glassine liner', packPrice:'15.00', perPack:'100', used:'10' },
+    { name:'Printed label', packPrice:'12.00', perPack:'100', used:'10' },
+    { name:'Ribbon + sticker', packPrice:'10.00', perPack:'100', used:'10' }
+  ],
+  yield:'10', kitchen:'750', overhead:'150', payself:'0', price:'10.00', volume:'150',
+  notes:'One unit = one box of 6. This batch makes 60 bonbons = 10 boxes. All the per-unit numbers (cost, price, profit) are per box.'
+};
+const GELATO_STATE = {
+  ingredients: [
+    { name:'Coconut cream', price:'6.00', buyQty:'1', buyUnit:'l', used:'2000', usedUnit:'ml' },
+    { name:'Cashews', price:'18.00', buyQty:'1', buyUnit:'kg', used:'300', usedUnit:'g' },
+    { name:'Sugar', price:'2.00', buyQty:'1', buyUnit:'kg', used:'600', usedUnit:'g' },
+    { name:'Vanilla / flavouring', price:'20.00', buyQty:'500', buyUnit:'ml', used:'30', usedUnit:'ml' },
+    { name:'Stabilizer (locust bean gum)', price:'30.00', buyQty:'1', buyUnit:'kg', used:'20', usedUnit:'g' }
+  ],
+  packaging: [
+    { name:'Pint tub + lid', packPrice:'50.00', perPack:'100', used:'8' },
+    { name:'Printed label', packPrice:'12.00', perPack:'100', used:'8' }
+  ],
+  yield:'8', kitchen:'750', overhead:'150', payself:'0', price:'11.00', volume:'200',
+  notes:'One unit = one pint (473 ml). This batch makes 8 pints. Dairy-free / vegan base — its pricier ingredients push the price floor right up near the selling price, so the margin is tighter than the cookie.'
+};
+
+function seedExamples() {
+  if (localStorage.getItem('sk_calc_examples_v4')) return;
+  const r = allRecipes();
+  r['Oatmeal cookie (example)'] = COOKIE_STATE;
+  r['Chocolate bonbons, box of 6 (example)'] = BONBON_STATE;
+  r['Vegan gelato, per pint (example)'] = GELATO_STATE;
+  writeRecipes(r);
+  localStorage.setItem('sk_calc_examples_v4', '1');
+}
+function resetAll() { applyState(COOKIE_STATE); $('recName').value = ''; }
+
+seedExamples();
+applyState(COOKIE_STATE);
+renderRecList();
+</script>
+</body>
+</html>

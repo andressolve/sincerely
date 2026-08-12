@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sincerely Kitchen — The Incubator Curriculum</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --dk: #1B4332;
+  --md: #2D6A4F;
+  --ac: #40916C;
+  --lt: #D8F3DC;
+  --bg: #FAFDF7;
+  --card: #FFFFFF;
+  --text: #2C3E2F;
+  --muted: #6B7F6E;
+  --border: #E2EDE4;
+  --warm: #F4F1EB;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.site-header {
+  background: var(--dk);
+  padding: 3rem 2rem 2.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.site-header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -20%;
+  width: 140%;
+  height: 200%;
+  background: radial-gradient(ellipse at 30% 50%, rgba(64,145,108,0.15) 0%, transparent 60%);
+  pointer-events: none;
+}
+.site-header h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2.4rem;
+  color: #fff;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.3rem;
+  position: relative;
+}
+.site-header .subtitle {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.15rem;
+  color: var(--lt);
+  font-style: italic;
+  opacity: 0.85;
+  position: relative;
+}
+.site-header .tagline {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+  margin-top: 1rem;
+  position: relative;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.phase-nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1.2rem 2rem;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.phase-nav a {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+  transition: all 0.2s;
+}
+.phase-nav a:hover, .phase-nav a.active {
+  background: var(--lt);
+  color: var(--dk);
+}
+.phase-nav a.nav-external {
+  margin-left: 0.5rem;
+  padding-left: 1.25rem;
+  border-left: 1px solid var(--border);
+}
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+.phase {
+  margin-bottom: 3rem;
+}
+.phase-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.3rem;
+  padding-top: 2rem;
+}
+.phase-header h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.6rem;
+  color: var(--dk);
+}
+.phase-header .phase-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ac);
+  background: var(--lt);
+  padding: 0.25rem 0.75rem;
+  border-radius: 100px;
+}
+.phase-desc {
+  color: var(--muted);
+  font-size: 0.92rem;
+  margin-bottom: 1.5rem;
+  max-width: 700px;
+}
+
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1rem;
+}
+.module-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.25s ease;
+  cursor: default;
+  color: inherit;
+  display: block;
+  position: relative;
+}
+.module-card:hover {
+  border-color: var(--ac);
+  box-shadow: 0 4px 20px rgba(27,67,50,0.08);
+  transform: translateY(-2px);
+}
+.module-num {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ac);
+  margin-bottom: 0.5rem;
+}
+.module-card h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.15rem;
+  color: var(--dk);
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+.module-card p {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 0.8rem;
+}
+.module-deliverable {
+  font-size: 0.78rem;
+  color: var(--md);
+  font-weight: 700;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+}
+.module-deliverable::before {
+  content: '✎';
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+.module-duedate {
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin-top: 0.4rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+}
+.module-duedate::before {
+  content: '⏰';
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+/* ── SESSION NOTES (click-to-open slide viewer) ── */
+.module-card.has-notes { cursor: pointer; }
+.module-card.has-notes:hover { border-color: var(--md); box-shadow: 0 6px 24px rgba(27,67,50,0.12); }
+.notes-cta {
+  margin-top: 0.85rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ac);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.notes-cta::after { content: '→'; transition: transform 0.2s; }
+.module-card.has-notes:hover .notes-cta::after { transform: translateX(3px); }
+
+.ns-overlay {
+  position: fixed; inset: 0;
+  background: rgba(20, 40, 30, 0.72);
+  backdrop-filter: blur(3px);
+  z-index: 500;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+.ns-overlay.open { display: flex; }
+.ns-panel {
+  background: var(--card);
+  border-radius: 16px;
+  width: min(760px, 94vw);
+  height: min(620px, 88vh);
+  box-shadow: 0 24px 80px rgba(0,0,0,0.35);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.ns-head {
+  background: var(--dk);
+  padding: 1.1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.ns-head .ns-module {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.09em;
+  text-transform: uppercase; color: var(--lt); opacity: 0.8; margin-bottom: 0.15rem;
+}
+.ns-head .ns-title { font-family: 'DM Serif Display', serif; font-size: 1.15rem; color: #fff; line-height: 1.2; }
+.ns-close {
+  background: rgba(255,255,255,0.12); border: none; color: #fff;
+  width: 2rem; height: 2rem; border-radius: 100px; font-size: 1rem;
+  cursor: pointer; flex-shrink: 0; line-height: 1;
+}
+.ns-close:hover { background: rgba(255,255,255,0.25); }
+.ns-body { padding: 1.6rem 2rem; flex: 1; overflow-y: auto; }
+.ns-slide-label {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.09em;
+  text-transform: uppercase; color: var(--ac); margin-bottom: 0.3rem;
+}
+.ns-slide-title { font-family: 'DM Serif Display', serif; font-size: 1.45rem; color: var(--dk); margin-bottom: 0.8rem; }
+.ns-slide-content { font-size: 0.92rem; line-height: 1.65; color: var(--text); }
+.ns-slide-content ul { padding-left: 1.2rem; margin: 0.3rem 0; }
+.ns-slide-content li { margin-bottom: 0.45rem; }
+.ns-slide-content a { color: var(--ac); font-weight: 600; }
+.ns-hw {
+  background: var(--lt); border-radius: 10px;
+  padding: 0.9rem 1.1rem; margin-top: 0.8rem;
+  font-size: 0.9rem; line-height: 1.6;
+}
+.ns-foot {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0.9rem 1.5rem; border-top: 1px solid var(--border); background: var(--bg);
+}
+.ns-nav {
+  background: var(--dk); color: #fff; border: none; border-radius: 100px;
+  width: 2.4rem; height: 2.4rem; font-size: 1.05rem; cursor: pointer; line-height: 1;
+}
+.ns-nav:hover { background: var(--md); }
+.ns-nav:disabled { opacity: 0.25; cursor: default; }
+.ns-dots { display: flex; gap: 0.45rem; align-items: center; }
+.ns-dot { width: 8px; height: 8px; border-radius: 100px; background: var(--border); transition: background 0.2s; }
+.ns-dot.active { background: var(--ac); }
+@media (max-width: 600px) {
+  .ns-body { padding: 1.2rem 1.2rem; }
+}
+.module-badge {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 100px;
+}
+.badge-maria { background: #E0E7FF; color: #3730A3; }
+.badge-guest { background: #FEF3C7; color: #92400E; }
+.badge-split { background: #FCE7F3; color: #9D174D; }
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  margin-top: 2rem;
+}
+
+/* ── LOCKED MONTHS ── */
+.phase.locked .phase-desc { display: none; }
+.phase.locked .modules-grid { display: none; }
+.locked-placeholder { display: none; }
+.phase.locked .locked-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--warm);
+  border: 1.5px dashed var(--border);
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  color: var(--muted);
+  margin-top: 0.5rem;
+}
+.locked-placeholder .lock-icon { font-size: 1.6rem; }
+.locked-placeholder p {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  max-width: 420px;
+}
+.locked-placeholder .unlock-note {
+  font-size: 0.72rem;
+  color: var(--ac);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-top: 0.25rem;
+}
+
+@media (max-width: 600px) {
+  .site-header h1 { font-size: 1.8rem; }
+  .modules-grid { grid-template-columns: 1fr; }
+  .phase-nav { gap: 0.25rem; }
+  .phase-nav a { font-size: 0.7rem; padding: 0.4rem 0.7rem; }
+}
+</style>
+</head>
+<body>
+
+<style>
+.pw-gate {
+  position: fixed;
+  inset: 0;
+  background: var(--dk);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.4s, visibility 0.4s;
+}
+.pw-gate.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.pw-box {
+  text-align: center;
+  max-width: 380px;
+  padding: 2rem;
+}
+.pw-box h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 0.3rem;
+}
+.pw-box .pw-sub {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1rem;
+  color: var(--lt);
+  font-style: italic;
+  opacity: 0.85;
+  margin-bottom: 2rem;
+}
+.pw-box input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  border: 2px solid rgba(255,255,255,0.15);
+  border-radius: 8px;
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  outline: none;
+  text-align: center;
+  letter-spacing: 0.05em;
+  transition: border-color 0.2s;
+}
+.pw-box input::placeholder { color: rgba(255,255,255,0.35); }
+.pw-box input:focus { border-color: var(--ac); }
+.pw-box button {
+  width: 100%;
+  margin-top: 0.75rem;
+  padding: 0.8rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  background: var(--ac);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  transition: background 0.2s;
+}
+.pw-box button:hover { background: var(--md); }
+.pw-error {
+  color: #FCA5A5;
+  font-size: 0.82rem;
+  margin-top: 0.6rem;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.pw-error.show { opacity: 1; }
+.pw-box .pw-hint {
+  color: rgba(255,255,255,0.3);
+  font-size: 0.72rem;
+  margin-top: 1.5rem;
+}
+</style>
+
+<div class="pw-gate" id="pwGate">
+  <div class="pw-box">
+    <h1>Sincerely Kitchen</h1>
+    <div class="pw-sub">The Incubator</div>
+    <div id="pwForm">
+      <input type="password" id="pwInput" placeholder="Enter cohort password" autocomplete="off" autofocus>
+      <button type="button" onclick="checkPw()">Enter</button>
+    </div>
+    <div class="pw-error" id="pwError">Incorrect password. Please try again.</div>
+    <div class="pw-hint">Cohort members: check your welcome email for the password.</div>
+  </div>
+</div>
+
+<script>
+const PW_HASH = 'Y29ob3J0MQ==';
+function checkPw() {
+  const input = document.getElementById('pwInput').value;
+  if (btoa(input) === PW_HASH) {
+    document.getElementById('pwGate').classList.add('hidden');
+    sessionStorage.setItem('sk_auth', '1');
+  } else {
+    document.getElementById('pwError').classList.add('show');
+    document.getElementById('pwInput').value = '';
+    document.getElementById('pwInput').focus();
+    setTimeout(() => document.getElementById('pwError').classList.remove('show'), 2000);
+  }
+}
+document.getElementById('pwInput').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') checkPw();
+});
+if (sessionStorage.getItem('sk_auth') === '1') {
+  document.getElementById('pwGate').classList.add('hidden');
+}
+</script>
+
+<header class="site-header">
+  <h1>Sincerely Kitchen</h1>
+  <div class="subtitle">The Incubator — 23-Module Curriculum</div>
+  <div class="tagline">From recipe to retail in 6 months · Saturdays</div>
+</header>
+
+<nav class="phase-nav">
+  <a href="#kickoff">Kickoff</a>
+  <a href="#sep">September</a>
+  <a href="#oct">October</a>
+  <a href="#nov">November</a>
+  <a href="#dec">December</a>
+  <a href="#jan">January</a>
+  <a href="#feb">February</a>
+  <a href="incubator_homework_schedule.html" target="_blank" class="nav-external">📋 Homework Schedule</a>
+  <a href="sk_pricing_calculator.html" target="_blank" class="nav-external">🧮 Pricing Calculator</a>
+</nav>
+
+<main>
+
+<!-- ==================== KICKOFF ==================== -->
+<section class="phase" id="kickoff">
+  <div class="phase-header">
+    <h2>Kickoff Bootcamp</h2>
+    <span class="phase-tag">Free · Aug 29, 2026 · Zoom</span>
+  </div>
+  <p class="phase-desc">A 2-hour Zoom session. Handle the admin, meet your cohort, and get set up so you're ready to focus on your business from Week 1.</p>
+  <div class="modules-grid">
+    <div class="module-card has-notes" data-notes="bootcamp1">
+      <span class="badge-maria module-badge">2 Hours</span>
+      <div class="module-num">Bootcamp · Part 1</div>
+      <h3>Orientation & Business Registration</h3>
+      <p>Cohort introductions and goal-setting. Walk through the BC Registry process and register your business together. Program overview, expectations, and Saturday scheduling for the next 6 months. Includes an overview of post-graduation Sincerely Kitchen membership tiers — what kitchen access looks like after you complete the program and what it costs.</p>
+      <div class="module-deliverable">Business registered, business bank account opened, cohort agreements signed</div>
+      <div class="module-duedate">Homework due: Wed, Sep 9, 2026</div>
+      <div class="notes-cta">Session notes &amp; homework</div>
+    </div>
+    <div class="module-card has-notes" data-notes="bootcamp2">
+      <span class="badge-maria module-badge">Bootcamp · Part 2</span>
+      <div class="module-num">Bootcamp</div>
+      <h3>FoodSafe Level 1</h3>
+      <p>FoodSafe Level 1 is required for Fraser Health approval, to use the kitchen, and to sell at most BC farmers markets. During the bootcamp we'll walk through what it is, how to register online at foodsafe.ca, and what to expect from the course. You'll complete it on your own during September — it takes about 8 hours and can be done entirely online.</p>
+      <div class="module-deliverable">FoodSafe Level 1 certificate completed by September 6</div>
+      <div class="notes-cta">Session notes &amp; homework</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SEPTEMBER ==================== -->
+<section class="phase" id="sep">
+  <div class="phase-header">
+    <h2>September — Foundations</h2>
+    <span class="phase-tag">Pre-Incubation · Weeks 1–4</span>
+  </div>
+  <p class="phase-desc">Define your concept, standardize your recipe, submit your Fraser Health and farmers market applications, and calculate your production costs. The building blocks for everything that follows.</p>
+  <div class="modules-grid">
+
+    <div class="module-card has-notes" data-notes="week1">
+      <span class="badge-maria module-badge">Maria</span>
+      <div class="module-num">Week 1 · Sep 5</div>
+      <h3>Your Food Business Concept</h3>
+      <p>Sharpen your business idea before spending money on it. Define your product, target customer, and how you're different from what's already on the shelf. A structured exercise that forces clarity early.</p>
+      <div class="module-deliverable">Written concept statement: product, customer, market position</div>
+      <div class="module-duedate">Homework due: Wed, Sep 9, 2026</div>
+      <div class="notes-cta">Session notes &amp; homework</div>
+    </div>
+
+    <div class="module-card has-notes" data-notes="week2">
+      <span class="badge-maria module-badge">Maria</span>
+      <div class="module-num">Week 2 · Sep 12</div>
+      <h3>Recipe Standardization</h3>
+      <p>Go from "I eyeball everything" to "anyone can follow this and get the same result." Convert home measurements to weights, document every step with temperatures and times, and scale from home batch to commercial batch. Decide your launch list first — the recipes you standardize become the exact product list Fraser Health approves next week.</p>
+      <div class="module-deliverable">Fully documented, reproducible recipe for every product in your launch list</div>
+      <div class="module-duedate">Homework due: Wed, Sep 16, 2026</div>
+      <div class="notes-cta">Session notes &amp; homework</div>
+    </div>
+
+    <div class="module-card has-notes" data-notes="week3">
+      <span class="badge-maria module-badge">Maria</span>
+      <div class="module-num">Week 3 · Sep 19</div>
+      <h3>Your Food Safety Plan</h3>
+      <p>The document that unlocks your <strong>full</strong> Fraser Health approval — the one that clears you to sell at markets, online, and into stores, all at once. It's mostly already written, inside last week's standardized recipes. You build a package (Food Safety Plan, Sanitation Plan, menu, forms) and send it to Maria, who submits it to Fraser Health on your behalf, since Sincerely Kitchen is a licensed commissary. The Food Safety Plan is a simple four-column table (critical step, critical limit, check, corrective action) — your recipe's temperatures and times are already your critical limits. Draft it with Claude and the sample, then refine. A certificate of insurance is also part of the eventual package — that's next week's topic (Week 4), so nothing to submit yet, but start thinking about it now. Then the market side: apply this fall to Port Moody (local) or the Vancouver winter markets — Maria can introduce you to either.</p>
+      <div class="module-deliverable">Full Fraser Health package assembled — Food Safety Plan &amp; Sanitation Plan, signed Approval Process for Commissaries form, business name registration or incorporation certificate, menu, equipment list</div>
+      <div class="module-duedate">Homework due: Wed, Sep 23, 2026</div>
+      <div class="notes-cta">Session notes &amp; homework</div>
+    </div>
+
+    <div class="module-card has-notes" data-notes="week4">
+      <span class="badge-maria module-badge">Maria</span>
+      <div class="module-num">Week 4 · Sep 26</div>
+      <h3>Insurance & Licensing</h3>
+      <p>Your certificate of insurance — $2,000,000 liability naming "Organicos Ventures Limited" as additional insured — is the one document Maria is still waiting on before she can submit your Fraser Health application. Today covers what coverage you need (commercial general liability, product liability) and what it costs, plus the <strong>municipal business licence</strong> you need to operate — submitted to City Hall using the pre-filled "BL-Application-Industrial" form and the kitchen's floor plan. Reach out directly to one of two broker contacts for a quote — expect a few days' turnaround, not same-day, so start this week.</p>
+      <div class="module-deliverable">Insurance quote requested from a broker, business licence application submitted</div>
+      <div class="module-duedate">Homework due: Wed, Sep 30, 2026</div>
+      <div class="notes-cta">Session notes &amp; homework</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== OCTOBER ==================== -->
+<!-- To unlock: remove the word "locked" from the line below -->
+<section class="phase" id="oct">
+  <div class="phase-header">
+    <h2>October — Business Setup & Market Strategy</h2>
+    <span class="phase-tag">Pre-Incubation · Weeks 5–9</span>
+  </div>
+  <p class="phase-desc">Get insured, study your competition, set your prices, build your brand, and get your labels compliant. By month's end, your business infrastructure is in place.</p>
+  <div class="locked-placeholder">
+    <div class="lock-icon">🔒</div>
+    <p>October content will be released closer to the start of the month.</p>
+    <div class="unlock-note">Coming soon</div>
+  </div>
+  <div class="modules-grid">
+
+    <div class="module-card has-notes" data-notes="week5">
+      <span class="badge-maria module-badge">Maria</span>
+      <div class="module-num">Week 5 · Oct 3</div>
+      <h3>Production Costing</h3>
+      <p>What does it actually cost to make one? Using the Pricing Calculator, you'll turn your standardized recipes into real numbers — including the real insurance premium you requested last week, instead of guessing. We keep two kinds of cost apart: your <strong>variable cost</strong> (ingredients + packaging — the true floor, never sell below it) and your <strong>fixed costs</strong> (kitchen, overhead, insurance, and paying yourself — a monthly nut you cover with volume, not a cost per unit). The trap almost everyone falls into is dividing fixed costs into each unit and scaring themselves off with a "$9 cookie." Instead we find your contribution (price − cost to make one) and your break-even — how many you need to sell a month to get profitable. Overhead becomes a target you grow into, not a verdict.</p>
+      <div class="module-deliverable">Every launch product costed and saved in the Pricing Calculator — variable cost, contribution, and break-even for each</div>
+      <div class="module-duedate">Homework due: Wed, Oct 7, 2026</div>
+      <div class="notes-cta">Session notes &amp; homework</div>
+    </div>
+
+    <div class="module-card has-notes" data-notes="week6">
+      <span class="badge-maria module-badge">Maria</span>
+      <div class="module-num">Week 6 · Oct 10</div>
+      <h3>Know Your Competition</h3>
+      <p>Before setting prices, understand the market. Research what's on the shelf in your category — at stores, markets, and online. Evaluate competitors on pricing, packaging, positioning, and identify the gaps your product fills.</p>
+      <div class="module-deliverable">Competitive analysis document with differentiation strategy</div>
+      <div class="module-duedate">Homework due: Wed, Oct 14, 2026</div>
+      <div class="notes-cta">Session notes &amp; homework</div>
+    </div>
+
+    <div class="module-card">
+      <span class="badge-maria module-badge">Maria</span>
+      <div class="module-num">Week 7 · Oct 17</div>
+      <h3>Pricing Strategy</h3>
+      <p>With production costs and competitive landscape in hand, set prices that work. Wholesale vs. retail margins, keystone pricing, farmers market vs. retail store vs. online pricing. Real examples from Sincerely Kitchen members.</p>
+      <div class="module-deliverable">Wholesale and retail price points finalized for primary products</div>
+      <div class="module-duedate">Homework due: Wed, Oct 21, 2026</div>
+    </div>
+
+    <div class="module-card">
+      <span class="badge-maria module-badge">Maria</span>
+      <div class="module-num">Week 8 · Oct 24</div>
+      <h3>Brand Identity & Packaging with AI Tools</h3>
+      <p>Use Claude to develop your brand positioning, name, colour palette, and personality — then write image prompts and generate logo concepts and packaging visuals in Gemini. Bring it all into Canva to build your actual label, logo file, and brand kit. You leave with real files, not just a presentation.</p>
+      <div class="module-deliverable">Brand brief, logo concept, and label template in Canva</div>
+      <div class="module-duedate">Homework due: Wed, Oct 28, 2026</div>
+    </div>
+
+    <div class="module-card">
+      <span class="badge-maria module-badge">Maria</span>
+      <div class="module-num">Week 9 · Oct 31</div>
+      <h3>CFIA Labelling Compliance</h3>
+      <p>What's legally required on a Canadian food label: bilingual labelling, nutrition facts, allergen declarations, net quantity, ingredient lists, best-before dates. Review your draft labels against CFIA regulations. Labels are a federal (CFIA) requirement for anything you sell packaged — separate from your Fraser Health approval, which you already have.</p>
+      <div class="module-deliverable">Draft label reviewed and corrected for CFIA compliance</div>
+      <div class="module-duedate">Homework due: Wed, Nov 11, 2026</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== NOVEMBER ==================== -->
+<!-- To unlock: remove the word "locked" from the line below -->
+<section class="phase" id="nov">
+  <div class="phase-header">
+    <h2>November — Books, Market Prep & Sales Channels</h2>
+    <span class="phase-tag">Pre-Incubation · Weeks 10–12 · No session Nov 7</span>
+  </div>
+  <p class="phase-desc">Set up your books, prep for market day, and set up Instagram as a sales channel. By month's end, you're ready to enter the kitchen. (No session Nov 7.)</p>
+  <div class="locked-placeholder">
+    <div class="lock-icon">🔒</div>
+    <p>November content will be released closer to the start of the month.</p>
+    <div class="unlock-note">Coming soon</div>
+  </div>
+  <div class="modules-grid">
+
+    <div class="module-card">
+      <span class="badge-maria module-badge">Maria</span>
+      <div class="module-num">Week 10 · Nov 14</div>
+      <h3>Bookkeeping & QuickBooks Setup</h3>
+      <p>Hands-on session setting up QuickBooks for a food business: chart of accounts, GST/PST registration, expense tracking, and when to file. Maria walks you through the practical setup from running her own businesses — you leave with a working system, not just theory. For anyone with a more complex tax situation, we'll share an accountant referral.</p>
+      <div class="module-deliverable">QuickBooks set up, GST/PST registration complete</div>
+      <div class="module-duedate">Homework due: Wed, Nov 18, 2026</div>
+    </div>
+
+    <div class="module-card">
+      <span class="badge-maria module-badge">Maria</span>
+      <div class="module-num">Week 11 · Nov 21</div>
+      <h3>Farmers Market Prep</h3>
+      <p>Everything for market day: booth setup and display, pricing signage, sampling strategy, customer interaction, cash and card handling, and what to bring. Create your booth layout plan and prepare pricing displays.</p>
+      <div class="module-deliverable">Booth layout plan and pricing display designed, ready for first market day</div>
+      <div class="module-duedate">Homework due: Wed, Nov 25, 2026</div>
+    </div>
+
+    <div class="module-card">
+      <span class="badge-maria module-badge">Maria</span>
+      <div class="module-num">Week 12 · Nov 28</div>
+      <h3>Selling on Instagram</h3>
+      <p>Instagram as a direct sales channel, not just marketing. How successful Sincerely Kitchen members take orders through DMs and link-in-bio tools, build a local following that buys, run limited drops, and convert followers to repeat customers.</p>
+      <div class="module-deliverable">Instagram sales strategy and optimized profile ready for launch</div>
+      <div class="module-duedate">Homework due: Wed, Dec 2, 2026</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== DECEMBER ==================== -->
+<!-- To unlock: remove the word "locked" from the line below -->
+<section class="phase" id="dec">
+  <div class="phase-header">
+    <h2>December — First Production & Online Setup</h2>
+    <span class="phase-tag">Incubation · Weeks 13–15 · No session Dec 26</span>
+  </div>
+  <p class="phase-desc">Kitchen access begins. Produce your first batches, get professional photos, and use the holiday break to build your online store. This is where it gets real.</p>
+  <div class="locked-placeholder">
+    <div class="lock-icon">🔒</div>
+    <p>December content will be released closer to the start of the month.</p>
+    <div class="unlock-note">Coming soon</div>
+  </div>
+  <div class="modules-grid">
+
+    <div class="module-card">
+      <span class="badge-split module-badge">Sat + Sun</span>
+      <div class="module-num">Week 13 · Dec 5–6</div>
+      <h3>Kitchen Orientation & First Production</h3>
+      <p>Split across Saturday and Sunday — half the cohort each day so everyone gets a station. Kitchen layout, equipment, booking system, food safety protocols, and cleaning requirements. Then your first production run at commercial scale. Your full Fraser Health approval has been in hand since the fall, so everything you produce here you're already cleared to sell — at markets, online, and into stores.</p>
+      <div class="module-deliverable">First batch produced in commercial kitchen at full scale</div>
+      <div class="module-duedate">Homework due: Wed, Dec 9, 2026</div>
+    </div>
+
+    <div class="module-card">
+      <span class="badge-guest module-badge">★ Guest</span>
+      <div class="module-num">Week 14 · Dec 12</div>
+      <h3>Product Photography</h3>
+      <p>Guest facilitator: photographer. Hands-on session photographing your actual products with professional lighting and styling guidance. Composition, phone-friendly lighting setups, and styling tips for food products.</p>
+      <div class="module-deliverable">5–10 professional-quality product photos</div>
+      <div class="module-duedate">Homework due: Wed, Dec 16, 2026</div>
+    </div>
+
+    <div class="module-card">
+      <span class="badge-maria module-badge">Maria</span>
+      <div class="module-num">Week 15 · Dec 19</div>
+      <h3>Build Your Online Store — Shopify + Claude</h3>
+      <p>Stand up a real online store where customers can buy directly. Shopify is the engine — checkout, payments, inventory — and you'll use Claude to do the heavy lifting: product descriptions, your About story, brand copy, theme customization, and a polished landing page, loaded with the product photos you shot last week. We'll also weigh add-on channels (Etsy, local delivery) and their economics. Use the holiday break to finish and launch.</p>
+      <div class="module-deliverable">Live Shopify store set up and ready to take orders</div>
+      <div class="module-duedate">Homework due: Wed, Jan 6, 2027</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== JANUARY ==================== -->
+<!-- To unlock: remove the word "locked" from the line below -->
+<section class="phase" id="jan">
+  <div class="phase-header">
+    <h2>January — First Sales, Iterate & Approach Retail</h2>
+    <span class="phase-tag">Incubation · Weeks 16–19 · No session Jan 2</span>
+  </div>
+  <p class="phase-desc">Debrief your first sales, iterate based on real customer feedback, build your sell sheet and pitch deck, approach retail buyers with sales data to back you up, and start scaling production.</p>
+  <div class="locked-placeholder">
+    <div class="lock-icon">🔒</div>
+    <p>January content will be released closer to the start of the month.</p>
+    <div class="unlock-note">Coming soon</div>
+  </div>
+  <div class="modules-grid">
+
+    <div class="module-card">
+      <span class="badge-maria module-badge">Maria</span>
+      <div class="module-num">Week 16 · Jan 9</div>
+      <h3>Your First Sales</h3>
+      <p>Group debrief after your first sales at farmers markets, Instagram, and online channels. What sold, what surprised you, what didn't work. By now you've had December to sell — bring real numbers. Troubleshoot pricing, displays, and customer feedback patterns together as a cohort.</p>
+      <div class="module-deliverable">3 specific adjustments to make before next sales opportunity</div>
+      <div class="module-duedate">Homework due: Wed, Jan 13, 2027</div>
+    </div>
+
+    <div class="module-card">
+      <span class="badge-maria module-badge">Maria</span>
+      <div class="module-num">Week 17 · Jan 16</div>
+      <h3>Customer Feedback & Product Iteration</h3>
+      <p>After weeks of selling, you have real customer reactions. Collect and act on feedback systematically — what people said, what they bought vs. skipped, what to adjust. Reframe feedback as a tool for improvement, not a personal critique.</p>
+      <div class="module-deliverable">Documented product adjustments based on real customer feedback</div>
+      <div class="module-duedate">Homework due: Wed, Jan 20, 2027</div>
+    </div>
+
+    <div class="module-card">
+      <span class="badge-maria module-badge">Maria</span>
+      <div class="module-num">Week 18 · Jan 23</div>
+      <h3>Sell Sheet, Pitch Deck & Approaching Buyers</h3>
+      <p>Build your sell sheet (one-page for buyers) and pitch deck (5–7 slides). You've had full Fraser Health approval since the fall, so you're already cleared to sell into stores, not just markets. Maria facilitates warm introductions to Pomme Natural Market and other local retailers.</p>
+      <div class="module-deliverable">Sell sheet + pitch deck complete; retail-ready</div>
+      <div class="module-duedate">Homework due: Wed, Jan 27, 2027</div>
+    </div>
+
+    <div class="module-card">
+      <span class="badge-maria module-badge">Maria</span>
+      <div class="module-num">Week 19 · Jan 30</div>
+      <h3>Scaling Production & Choosing Your Membership</h3>
+      <p>Move from first batches to consistent production. Batch planning, scheduling kitchen time, managing inventory, shelf-life, and handling multiple customers. Then a dedicated session on post-graduation Sincerely Kitchen membership tiers — review each tier in detail, what hours and access are included, monthly costs, and which tier fits your actual production volume. You've been in the kitchen for 6 weeks now; you know what you need. Homework: sign your membership agreement before Week 21.</p>
+      <div class="module-deliverable">4-week production plan with batch schedule; membership tier selected and agreement signed</div>
+      <div class="module-duedate">Homework due: Wed, Feb 3, 2027</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== FEBRUARY ==================== -->
+<!-- To unlock: remove the word "locked" from the line below -->
+<section class="phase" id="feb">
+  <div class="phase-header">
+    <h2>February — Numbers, Pitch & Graduation</h2>
+    <span class="phase-tag">Incubation · Weeks 20–23</span>
+  </div>
+  <p class="phase-desc">Lock in your wholesale relationships, run your numbers to confirm the business works, practice your pitch, and graduate in front of retail buyers. Transition to standard Sincerely Kitchen membership.</p>
+  <div class="locked-placeholder">
+    <div class="lock-icon">🔒</div>
+    <p>February content will be released closer to the start of the month.</p>
+    <div class="unlock-note">Coming soon</div>
+  </div>
+  <div class="modules-grid">
+
+    <div class="module-card">
+      <span class="badge-maria module-badge">Maria</span>
+      <div class="module-num">Week 20 · Feb 6</div>
+      <h3>Wholesale Accounts & Retail Relationships</h3>
+      <p>What happens after a buyer says yes: managing reorders, delivery schedules, returns and spoilage, in-store demos, consignment tracking, and expanding from one store to two.</p>
+      <div class="module-deliverable">Retail account management plan or refined approach strategy</div>
+      <div class="module-duedate">Homework due: Wed, Feb 10, 2027</div>
+    </div>
+
+    <div class="module-card">
+      <span class="badge-maria module-badge">Maria</span>
+      <div class="module-num">Week 21 · Feb 13</div>
+      <h3>Practice Pitches</h3>
+      <p>Timed 5-minute presentations to the group. Maria plays the skeptical buyer: "Why would I give shelf space to your product?" Structured feedback from peers and coach. The goal: make graduation feel easy by comparison.</p>
+      <div class="module-deliverable">Revised pitch ready for graduation showcase</div>
+      <div class="module-duedate">Homework due: Wed, Feb 17, 2027</div>
+    </div>
+
+    <div class="module-card">
+      <span class="badge-maria module-badge">Maria</span>
+      <div class="module-num">Week 22 · Feb 20</div>
+      <h3>Does Your Business Work? Running Your Real Numbers</h3>
+      <p>The math works — if you have the sales to feed the production. Using your actual numbers from the past 3 months, run your unit economics: cost per bag, margin per channel, and what volume you need to cover your membership and pay yourself. Maria walks through a real example with the group, then everyone applies it to their own business. The question isn't whether the numbers work in theory — it's whether you've built the sales to make them work in practice. Covers GST/PST remittance and what to bring to your accountant at year end.</p>
+      <div class="module-deliverable">Unit economics worksheet with your real numbers, volume targets, and break-even point</div>
+      <div class="module-duedate">Homework due: Wed, Feb 24, 2027</div>
+    </div>
+
+    <div class="module-card">
+      <span class="badge-maria module-badge">Maria</span>
+      <div class="module-num">Week 23 · Feb 27</div>
+      <h3>Graduation Showcase</h3>
+      <p>Present your business plan to a panel including Maria, retail buyers (Pomme, Stong's), and guests. Bring product samples. Both a celebration and a real business opportunity — buyers may place orders. Your membership agreement is already signed — this is the moment you officially cross over.</p>
+      <div class="module-deliverable">Business plan presented, membership transition confirmed, program complete</div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- ── SESSION NOTES OVERLAY ── -->
+<div class="ns-overlay" id="nsOverlay">
+  <div class="ns-panel">
+    <div class="ns-head">
+      <div>
+        <div class="ns-module" id="nsModule"></div>
+        <div class="ns-title" id="nsTitle"></div>
+      </div>
+      <button class="ns-close" id="nsClose" title="Close">✕</button>
+    </div>
+    <div class="ns-body">
+      <div class="ns-slide-label" id="nsLabel"></div>
+      <div class="ns-slide-title" id="nsSlideTitle"></div>
+      <div class="ns-slide-content" id="nsContent"></div>
+    </div>
+    <div class="ns-foot">
+      <button class="ns-nav" id="nsPrev" title="Previous">‹</button>
+      <div class="ns-dots" id="nsDots"></div>
+      <button class="ns-nav" id="nsNext" title="Next">›</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const SESSION_NOTES = {
+  bootcamp1: {
+    module: "Kickoff Bootcamp · Part 1 · Aug 29, 2026",
+    title: "Orientation & Business Registration",
+    slides: [
+      { label: "What we covered · 1", title: "Your cohort", html: `
+        <p>Four businesses — <strong>chocolates, Bahamian baked goods, macarons, and vegan gelato.</strong></p>
+        <p>Help each other — that's the whole point of a cohort. Questions, wins, and market-day photos go in the WhatsApp group.</p>` },
+      { label: "What we covered · 2", title: "The journey", html: `
+        <ul>
+          <li><strong>Phase 1 · Sep–Nov:</strong> education only — Saturdays 10:00 a.m. on Zoom. No kitchen yet.</li>
+          <li><strong>Phase 2 · Dec–Feb:</strong> in person at the kitchen, Saturdays 4:00 p.m. — your 10 hrs/month of kitchen access begins.</li>
+          <li><strong>No sessions:</strong> Nov 7 · Dec 26 · Jan 2.</li>
+          <li><strong>Graduation Showcase:</strong> Saturday, February 27, 2027.</li>
+        </ul>` },
+      { label: "What we covered · 3", title: "Ground rules", html: `
+        <ul>
+          <li><strong>Show up</strong> — sessions are not recorded. More than two consecutive absences may affect your standing.</li>
+          <li><strong>Homework due Wednesdays, 11:59 p.m.</strong> — the Wednesday before the next session, so Maria can review before you meet.</li>
+          <li><strong>Submit via your private Drive folder</strong> — name files like "Week 01 - Business Concept".</li>
+          <li><strong>WhatsApp group</strong> — community, not homework.</li>
+        </ul>` },
+      { label: "What we covered · 4", title: "Sole proprietorship vs corporation", html: `
+        <ul>
+          <li><strong>Sole proprietorship:</strong> you are the business — one tax return (yours, plus form T2125), ~$70 to register, business bank account required, personally liable.</li>
+          <li><strong>Corporation ("Limited"):</strong> a separate legal person — its own tax return and ~$2–3K/yr in accounting, limited liability. Its ~11% tax rate only pays off once you leave profits in the company (roughly $100K+ consistent profit).</li>
+          <li><strong>Start simple.</strong> Switching later is common — you create a new company and move the business into it.</li>
+        </ul>` },
+      { label: "What we covered · 5", title: "Registering your name", html: `
+        <p>A business name has two parts: a <strong>distinctive</strong> element (unique, memorable) + a <strong>descriptive</strong> element (what you do) — e.g. <em>Cocoa Passion Chocolatier</em>, <em>Androsian Bake House</em>, <em>Juju Ma Bakery</em>. A corporation would add "Limited" at the end.</p>
+        <ul>
+          <li><strong>Step 1 — Name request:</strong> we submitted these together at <a href="https://names.bcregistry.gov.bc.ca" target="_blank">names.bcregistry.gov.bc.ca</a> (~$31), each with 3 ranked options — similar names get rejected.</li>
+          <li><strong>Step 2 — Complete registration:</strong> once approved (~6 days), log back in at <a href="https://www.bcregistry.gov.bc.ca" target="_blank">bcregistry.gov.bc.ca</a> with your BCeID or BC Services Card, choose "Register a Partnership or Sole Proprietorship," and pay the ~$40 fee (~15 minutes).</li>
+          <li>OneStop is retired — bcregistry.gov.bc.ca is the only site now. Your name request is valid for 56 days, so no rush once it's approved.</li>
+        </ul>` },
+      { label: "What we covered · 6", title: "After graduation", html: `
+        <p>Four membership tiers: <strong>Start Up</strong> $750 · <strong>Ramp Up</strong> $850 · <strong>Scale Up</strong> $1,150 · <strong>Pro Series</strong> $1,350 per month.</p>
+        <p><strong>Nothing to decide now</strong> — you'll choose in January (Week 19), once you know your real production volume. Graduates start their membership March 1.</p>` },
+      { label: "Homework · due Wed, Sep 9", title: "Your homework, explained", html: `
+        <div class="ns-hw">
+          <p>Your name approval takes about 6 days. Once it arrives:</p>
+          <ul>
+            <li><strong>1.</strong> Complete the registration at <a href="https://www.bcregistry.gov.bc.ca" target="_blank">bcregistry.gov.bc.ca</a> (~15 min) — log in with your BCeID or BC Services Card and choose "Register a Partnership or Sole Proprietorship."</li>
+            <li><strong>2.</strong> Open a <strong>business bank account</strong> in your registered name — required: you'll need it to deposit cheques and e-transfers made out to your business, and it keeps your books clean. A basic low-fee account is fine; bring your registration certificate and ID.</li>
+          </ul>
+          <p>Save the confirmation in your Drive folder as <em>"Bootcamp - Business Registration"</em> — due <strong>Wed, Sep 9</strong>. Name rejected? Don't panic — submit your backup and let Maria know.</p>
+        </div>` },
+    ]
+  },
+  bootcamp2: {
+    module: "Kickoff Bootcamp · Part 2 · Aug 29, 2026",
+    title: "FoodSafe Level 1",
+    slides: [
+      { label: "What we covered · 1", title: "Why & what", html: `
+        <ul>
+          <li><strong>Required</strong> for Fraser Health approval, for working in the kitchen, and by all farmers markets.</li>
+          <li><strong>~7 hours,</strong> fully online and self-paced — $69, with 20 days of access (keep the receipt: business expense).</li>
+          <li>We registered together at <a href="https://www.foodsafe.ca" target="_blank">foodsafe.ca</a> during the session.</li>
+          <li><strong>No invigilator needed</strong> — you write the 50-question final exam on your own account, and your certificate is issued automatically as soon as you pass.</li>
+        </ul>` },
+      { label: "Homework · due Sun, Sep 6", title: "Your homework, explained", html: `
+        <div class="ns-hw">
+          <p>Work through the course at your own pace this week and pass the exam. Then upload your certificate to your Drive folder as <em>"Bootcamp - FoodSafe Certificate"</em> — due <strong>Sun, Sep 6</strong>.</p>
+          <p>Already certified? Just upload your existing certificate.</p>
+        </div>` },
+    ]
+  },
+  week1: {
+    module: "Week 1 · Sep 5, 2026",
+    title: "Your Food Business Concept",
+    slides: [
+      { label: "What we covered · 1", title: "Why concept clarity matters", html: `
+        <p>Most food businesses don't fail because of bad cooking — they fail from <strong>fuzzy positioning</strong>: trying to be for everyone, and ending up memorable to no one.</p>
+        <p>The goal of this session: one written sentence — your concept statement — that everything else in the program builds on.</p>` },
+      { label: "What we covered · 2", title: "The 3-Pillar Framework", html: `
+        <ul>
+          <li><strong>WHAT</strong> — your product, in one sentence. One hero product, not a list of everything you could make.</li>
+          <li><strong>WHO</strong> — your target customer, specifically. Not "everyone who likes food."</li>
+          <li><strong>WHY YOU</strong> — a first-instinct market position. A gut differentiator, not deep research — that's Week 6's job.</li>
+        </ul>` },
+      { label: "What we covered · 3", title: "The positioning template", html: `
+        <p>Turn the three pillars into one sentence:</p>
+        <div class="ns-hw">
+          <p><em>[Product] is [category] for [target customer] who [need or occasion]. Unlike [main alternative], we [differentiator].</em></p>
+        </div>
+        <p>Fill it with your first instinct — refine it later. Nobody's expected to nail it on the first try.</p>` },
+      { label: "What we covered · 4", title: "Worked example — Earthling Foods", html: `
+        <p>A real Port Coquitlam business, founded by siblings during COVID:</p>
+        <ul>
+          <li><strong>WHAT:</strong> Protein-rich desserts — protein granola, protein cake cups, dacarons</li>
+          <li><strong>WHO:</strong> Health-conscious people who still want something indulgent</li>
+          <li><strong>WHY YOU:</strong> Seed-oil-free, artificial-free, grass-fed butter — real ingredients, not shortcuts</li>
+        </ul>
+        <div class="ns-hw">
+          <p><em>"Earthling Foods' protein desserts are guilt-free indulgence for health-conscious snackers who still want something sweet. Unlike typical bakery treats, we skip the seed oils and artificial stuff for grass-fed butter and real, clean ingredients."</em></p>
+        </div>` },
+      { label: "Homework · due Wed, Sep 9", title: "Your homework, explained", html: `
+        <div class="ns-hw">
+          <p>Refine the concept statement you drafted and shared today based on group feedback. Save it to your Drive folder as <em>"Week 01 - Business Concept"</em> — due <strong>Wed, Sep 9</strong>.</p>
+          <p>Same folder from Kickoff — check the Homework Schedule page above if you need the link again.</p>
+        </div>` },
+    ]
+  },
+  week2: {
+    module: "Week 2 · Sep 12, 2026",
+    title: "Recipe Standardization",
+    slides: [
+      { label: "What we covered · 1", title: "Why standardization matters", html: `
+        <p><strong>If you can't write it down, you can't sell it, scale it, or hand it off.</strong></p>
+        <ul>
+          <li>Fraser Health's approval is tied to a specific list of products — the recipes you standardize now are exactly what you'll be approved to sell (Week 3).</li>
+          <li>You can't cost a recipe you haven't measured (Week 4).</li>
+          <li>You can't train help, or be consistent for a customer, from memory.</li>
+        </ul>` },
+      { label: "What we covered · 2", title: "How many products — and which ones", html: `
+        <p><strong>How many:</strong> for most small-batch makers, 3–6 products is the sweet spot.</p>
+        <ul>
+          <li><strong>3–4</strong> — markets &amp; pop-ups: 3 core + 1 seasonal (this is your Week 3 farmers market list)</li>
+          <li><strong>4–6</strong> — cafes or retailers: 4 core + 1–2 seasonal</li>
+          <li><strong>7–8</strong> — only once you've scaled up with a team and systems</li>
+        </ul>
+        <p><strong>Which ones — the 4 core:</strong> Classic (your reliable favorite), Indulgent (rich, premium), Fresh (bright, fruity, or herbal), and Signature (your creative twist). Selling at markets? Pick 3 of these 4.</p>
+        <p><strong>Plus your rotating slot:</strong> Seasonal — swap it every few weeks. Testing a new idea? It goes here, not onto the core list. That's what keeps the list from creeping.</p>
+        <div class="ns-hw">
+          <p><strong>Your list isn't permanent.</strong> Every product you list is one more thing the inspector reviews, so a long plan literally delays the day you can start selling — start lean, get approved, and add items later. Keep it well under 20; for most of you it's a handful.</p>
+          <p>And define your seasonal slot as a <em>format</em> rather than one fixed product. Fraser Health cares about the <strong>process</strong> — so if "fruit tart" is approved, changing the fruit isn't a new process. A genuinely different method is. If you're not sure which side your idea falls on, ask your inspector rather than guess.</p>
+        </div>
+        <p>Remember this list carries forward: you'll cost each product in Week 4 and price each one in Week 7.</p>` },
+      { label: "What we covered · 3", title: "Three parts to a standardized recipe", html: `
+        <ul>
+          <li><strong>Weigh it</strong> — convert every cup and spoon to grams. Volume lies (a packed cup ≠ a loose cup); weight is always the same amount.</li>
+          <li><strong>Document it</strong> — exact temperatures, exact times, the order things happen in, and your exact yield (units + weight per unit). "Season to taste" isn't documentation.</li>
+          <li><strong>Scale it</strong> — once it's weighed and documented, you can multiply it reliably from a home batch to a real commercial batch.</li>
+        </ul>` },
+      { label: "What we covered · 4", title: "The scaling formula", html: `
+        <div class="ns-hw">
+          <p><em>New batch size ÷ Original batch size = Scaling factor.</em> Multiply every ingredient by that factor — including the ones you don't normally measure, like salt, leavening, and spices.</p>
+        </div>
+        <p><strong>Example:</strong> your recipe makes 24 cookies, a market day needs 144. 144 ÷ 24 = 6 → every ingredient × 6.</p>
+        <p>Note: at very large batch sizes, salt, leavening, and spices don't always scale perfectly linearly — taste-test after scaling and adjust in small increments.</p>` },
+      { label: "What we covered · 5", title: "Common pitfalls", html: `
+        <ul>
+          <li>"Season to taste" isn't standardized — write the actual amount you used, every time.</li>
+          <li>Not everything scales in a straight line — at 6x or 10x, salt, leavening, and strong spices can need small adjustments; taste-test after scaling.</li>
+          <li>If it's not written down, it's not standardized — even pan size and mixing speed change your result.</li>
+        </ul>` },
+      { label: "Homework · due Wed, Sep 16", title: "Your homework, explained", html: `
+        <div class="ns-hw">
+          <p>First, finalize your launch list — 3–4 products if you're starting at markets. Then fully standardize a recipe for each one: convert every ingredient to weight (grams), document every step (temps, times, order), calculate your scaling factor for a realistic first commercial batch, and record your exact yield.</p>
+          <p>Save it to your Drive folder as <em>"Week 02 - Standardized Recipe"</em> — due <strong>Wed, Sep 16</strong>. These recipes become the backbone of next week's Food Safety Plan — your temps and times are your critical limits.</p>
+        </div>` },
+    ]
+  },
+  week3: {
+    module: "Week 3 · Sep 19, 2026",
+    title: "Your Food Safety Plan",
+    slides: [
+      { label: "What we covered · 1", title: "How approval works here", html: `
+        <p><strong>You build the package. Maria submits it for you.</strong></p>
+        <p>Because Sincerely Kitchen is a Fraser Health–licensed commissary, your approval runs through the kitchen. You prepare your documents and send them to Maria. She usually has corrections — expect some back and forth — and once your application is solid, she sends it to the inspector for approval.</p>
+        <p>Your job is to get the documents right and complete — and the Food Safety Plan is the heart of it.</p>` },
+      { label: "What we covered · 2", title: "What Fraser Health needs from you", html: `
+        <p>The package you send Maria (full checklist in Section 1 of the Startup Manual, in your <strong>Incubator Resources</strong> folder):</p>
+        <ul>
+          <li>Signed "Approval Process for Commissaries" form (in your Incubator Resources folder)</li>
+          <li>Business name registration or incorporation certificate</li>
+          <li>Full menu list — everything you plan to sell</li>
+          <li><strong>Food Safety Plan</strong> and <strong>Sanitation Plan</strong></li>
+          <li>FoodSafe Level 1 certificate — ✓ done at Kickoff</li>
+          <li>Equipment list and kitchen-usage schedule</li>
+        </ul>
+        <div class="ns-hw">
+          <p><strong>One piece comes next week: your Certificate of Insurance.</strong> $2M liability, naming Organicos Ventures Limited as additional insured. It's also part of the package, but we cover it together in <strong>Week 4</strong> — so there's nothing to do on it this week. The focus now is your Food Safety Plan.</p>
+        </div>` },
+      { label: "What we covered · 3", title: "Your Food Safety Plan — what it is", html: `
+        <p>A written plan showing you've thought through where food could become unsafe and how you control it. In practice, it's a simple four-column table:</p>
+        <ul>
+          <li><strong>Critical step</strong> — e.g. Receiving, Storing, Preparing, Cooking, Cooling</li>
+          <li><strong>Critical limit</strong> — e.g. ingredients below 4°C; surfaces sanitized</li>
+          <li><strong>Check</strong> — how you verify it, e.g. check temp on delivery</li>
+          <li><strong>Corrective action</strong> — what you do if it's off, e.g. reject if above 4°C</li>
+        </ul>
+        <p>It covers five things: food handling, temperature control, cross-contamination, cleaning &amp; sanitizing, and employee hygiene.</p>` },
+      { label: "What we covered · 4", title: "A worked example — the oatmeal cookie", html: `
+        <p>The Week 2 oatmeal cookie, now as a full Food Safety Plan — every step from receiving to delivery.</p>
+        <table style="width:100%;border-collapse:collapse;font-size:0.8rem;margin:0.6rem 0;">
+          <thead><tr style="background:#1A1A1A;color:#F7931E;text-align:left;">
+            <th style="padding:5px 7px;">Critical step</th><th style="padding:5px 7px;">Critical limit</th><th style="padding:5px 7px;">Check</th><th style="padding:5px 7px;">Corrective action</th>
+          </tr></thead>
+          <tbody>
+            <tr><td style="padding:5px 7px;"><strong>Receiving</strong></td><td style="padding:5px 7px;">Cold ingredients below 4°C</td><td style="padding:5px 7px;">Check temp on delivery</td><td style="padding:5px 7px;">Reject if above 4°C</td></tr>
+            <tr><td style="padding:5px 7px;"><strong>Cold storage</strong></td><td style="padding:5px 7px;">Fridge at 4°C or colder</td><td style="padding:5px 7px;">Fridge thermometer, daily</td><td style="padding:5px 7px;">Adjust; discard if warmed</td></tr>
+            <tr><td style="padding:5px 7px;"><strong>Mixing &amp; prep</strong></td><td style="padding:5px 7px;">Hands washed, surfaces sanitized</td><td style="padding:5px 7px;">Sanitize before starting</td><td style="padding:5px 7px;">Re-wash / re-sanitize</td></tr>
+            <tr><td style="padding:5px 7px;"><strong>Baking</strong></td><td style="padding:5px 7px;">Internal temp reaches 66°C</td><td style="padding:5px 7px;">Probe the centre after baking</td><td style="padding:5px 7px;">Bake longer; discard if under</td></tr>
+            <tr><td style="padding:5px 7px;"><strong>Cooling</strong></td><td style="padding:5px 7px;">60→20°C in under 2 hr</td><td style="padding:5px 7px;">Time it; check with probe</td><td style="padding:5px 7px;">Discard if cooled too slowly</td></tr>
+            <tr><td style="padding:5px 7px;"><strong>Packaging</strong></td><td style="padding:5px 7px;">Fully cooled first — no condensation</td><td style="padding:5px 7px;">Cool to the touch before sealing</td><td style="padding:5px 7px;">Keep cooling if any warmth</td></tr>
+            <tr><td style="padding:5px 7px;"><strong>Delivery</strong></td><td style="padding:5px 7px;">Dry, clean, sealed box; room temp</td><td style="padding:5px 7px;">Box clean &amp; dry before loading</td><td style="padding:5px 7px;">Replace if box is damp or dirty</td></tr>
+          </tbody>
+        </table>
+        <p><em>Illustrative, not a real member's recipe. The baking limit is an internal temperature (66°C), and cooling is its own step — that's where a lot of food becomes unsafe.</em></p>` },
+      { label: "What we covered · 5", title: "Building yours — with Claude", html: `
+        <ul>
+          <li><strong>Start from your standardized recipe.</strong> Your Week 2 temperatures and times ARE your critical limits — bake to your safe internal temp, cool through the danger zone within the time limits, store at 4°C. The safety work is half-done.</li>
+          <li><strong>Find your critical steps</strong> — the moments where safety is won or lost: receiving, cold storage, cooking, cooling, and anywhere hands touch ready-to-eat food.</li>
+          <li><strong>Draft it with Claude, then refine.</strong> Give it your products, process and storage; ask for the four-column table (the Startup Manual, in your Incubator Resources folder, has a ready-made prompt). Then make it true to how you actually work — a plan you never checked won't survive an inspector.</li>
+          <li><strong>Check it against the sample</strong> — the "Food Safety Sample" in your <strong>Incubator Resources</strong> folder shows a finished one. Match that level of detail.</li>
+        </ul>` },
+      { label: "What we covered · 6", title: "Your Sanitation Plan", html: `
+        <p>The shorter companion — how you keep the space clean. Same idea, five parts:</p>
+        <ul>
+          <li><strong>Cleaning agents</strong> — what you use, and for what</li>
+          <li><strong>Sanitizing agents</strong> — including mixing, e.g. 1 tsp bleach per litre of water</li>
+          <li><strong>Cleaning schedule</strong> — how often each item is cleaned</li>
+          <li><strong>Responsibilities</strong> — who does what</li>
+          <li><strong>Pest control</strong> — fly strips, ant bait, keeping it pest-free</li>
+        </ul>
+        <p>Copy the "Sanitation Plan" sample in your <strong>Incubator Resources</strong> folder and adapt it — most of it is shared-kitchen practice you already follow.</p>` },
+      { label: "What we covered · 7", title: "Where you'll sell — apply this fall", html: `
+        <ul>
+          <li><strong>Port Moody / Coquitlam (local)</strong> — winter Sundays, run by Kristin Chilvers. $50–60 per date plus a one-time $60 season membership. She contacts new vendors late Sept / early Oct — that's your window.</li>
+          <li><strong>Vancouver Farmers Markets</strong> — Riley Park (Saturdays) and Kitsilano (Sundays), from November. Bigger, busier crowd, ~30–45 min away. Apply in the same fall window.</li>
+        </ul>
+        <p><strong>Maria can introduce you to both.</strong> Tell her which markets you want, and pitch what makes your product different from what's already on their tables — that's your Week 1 positioning at work.</p>` },
+      { label: "Homework · due Wed, Sep 23", title: "Your homework, explained", html: `
+        <div class="ns-hw">
+          <p>This week you assemble your full Fraser Health package. The Food Safety Plan is the big one — the rest is mostly gathering things you already have. (Insurance is the only piece that waits — next week, Week 4.)</p>
+          <ul>
+            <li><strong>1.</strong> Draft your <strong>Food Safety Plan</strong> for every product on your launch list — from your standardized recipes, with Claude and the sample in your Incubator Resources folder.</li>
+            <li><strong>2.</strong> Draft your <strong>Sanitation Plan</strong> from the sample in your Incubator Resources folder.</li>
+            <li><strong>3.</strong> Gather the rest of the package: your signed "Approval Process for Commissaries" form, your business registration or incorporation certificate, your full menu list, and your equipment list.</li>
+            <li><strong>4.</strong> Email Maria which winter markets you want to apply to — she'll send the introduction.</li>
+          </ul>
+          <p>Upload it all to your Drive folder labeled <em>"Week 03"</em> — Maria takes it from there. Due <strong>Wed, Sep 23</strong>.</p>
+        </div>` },
+    ]
+  },
+  week5: {
+    module: "Week 5 · Oct 3, 2026",
+    title: "Production Costing",
+    slides: [
+      { label: "What we covered · 1", title: "Why your cost is THE number", html: `
+        <p><strong>You can't price, plan, or grow what you haven't costed.</strong></p>
+        <p>Your price, your margin, whether the business even works — all of it starts from one number: what it actually costs to make your product. Guess it, and every decision after is a guess.</p>
+        <p>So this week we make it real, in the <strong>Pricing Calculator</strong> (in the nav above, and in your Incubator Resources folder to download your own copy).</p>` },
+      { label: "What we covered · 2", title: "Two kinds of cost", html: `
+        <p>The whole trick to costing is keeping these two apart:</p>
+        <ul>
+          <li><strong>Variable cost — the cost to make one more.</strong> Ingredients + packaging. It goes up with every unit: make 10 more cookies, you buy 10 more cookies' worth of flour and bags. This is your <strong>true floor — never sell below it</strong>.</li>
+          <li><strong>Fixed costs — your monthly nut.</strong> Kitchen rental, overhead, insurance, and the wage you want to pay yourself. Roughly the same whether you make 10 units or 1,000. You cover it with <strong>volume</strong>, not per unit.</li>
+        </ul>
+        <p>We treat your own labour as a fixed monthly "pay yourself" number rather than a per-unit cost — it's cleaner, and it makes break-even meaningful.</p>` },
+      { label: "What we covered · 3", title: "The trap — don't divide fixed costs per unit", html: `
+        <p>Take $900/month of kitchen + overhead, split it across a small first batch, and you get a <strong>$9 cookie</strong>. That number is only true at tiny volume — and it'll scare you off a perfectly good business.</p>
+        <p><strong>Fixed costs aren't paid per cookie. They're covered by volume.</strong></p>
+        <p>So: your variable cost is your real floor. Your fixed costs become a monthly target you hit with sales — which is exactly what break-even tells you.</p>` },
+      { label: "What we covered · 4", title: "Cost the cookie — in the calculator", html: `
+        <p>The calculator does the unit conversions and the math live. Here's the Week 2 oatmeal cookie, costed:</p>
+        <table style="width:100%;border-collapse:collapse;font-size:0.82rem;margin:0.6rem 0;">
+          <thead><tr style="background:#1A1A1A;color:#F7931E;text-align:left;">
+            <th style="padding:5px 7px;">One batch · makes 24</th><th style="padding:5px 7px;text-align:right;">Per batch</th><th style="padding:5px 7px;text-align:right;">÷ 24</th>
+          </tr></thead>
+          <tbody>
+            <tr><td style="padding:5px 7px;">Ingredients</td><td style="padding:5px 7px;text-align:right;">$5.58</td><td style="padding:5px 7px;text-align:right;">$0.23</td></tr>
+            <tr><td style="padding:5px 7px;">Packaging (bag + label)</td><td style="padding:5px 7px;text-align:right;">$4.80</td><td style="padding:5px 7px;text-align:right;">$0.20</td></tr>
+            <tr style="border-top:1px solid #E8E0D6;font-weight:700;"><td style="padding:5px 7px;">Variable cost</td><td style="padding:5px 7px;text-align:right;">$10.38</td><td style="padding:5px 7px;text-align:right;color:#D4780F;">$0.43</td></tr>
+          </tbody>
+        </table>
+        <p><strong>$0.43 to make one cookie</strong> — that's your variable cost, your true floor. Notice packaging ($0.20) is almost as much as ingredients ($0.23): list every bag, label, and box separately, because labels quietly add up.</p>` },
+      { label: "What we covered · 5", title: "Price → contribution → break-even", html: `
+        <p>Sell the cookie for <strong>$3.50</strong>:</p>
+        <ul>
+          <li><strong>Contribution = $3.50 − $0.43 = $3.07.</strong> Every cookie you sell puts $3.07 toward your monthly costs. This is the number that does the work.</li>
+          <li><strong>Break-even = $900 ÷ $3.07 = 294 cookies/month</strong> — about 10 a day to cover everything, including paying yourself.</li>
+        </ul>
+        <p>Sell 40 your first month? You're not "losing money on every cookie" — you're 40 of 294 toward profitable, with a clear goal to grow into. Every cookie above 294 is pure profit.</p>
+        <p><em>The calculator also shows a price floor of $1.44 — the lowest price that keeps a healthy 70% margin (cost = 30% of price). Price up from there to what the market bears. We set real prices in Week 7.</em></p>` },
+      { label: "Homework · due Wed, Oct 7", title: "Your homework, explained", html: `
+        <div class="ns-hw">
+          <p>Cost every product on your launch list in the Pricing Calculator, and save each one.</p>
+          <ul>
+            <li><strong>1.</strong> Open the calculator (in the nav above, or your copy from the Incubator Resources folder) and start a recipe for each launch product.</li>
+            <li><strong>2.</strong> Enter your <strong>ingredients and packaging</strong> from your Week 2 weighed amounts — list bags and labels separately.</li>
+            <li><strong>3.</strong> Fill in your <strong>batch yield</strong> and your <strong>monthly fixed costs</strong> (kitchen, overhead, insurance, and a wage to pay yourself).</li>
+            <li><strong>4.</strong> Name and <strong>Save</strong> each recipe, and note its <strong>variable cost, contribution, and break-even</strong>.</li>
+          </ul>
+          <p>To submit: click <strong>Back up all recipes</strong> in the calculator and upload the file to your Drive folder labeled <em>"Week 05 - Costing"</em>. It's fine if a break-even looks big — the point is an honest number to grow into. Due <strong>Wed, Oct 7</strong>.</p>
+        </div>` },
+    ]
+  },
+  week4: {
+    module: "Week 4 · Sep 26, 2026",
+    title: "Insurance & Licensing",
+    slides: [
+      { label: "What we covered · 1", title: "Why insurance matters, right now", html: `
+        <p><strong>Your insurance certificate is the one piece Maria is still waiting on.</strong></p>
+        <p>Everything else in your Fraser Health package — Food Safety Plan, Sanitation Plan, forms, FoodSafe — can be ready. Without a <strong>$2,000,000 liability certificate</strong> naming "Organicos Ventures Limited" as additional insured, Maria cannot submit your application.</p>` },
+      { label: "What we covered · 2", title: "Two kinds of coverage", html: `
+        <ul>
+          <li><strong>Commercial General Liability</strong> — covers injury or property damage from your business operations (a customer slips at your market table, your equipment damages the kitchen). This is the $2M policy Fraser Health requires.</li>
+          <li><strong>Product Liability</strong> — covers harm caused by the product itself (an allergic reaction, a contamination issue). Usually already bundled into your CGL policy — confirm with your broker.</li>
+        </ul>
+        <p>Typically around $600–$1,000/year, but it depends on your revenue, product category, and coverage limits. Get a real number from a broker; you'll plug it into your fixed costs next week (Production Costing) instead of guessing.</p>` },
+      { label: "What we covered · 3", title: "Getting your quote", html: `
+        <p>Reach out directly to one of these two broker contacts:</p>
+        <ul>
+          <li><strong>Frank Fazio</strong>, General Insurance Broker — 604-518-7363, ffazio@rfinsure.com, InsureWithFrank.ca</li>
+          <li><strong>Charlene Saunders</strong>, Western Financial Group Insurance Solutions — (204) 942-2555, charlene.saunders@westernfgis.ca</li>
+        </ul>
+        <p>Ask for a quote for a food business at Sincerely Kitchen. Quotes usually take a few days to come back — this isn't same-day, so start now.</p>` },
+      { label: "What we covered · 4", title: "Business License — City Hall", html: `
+        <p>A separate track from Fraser Health — a manufacturing business license through Port Coquitlam City Hall.</p>
+        <ol>
+          <li><strong>Complete the form</strong> — "BL-Application-Industrial." The kitchen's sections are pre-filled; you only fill in what's specific to your business.</li>
+          <li><strong>Attach the floor plan</strong> — use the provided Sincerely Kitchen floor plan and mark any Shared Station. Add your personal mailing address.</li>
+          <li><strong>Submit to City Hall</strong> — in person, or email everything to businesslicensing@portcoquitlam.ca.</li>
+        </ol>` },
+      { label: "Homework · due Wed, Sep 30", title: "Your homework, explained", html: `
+        <div class="ns-hw">
+          <p>Get your insurance quote moving, and get your business license fully submitted.</p>
+          <ul>
+            <li><strong>1.</strong> Email or call at least one broker (Frank Fazio or Charlene Saunders) for a $2M liability quote naming "Organicos Ventures Limited" as additional insured.</li>
+            <li><strong>2.</strong> Fill out your sections of "BL-Application-Industrial," attach the floor plan + your mailing address, and submit it to City Hall — in person, or by emailing everything to businesslicensing@portcoquitlam.ca.</li>
+            <li><strong>3.</strong> Drop your broker email/quote request confirmation and your business license submission confirmation into your Drive folder, labeled <em>"Week 04"</em>.</li>
+          </ul>
+          <p>Quotes take a few days to come back — "requested" (not "obtained") is the win for insurance this week. Your business license, though, should be fully submitted. Due <strong>Wed, Sep 30</strong>.</p>
+        </div>` },
+    ]
+  },
+  week6: {
+    module: "Week 6 · Oct 10, 2026",
+    title: "Know Your Competition",
+    slides: [
+      { label: "What we covered · 1", title: "Why competitive research, now", html: `
+        <p><strong>You already picked a first-instinct differentiator in Week 1. Today you prove it.</strong></p>
+        <p>Every product on your launch list is already competing against something — on a shelf, at a market table, or in a search result. If you don't know what that is, you can't price against it, package against it, or pitch a buyer on it.</p>` },
+      { label: "What we covered · 2", title: "Three lenses", html: `
+        <ul>
+          <li><strong>Pricing</strong> — what do they actually charge, per unit or per box/bundle? Are you entering above, below, or right into that range?</li>
+          <li><strong>Packaging</strong> — how does it look and feel in hand, on a shelf, at a table, unboxed?</li>
+          <li><strong>Positioning</strong> — what story are they telling? Premium/artisanal, everyday/affordable, health-focused, local?</li>
+        </ul>
+        <p>These three become the columns of the matrix you'll build today.</p>` },
+      { label: "What we covered · 3", title: "Where to look", html: `
+        <ul>
+          <li><strong>On the shelf</strong> — specialty grocers, delis, and gift shops already carrying your category.</li>
+          <li><strong>At markets</strong> — the same farmers markets you're applying to. Who else sells your category there?</li>
+          <li><strong>Online</strong> — Instagram and direct sites. Search your product type + your city.</li>
+        </ul>
+        <p>Go look firsthand where you can — order one, visit a table. The best gaps show up in details a listing photo won't show.</p>` },
+      { label: "What we covered · 4", title: "A worked example — Earthling Foods' granola", html: `
+        <p>Same Port Coquitlam business from Week 1 — now researching who they compete against on the shelf.</p>
+        <table style="width:100%;border-collapse:collapse;font-size:0.78rem;margin:0.6rem 0;">
+          <thead><tr style="background:#1A1A1A;color:#F7931E;text-align:left;">
+            <th style="padding:5px 7px;">Competitor</th><th style="padding:5px 7px;">Pricing</th><th style="padding:5px 7px;">Positioning</th>
+          </tr></thead>
+          <tbody>
+            <tr><td style="padding:5px 7px;">Granola Girl (Burnaby)</td><td style="padding:5px 7px;">$9.99/320g bag; pack of 8 saves 25% (~$7.49/bag)</td><td style="padding:5px 7px;">Established since 2011, 250+ stores — but its own reviews report inconsistent stock and slow fulfillment</td></tr>
+            <tr><td style="padding:5px 7px;">Holy Crap (Salt Spring Island)</td><td style="padding:5px 7px;">$9.79/225g bag — smallest bag, highest per-gram cost</td><td style="padding:5px 7px;">Long-established BC cereal, sold at Whole Foods, Choices, Nesters, IGA</td></tr>
+          </tbody>
+        </table>
+        <p>All three land in the same $9–10/bag range with nearly identical health claims — table stakes, not a differentiator. The real opening is a genuine complaint in Granola Girl's own reviews: inconsistent stock and slow, unresponsive direct fulfillment. A small local producer selling directly has a real, evidence-backed edge there — not a guessed one.</p>` },
+      { label: "What we covered · 5", title: "Building your matrix", html: `
+        <ol>
+          <li><strong>List 3–5 real competitors</strong> — direct competitors plus the closest alternative a customer might pick instead.</li>
+          <li><strong>Go look, don't just guess</strong> — visit, order, or browse each one for actual prices, packaging, and positioning language.</li>
+          <li><strong>Fill in the matrix</strong> — competitor, pricing, packaging, positioning, same shape as the worked example.</li>
+          <li><strong>Find your gap</strong> — what are they NOT doing that you can? That's your differentiation strategy.</li>
+        </ol>` },
+      { label: "Homework · due Wed, Oct 14", title: "Your homework, explained", html: `
+        <div class="ns-hw">
+          <p>Turn today's matrix into a finished competitive analysis.</p>
+          <ul>
+            <li><strong>1.</strong> Research <strong>3+ competitors</strong> in your category — real pricing, packaging, and positioning.</li>
+            <li><strong>2.</strong> Complete your <strong>matrix</strong> — competitor / pricing / packaging / positioning, filled in for all of them.</li>
+            <li><strong>3.</strong> Write your <strong>differentiation strategy</strong> — 2–3 sentences on the gap you fill and why a customer picks you instead.</li>
+          </ul>
+          <p>Upload it to your Drive folder labeled <em>"Week 06"</em>. Unlike Weeks 4–5, nothing here waits on anyone else — Due <strong>Wed, Oct 14</strong>.</p>
+        </div>` },
+    ]
+  }
+};
+
+let nsId = null, nsIdx = 0;
+const nsOverlay = document.getElementById('nsOverlay');
+
+function nsRender() {
+  const notes = SESSION_NOTES[nsId];
+  const slide = notes.slides[nsIdx];
+  document.getElementById('nsModule').textContent = notes.module;
+  document.getElementById('nsTitle').textContent = notes.title;
+  document.getElementById('nsLabel').textContent = slide.label;
+  document.getElementById('nsSlideTitle').textContent = slide.title;
+  document.getElementById('nsContent').innerHTML = slide.html;
+  document.getElementById('nsPrev').disabled = nsIdx === 0;
+  document.getElementById('nsNext').disabled = nsIdx === notes.slides.length - 1;
+  document.getElementById('nsDots').innerHTML = notes.slides
+    .map((_, i) => `<div class="ns-dot${i === nsIdx ? ' active' : ''}"></div>`).join('');
+}
+function nsOpen(id) {
+  if (!SESSION_NOTES[id]) return;
+  nsId = id; nsIdx = 0;
+  nsRender();
+  nsOverlay.classList.add('open');
+}
+function nsCloseFn() { nsOverlay.classList.remove('open'); nsId = null; }
+
+document.querySelectorAll('.module-card.has-notes').forEach(card => {
+  card.addEventListener('click', e => {
+    if (e.target.closest('a')) return;
+    nsOpen(card.dataset.notes);
+  });
+});
+document.getElementById('nsClose').addEventListener('click', nsCloseFn);
+document.getElementById('nsPrev').addEventListener('click', () => { if (nsIdx > 0) { nsIdx--; nsRender(); } });
+document.getElementById('nsNext').addEventListener('click', () => { if (nsId && nsIdx < SESSION_NOTES[nsId].slides.length - 1) { nsIdx++; nsRender(); } });
+nsOverlay.addEventListener('click', e => { if (e.target === nsOverlay) nsCloseFn(); });
+document.addEventListener('keydown', e => {
+  if (!nsOverlay.classList.contains('open')) return;
+  if (e.key === 'Escape') nsCloseFn();
+  if (e.key === 'ArrowRight') document.getElementById('nsNext').click();
+  if (e.key === 'ArrowLeft') document.getElementById('nsPrev').click();
+});
+</script>
+
+<footer>
+  <p><strong>Sincerely Kitchen</strong> · Port Coquitlam, BC · The Incubator</p>
+  <p style="margin-top: 0.5rem;">Cohort 1: September 2026 – February 2027 · <a href="#" style="color: var(--ac);">Info session: May 2, 2026</a></p>
+</footer>
+
+<script>
+document.querySelectorAll('.phase-nav a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const id = a.getAttribute('href').slice(1);
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document.querySelectorAll('.phase-nav a[href^="#"]').forEach(x => x.classList.remove('active'));
+    a.classList.add('active');
+  });
+});
+
+const sections = document.querySelectorAll('.phase');
+const navLinks = document.querySelectorAll('.phase-nav a[href^="#"]');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 120) current = s.id;
+  });
+  navLinks.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+});
+</script>
+
+</body>
+</html>
