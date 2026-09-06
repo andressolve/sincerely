@@ -1,0 +1,19 @@
+{
+  "stylesheet": "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400..700&family=DM+Serif+Display&display=swap",
+  "fonts": [
+    {
+      "family": "DM Sans",
+      "file": "dm-sans-latin.woff2",
+      "source": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K6z9mXg.woff2",
+      "license": "https://raw.githubusercontent.com/google/fonts/main/ofl/dmsans/OFL.txt",
+      "bytes": 36980
+    },
+    {
+      "family": "DM Serif Display",
+      "file": "dm-serif-display-latin.woff2",
+      "source": "https://fonts.gstatic.com/s/dmserifdisplay/v17/-nFnOHM81r4j6k0gjAW3mujVU2B2G_Bx0vrx52g.woff2",
+      "license": "https://raw.githubusercontent.com/google/fonts/main/ofl/dmserifdisplay/OFL.txt",
+      "bytes": 17844
+    }
+  ]
+}

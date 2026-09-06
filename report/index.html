@@ -11,16 +11,14 @@
   <script src="/report/report.js" defer></script>
 </head>
 <body>
+  <header class="brand">
+    <div class="brand-inner"><img src="/assets/images/logo.png" alt="Sincerely Kitchen" class="brand-logo"></div>
+  </header>
   <div class="page-shell">
-    <header class="brand" aria-label="Sincerely Kitchen">
-      <span class="brand-name">sincerely<span class="brand-dot">.</span></span>
-      <span class="brand-kitchen">KITCHEN</span>
-    </header>
     <main class="report-card">
-      <div class="eyebrow"><span class="small-dot" aria-hidden="true"></span> OUR SHARED KITCHEN</div>
       <section id="report-entry" aria-labelledby="report-title">
-        <h1 id="report-title">Something<br>not right?</h1>
-        <p class="intro">Equipment acting up or being used incorrectly? Tell us what you noticed—even if you’re not sure.</p>
+        <h1 id="report-title">Something not right?</h1>
+        <p class="intro">Equipment acting up or being used incorrectly? Tell us what you noticed, even if you’re not sure.</p>
         <div class="privacy-note">
           <span class="privacy-title">Anonymous. No login.</span>
           <p>We don’t ask for your name or contact details. Your message goes privately to kitchen management.</p>
@@ -37,14 +35,11 @@
             <svg class="button-icon" id="submit-arrow" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg>
             <svg class="button-icon spinner" id="submit-spinner" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" hidden><path d="M21 12a9 9 0 1 1-6.2-8.55"></path></svg>
           </button>
-          <p class="form-footnote">No need to name yourself. A quick note helps.</p>
         </form>
       </section>
       <section class="confirmation" id="report-confirmation" aria-labelledby="confirmation-title" hidden>
-        <div class="success-mark"><svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"></path></svg></div>
-        <h1 id="confirmation-title" tabindex="-1">Thank you for<br>speaking up.</h1>
-        <p class="intro">Your report has been submitted for kitchen management.</p>
-        <p class="success-note">You’re helping us catch problems early and keep the kitchen working for everyone.</p>
+        <h1 id="confirmation-title" tabindex="-1">Report received.</h1>
+        <p class="intro">Thanks for letting us know. Your report has been submitted to kitchen management.</p>
         <button type="button" class="submit-button" id="another-report">Send another report <svg class="button-icon" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></button>
       </section>
     </main>
