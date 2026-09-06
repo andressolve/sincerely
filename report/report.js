@@ -76,7 +76,11 @@
         mode: 'same-origin',
         referrerPolicy: 'no-referrer',
         cache: 'no-store',
-        body: new URLSearchParams({ 'form-name': 'equipment-reports', message }).toString(),
+        body: new URLSearchParams({
+          'form-name': 'equipment-reports',
+          subject: 'Sincerely Kitchen — new equipment report',
+          message,
+        }).toString(),
         signal: controller.signal,
       });
 

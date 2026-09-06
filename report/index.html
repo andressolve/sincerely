@@ -27,6 +27,7 @@
         </div>
         <form name="equipment-reports" id="report-form" method="POST" action="/report/received.html" data-netlify="true" autocomplete="off">
           <input type="hidden" name="form-name" value="equipment-reports">
+          <input type="hidden" name="subject" value="Sincerely Kitchen — new equipment report">
           <label for="message">What did you notice?</label>
           <p class="field-hint" id="message-hint">What happened, where, and roughly when—if you know.</p>
           <textarea id="message" name="message" class="report-message" placeholder="A strange noise, a leak, a missing filter, something you saw…" maxlength="5000" required aria-describedby="message-hint" autocomplete="off"></textarea>
